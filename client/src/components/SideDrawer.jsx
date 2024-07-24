@@ -1,33 +1,76 @@
-import React, { useState } from "react";
-import { Drawer } from "antd";
-import { RxAvatar } from "react-icons/rx";
+import React, { useState, useEffect, useRef } from "react";
 import { LuLogOut } from "react-icons/lu";
 
-const App = () => {
-  const [open, setOpen] = useState(false);
-  const showDrawer = () => {
-    setOpen(true);
+const SideDrawer = () => {
+  const [showProfile, setShowProfile] = useState(false);
+  const drawerRef = useRef(null);
+
+  const toggleProfile = () => {
+    setShowProfile(!showProfile);
   };
-  const onClose = () => {
-    setOpen(false);
-  };
+
+  // Close drawer when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        setShowProfile(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <>
-      <RxAvatar onClick={showDrawer} size={35} />
-      <Drawer width={300} title="Profile" onClose={onClose} open={open}>
-        <div className="mb-4 flex gap-4 text-md p-2 hover:bg-slate-100 hover:rounded-lg active:bg-slate-200">
-          <RxAvatar size={50} />
-          <div className="mt-1">
-            <h3>Name Here..</h3>
-            <h6>abc@gmail.com</h6>
+    <div className="relative" ref={drawerRef}>
+      <button
+        className="flex items-center text-black focus:outline-none"
+        onClick={toggleProfile}
+      >
+        <div className="flex-shrink-0">
+          <img
+            className="w-10 h-10 rounded-full"
+            src="avatar.jpg" // Replace it with user's avatar
+            alt="User Avatar"
+          />
+        </div>
+      </button>
+      {showProfile && (
+        <div className="absolute border shadow-2xl flex flex-col justify-between p-4 right-[-80px] mt-4 w-80 h-80 rounded-xl bg-white z-10">
+          <div className="flex flex-col justify-around gap-2">
+            <div className="flex items-center py-2 px-4 border mb-6 hover:bg-gray-200 rounded-2xl">
+              <div className="flex-shrink-0">
+                <img
+                  className="w-10 h-10 rounded-full"
+                  src="avatar.jpg" // Replace with user's avatar
+                  alt="User Avatar"
+                />
+              </div>
+              <div className="ml-3">
+                <div className="text-sm font-medium text-gray-900">
+                  John Doe
+                </div>
+                <div className="text-sm text-gray-500">
+                  john.doe@example.com
+                </div>
+              </div>
+            </div>
+            <h4 className="p-2 rounded-2xl hover:bg-slate-200">Designation:</h4>
+            <h4 className="p-2 rounded-2xl hover:bg-slate-200">
+              User ID: 12345678
+            </h4>
           </div>
+          <button className="flex w-full text-sm py-2 pr-2 items-center gap-4 rounded-2xl hover:bg-gray-200">
+            <LuLogOut size={24} className="text-gray-600 ml-4" />
+            Logout
+          </button>
         </div>
-        <div className="flex items-center">
-          <p className="mr-2 text-lg">Logout</p>
-          <LuLogOut size={25} />
-        </div>
-      </Drawer>
-    </>
+      )}
+    </div>
   );
 };
-export default App;
+
+export default SideDrawer;
