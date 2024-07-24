@@ -1,9 +1,8 @@
 import React from 'react'
 export const Dashboard = () => {
   return (
-    <div className='flex flex-col h-screen bg-blue-400 text-white pt-9 '>
-
-      
+    <div className='flex flex-col w-full h-screen bg-orange-600'>
+      <h1>Dashboard</h1>
     </div>
 
   )

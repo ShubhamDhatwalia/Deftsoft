@@ -1,15 +1,17 @@
 import React from 'react'
-import { Sidebar } from '../components/employee/Sidebar'
-import { Dashboard } from '../components/employee/Dashboard'
 import { Navigation } from '../components/Navigation'
+import { Sidebar } from '../components/employee/sidebar/Sidebar'
+import { Dashboard } from '../components/employee/Dashboard'
 export const Home = () => {
   return (
     <>
     
-   <div className='grid grid-cols-2 w-full h-screen  '>
-    <Navigation/>
+   <div className='w-full h-screen bg-slate-700'>
+    <div className='h-[67px]'><Navigation/></div>
+    <div className='flex flex-rows-2'>
     <Sidebar/>
     <Dashboard/>
+    </div>
    </div>
     </>
   )

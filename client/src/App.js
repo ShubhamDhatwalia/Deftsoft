@@ -5,12 +5,11 @@ import { Task } from "./emppages/Task";
 import { Leaves } from "./emppages/Leaves";
 import { Todo } from "./emppages/Todo";
 import { Calendar } from "./emppages/Calendar";
-import {Navigation} from './components/Navigation'
+
 
 const App = () => {
   return (
     <BrowserRouter>
-    <div><Navigation/></div>
       <Routes>
         <Route path="/" element={<Home />}>
         <Route path="/task" element={<Task/>} />
