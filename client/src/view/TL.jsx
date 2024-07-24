@@ -5,7 +5,7 @@ const TL = () => {
 
   return <div>Nikhil </div>;
   return (
-    <div className="w-full h-screen">
+    <div className="w-full min-h-screen">
       <Navigation />
     </div>
   );
