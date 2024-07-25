@@ -1,13 +1,30 @@
 import React from "react";
-import Home from "./employeeComp/pages/Home/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from "./emppages/Home";
+import Dashboard from "./components/employee/Dashboard";
+import { Task } from "./emppages/Task";
+import { Todo } from "./emppages/Todo";
+import { Leaves } from "./emppages/Leaves";
+import { Calendar } from "./emppages/Calendar";
 
-
-const App = () => {
+function App() {
   return (
-   <>
-   <Home/>
-   </>
-  )
-};
+    <>
+      {/* <Router>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            <Route path="dashboard" element={<Dashboard />}>
+              <Route path="task" element={<Task />} />
+              <Route path="leaves" element={<Leaves />} />
+              <Route path="todo" element={<Todo />} />
+              <Route path="calendar" element={<Calendar />} />
+            </Route>
+          </Route>
+        </Routes>
+      </Router> */}
+      <Home/>
+    </>
+  );
+}
 
 export default App;
