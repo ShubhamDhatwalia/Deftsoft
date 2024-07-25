@@ -4,7 +4,8 @@ import SideDrawer from "./SideDrawer";
 
 export const Navigation = () => {
   return (
-    <div className="bg-white fixed top-0 w-full">
+
+    <div className="bg-white w-full">
       <nav className="flex px-8 items-center h-75px shadow-md border-b-1">
         <img
           className="w-130px"
