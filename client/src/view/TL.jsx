@@ -8,6 +8,8 @@ const TL = () => {
       <div className="flex justify-center items-center">
         <h1>TL Dashboard</h1>
         <h2>tl dashboard</h2>
+        <h1>TL Dashboard</h1>
+        <h2>tl dashboard</h2>
       </div>
     </div>
   );
