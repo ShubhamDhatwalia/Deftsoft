@@ -1,29 +1,34 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home } from './emppages/Home';
-import Dashboard from './components/employee/Dashboard';
-import { Task } from './emppages/Task';
-import { Todo } from './emppages/Todo';
-import { Leaves } from './emppages/Leaves';
-import { Calendar } from './emppages/Calendar';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Main from "./view/Main";
+import TL from "./view/TL";
+import Admin from "./view/Admin";
+import PM from "./view/PM";
+import Employee from "./view/Employee";
+import  EmpHome  from "./emppages/EmpHome";
+import { Task } from "./emppages/Task";
+import { Leaves } from "./emppages/Leaves";
+import { Todo } from "./emppages/Todo";
+import { Calendar } from "./emppages/Calendar";
 
-
-function App() {
+const App = () => {
   return (
-    <Router>
-
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route path="dashboard" element={<Dashboard/>}>
-            <Route path="task" element={<Task/>} />
-            <Route path="leaves" element={<Leaves/>} />
-            <Route path="todo" element={<Todo />} />
-            <Route path="calendar" element={<Calendar />} />
-          </Route>
-        </Route>
+        <Route path="/" element={<Main />} />
+        <Route path="/tl" element={<TL />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/pm" element={<PM />} />
+        <Route path="/employee" element={<Employee />} >
+          <Route path="emphome" element={<EmpHome/>} />
+          <Route path="task" element={<Task />} />
+          <Route path="leaves" element={<Leaves />} />
+          <Route path="todo" element={<Todo />} />
+          <Route path="calendar" element={<Calendar />} />
+         </Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

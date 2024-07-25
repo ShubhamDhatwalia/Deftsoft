@@ -6,7 +6,7 @@ const Main = () => {
       <Link to="/admin">Admin</Link>
       <Link to="/tl">Tech Lead</Link>
       <Link to="/pm">Project Manager</Link>
-      <Link to="/employee">Emplyee</Link>
+      <Link to="employee">Emplyee</Link>
     </div>
   );
 };

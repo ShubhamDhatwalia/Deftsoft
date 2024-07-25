@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { Sidebar } from '../components/employee/sidebar/Sidebar';
+import { Sidebar } from '../components/employee/Sidebar';
 import { Navigation } from '../components/Navigation';
-import { Outlet } from 'react-router-dom';
+import Dashboard from '../components/employee/Dashboard';
+
 
 export const Home = () => {
   return (
@@ -11,7 +12,7 @@ export const Home = () => {
       <div className='flex'>
         <Sidebar />
         <div className='flex-grow bg-blue-400'>
-          <Outlet />
+          <Dashboard/>
         </div>
       </div>
     </div>
