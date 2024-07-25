@@ -5,6 +5,9 @@ const TL = () => {
   return (
     <div className="w-full min-h-screen">
       <Navigation />
+      <div className="flex justify-center items-center">
+        <h1>TL Dashboard</h1>
+      </div>
     </div>
   );
 };
