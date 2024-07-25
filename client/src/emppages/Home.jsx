@@ -1,12 +1,13 @@
+
 import React from 'react';
-import { Sidebar } from '../components/employee/Sidebar';
-import { Navigation } from '../components/Navigation';
+import { Sidebar } from '../components/employee/sidebar/Sidebar';
 import { Outlet } from 'react-router-dom';
+import Navigation from '../components/Navigation';
 
 export const Home = () => {
   return (
     <div className='w-full h-screen bg-slate-400'>
-      <Navigation />
+      <Navigation/>
       <div className='flex'>
         <Sidebar />
         <div className='flex-grow bg-blue-400'>
@@ -16,3 +17,4 @@ export const Home = () => {
     </div>
   );
 };
+

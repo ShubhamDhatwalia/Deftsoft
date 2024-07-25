@@ -10,7 +10,7 @@ import { Calendar } from "./emppages/Calendar";
 function App() {
   return (
     <>
-      {/* <Router>
+      <Router>
         <Routes>
           <Route path="/" element={<Home />}>
             <Route path="dashboard" element={<Dashboard />}>
@@ -21,8 +21,7 @@ function App() {
             </Route>
           </Route>
         </Routes>
-      </Router> */}
-      <Home/>
+      </Router>
     </>
   );
 }
