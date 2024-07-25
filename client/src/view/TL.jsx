@@ -12,6 +12,9 @@ const TL = () => {
         <h2>tl dashboard</h2>
         <h1>Projectsssss</h1>
       </div>
+      <div className="flex justify-center items-center">
+        <h1>Projects</h1>
+      </div>
     </div>
   );
 };
