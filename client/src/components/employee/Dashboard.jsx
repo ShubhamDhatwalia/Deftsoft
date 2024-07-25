@@ -1,10 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+
 export const Dashboard = () => {
   return (
-    <div className='flex flex-col h-screen bg-blue-400 text-white pt-9 '>
-
-      
+    <div>
+      <h1>Dashboard</h1>
+      <Outlet />
     </div>
+  );
+};
 
-  )
-}
+export default Dashboard;

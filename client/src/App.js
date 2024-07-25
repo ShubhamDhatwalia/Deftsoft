@@ -1,26 +1,27 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Home } from "./emppages/Home";
-import { Task } from "./emppages/Task";
-import { Leaves } from "./emppages/Leaves";
-import { Todo } from "./emppages/Todo";
-import { Calendar } from "./emppages/Calendar";
-import {Navigation} from './components/Navigation'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './emppages/Home';
+import Dashboard from './components/employee/Dashboard';
+import { Task } from './emppages/Task';
+import { Todo } from './emppages/Todo';
+import { Leaves } from './emppages/Leaves';
+import { Calendar } from './emppages/Calendar';
 
-const App = () => {
+function App() {
   return (
-    <BrowserRouter>
-    <div><Navigation/></div>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />}>
-        <Route path="/task" element={<Task/>} />
-        <Route path="/leaves" element={<Leaves />} />
-        <Route path="/todo" element={<Todo/>} />
-        <Route path="/calendar" element={<Calendar />} />
+          <Route path="dashboard" element={<Dashboard/>}>
+            <Route path="task" element={<Task/>} />
+            <Route path="leaves" element={<Leaves/>} />
+            <Route path="todo" element={<Todo />} />
+            <Route path="calendar" element={<Calendar />} />
+          </Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
-};
+}
 
 export default App;
