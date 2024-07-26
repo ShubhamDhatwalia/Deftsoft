@@ -1,21 +1,19 @@
 import React from "react";
 import Navigation from "../components/Navigation";
+import Sidenav from "../components/TechLead/Sidenav/Sidenav";
+import Dashboard from "../components/TechLead/Dashboard/Dashboard";
 
 const TL = () => {
   return (
     <div className="w-full min-h-screen">
       <Navigation />
-      <div className="flex justify-center items-center">
-        <h1>TL Dashboard</h1>
-        <h2>tl dashboard</h2>
-        <h1>TL Dashboard</h1>
-        <h2>tl dashboard</h2>
-        <h1>Projectsssss</h1>
-      </div>
-      <div className="flex justify-center items-center">
-        <h1>Projects</h1>
-        <h1>TL Dashboard</h1>
-        <h2>tl dashboard</h2>
+      <div className="w-full grid grid-cols-7">
+        <div className="col-span-1 border min-h-[538px]">
+          <Sidenav />
+        </div>
+        <div className="col-span-6">
+          <Dashboard />
+        </div>
       </div>
     </div>
   );
