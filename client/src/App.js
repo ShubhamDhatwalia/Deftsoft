@@ -8,8 +8,9 @@ import Employee from "./view/Employee";
 import Dashboard from "./components/TechLead/Dashboard/Dashboard";
 import Projects from "./components/TechLead/Projects/Projects";
 import Leaves from "./components/TechLead/Leaves/Leaves";
-import Todo from "./components/TechLead/Todo/Todo";
 import Calender from "./components/TechLead/Calender/Calender";
+import Tasks from "./components/TechLead/Tasks/Tasks";
+import YourTeam from "./components/TechLead/YourTeam/YourTeam";
 
 const App = () => {
   return (
@@ -18,8 +19,9 @@ const App = () => {
         <Route exact path="/" element={<Main />} />
         <Route path="/tl" element={<TL />}>
           <Route path="/tl" element={<Dashboard />} />
+          <Route path="/tl/tasks" element={<Tasks />} />
           <Route path="/tl/projects" element={<Projects />} />
-          <Route path="/tl/todo" element={<Todo />} />
+          <Route path="/tl/yourteam" element={<YourTeam />} />
           <Route path="/tl/leaves" element={<Leaves />} />
           <Route path="/tl/calender" element={<Calender />} />
         </Route>

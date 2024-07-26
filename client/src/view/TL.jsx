@@ -1,7 +1,7 @@
 import React from "react";
 import Navigation from "../components/Navigation";
 import Sidenav from "../components/TechLead/Sidenav/Sidenav";
-import Dashboard from "../components/TechLead/Dashboard/Dashboard";
+import Home from "../components/Home/Home";
 
 const TL = () => {
   return (
@@ -12,7 +12,7 @@ const TL = () => {
           <Sidenav />
         </div>
         <div className="col-span-6">
-          <Dashboard />
+          <Home />
         </div>
       </div>
     </div>
