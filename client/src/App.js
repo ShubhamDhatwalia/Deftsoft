@@ -5,13 +5,24 @@ import TL from "./view/TL";
 import Admin from "./view/Admin";
 import PM from "./view/PM";
 import Employee from "./view/Employee";
+import Dashboard from "./components/TechLead/Dashboard/Dashboard";
+import Projects from "./components/TechLead/Projects/Projects";
+import Leaves from "./components/TechLead/Leaves/Leaves";
+import Todo from "./components/TechLead/Todo/Todo";
+import Calender from "./components/TechLead/Calender/Calender";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Main />} />
-        <Route path="/tl" element={<TL />} />
+        <Route path="/tl" element={<TL />}>
+          <Route path="/tl" element={<Dashboard />} />
+          <Route path="/tl/projects" element={<Projects />} />
+          <Route path="/tl/todo" element={<Todo />} />
+          <Route path="/tl/leaves" element={<Leaves />} />
+          <Route path="/tl/calender" element={<Calender />} />
+        </Route>
         <Route path="/admin" element={<Admin />} />
         <Route path="/pm" element={<PM />} />
         <Route path="/employee" element={<Employee />} />
