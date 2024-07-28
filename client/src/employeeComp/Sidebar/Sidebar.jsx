@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AiFillPieChart } from "react-icons/ai";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { LuListTodo } from "react-icons/lu";
@@ -10,53 +10,73 @@ function Sidebar() {
   return (
     <>
       <div className="w-52">
-        <div className="fixed left-0 h-screen border-r-2 border-gray-300">
-          <div className="h-full pl-2 pt-5">
-            <ul className="space-y-2 font-medium flex flex-col justify-center">
-              <li className="w-48">
-                <Link
+        <div className="fixed left-0 h-screen border-r-2 border-gray-200">
+          <div className="h-full pl-2 pt-5 w-48">
+            <ul className="space-y-2 font-medium flex flex-col justify-center ">
+              <li className="w-44">
+                <NavLink
                   to="dashboard"
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+                  className={({ isActive }) =>
+                    `flex items-center p-2 text-gray-900 rounded-lg ${
+                      isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
+                    } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                  }
                 >
-                  <AiFillPieChart className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                  <AiFillPieChart className="w-5 h-5 text-gray-800" />
                   <span className="ms-3">Dashboard</span>
-                </Link>
+                </NavLink>
               </li>
-              <li className="w-48">
-                <Link
+              <li className="w-44">
+                <NavLink
                   to="task"
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+                  className={({ isActive }) =>
+                    `flex items-center p-2 text-gray-900 rounded-lg ${
+                      isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
+                    } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                  }
                 >
-                  <MdOutlineTaskAlt className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                  <MdOutlineTaskAlt className="w-5 h-5 text-gray-800" />
                   <span className="ms-3">Task</span>
-                </Link>
+                </NavLink>
               </li>
-              <li className="w-48">
-                <Link
+              <li className="w-44">
+                <NavLink
                   to="todo"
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+                  className={({ isActive }) =>
+                    `flex items-center p-2 text-gray-900 rounded-lg ${
+                      isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
+                    } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                  }
                 >
-                  <LuListTodo className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                  <LuListTodo className="w-5 h-5 text-gray-800" />
                   <span className="ms-3">TODO</span>
-                </Link>
+                </NavLink>
               </li>
-              <li className="w-48">
-                <Link
+              <li className="w-44">
+                <NavLink
                   to="leaves"
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+                  className={({ isActive }) =>
+                    `flex items-center p-2 text-gray-900 rounded-lg ${
+                      isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
+                    } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                  }
                 >
-                  <BiSolidCalendarExclamation className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                  <BiSolidCalendarExclamation className="w-5 h-5 text-gray-800" />
                   <span className="ms-3">Leaves</span>
-                </Link>
+                </NavLink>
               </li>
-              <li className="w-48">
-                <Link
+              <li className="w-44">
+                <NavLink
                   to="calender"
-                  className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 group"
+                  className={({ isActive }) =>
+                    `flex items-center p-2 text-gray-900 rounded-lg ${
+                      isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
+                    } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                  }
                 >
-                  <FaRegCalendarAlt className="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+                  <FaRegCalendarAlt className="w-5 h-5 text-gray-800" />
                   <span className="ms-3">Calender</span>
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </div>

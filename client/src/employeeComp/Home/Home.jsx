@@ -11,7 +11,7 @@ function Home() {
         <div className="w-52">
           <Sidebar />
         </div>
-        <div>
+        <div className="w-full">
           <Outlet />
         </div>
       </div>

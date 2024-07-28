@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import PostForm from "../Post/PostForm";
+import PostList from "../Post/PostList";
 
 function Dashboard() {
   return (
     <div>
-      <h1 className='h-screen'>Dashboard</h1>
+      <PostForm/>
+      <PostList/>
     </div>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;
