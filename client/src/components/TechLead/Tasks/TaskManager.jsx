@@ -38,7 +38,7 @@ const TaskManager = () => {
 
     return (
         <div className="bg-slate-100 min-h-screen px-4 sm:px-6 lg:px-8">
-            <h1 className="mt-7 text-xl text-slate-500 text-center sm:text-left">Task Type</h1>
+            <h1 className="text-xl text-slate-500 text-center sm:text-left">Task Type</h1>
             <div className="flex flex-col sm:flex-row justify-between items-center mt-10 mb-6 text-slate-500">
                 <h2 className="border-solid text-white bg-indigo-600 rounded-full p-2 text-sm px-6 py-3.5">
                     Your Tasks
@@ -56,11 +56,25 @@ const TaskManager = () => {
                     <div key={task.id} className="border-b border-gray-300 p-4 flex flex-col sm:flex-row justify-between items-start">
                         <div className="flex-grow">
                             <h3 className="text-lg font-semibold">{task.title}</h3>
-                            <p className="text-sm text-gray-500 mt-1">Assignee: {task.assignee}</p> 
-                            <p className="text-sm text-gray-600">From: {dayjs(task.startDate).format('YYYY-MM-DD')} To: {dayjs(task.endDate).format('YYYY-MM-DD')}</p>
-                            <p className="text-sm text-gray-700 mt-2">{task.description}</p>
-                            <p className="text-sm text-gray-500">{task.completed ? "Completed" : "Pending"}</p>
-                            <p className="text-sm text-gray-500 mt-1">Time left: {dayjs(task.endDate).diff(dayjs(), 'day')} days</p>
+                            <div className="flex items-center mt-1 space-x-4">
+                                <div className="flex-shrink-0 border-r border-gray-300 pr-4">
+                                    <p className="text-sm text-gray-500">Assignee: {task.assignee}</p>
+                                </div>
+                                <div className="pl-4">
+                                    <p className="text-sm text-gray-600">
+                                        From: {dayjs(task.startDate).format('YYYY-MM-DD')} To: {dayjs(task.endDate).format('YYYY-MM-DD')}
+                                    </p>
+                                </div>
+                            </div>
+                            <p className="text-sm text-gray-700 mt-2 border-t border-gray-300 pt-2">{task.description}</p>
+                            <div className="w-full flex justify-between mt-4 sm:mt-0">
+                                <p className="text-sm text-gray-500">
+                                    {task.completed ? "Completed" : "Pending"}
+                                </p>
+                                <p className="text-sm text-gray-500 pl-4">
+                                    Time left: {dayjs(task.endDate).diff(dayjs(), 'day')} days
+                                </p>
+                            </div>
                         </div>
                         <div className="flex flex-col items-end space-y-2 mt-4 sm:mt-0">
                             <button 
