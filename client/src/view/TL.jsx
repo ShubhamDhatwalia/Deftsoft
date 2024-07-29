@@ -5,10 +5,10 @@ import Home from "../components/Home/Home";
 
 const TL = () => {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full h-screen">
       <Navigation />
-      <div className="w-full grid grid-cols-7">
-        <div className="col-span-1 border min-h-[538px]">
+      <div className="pt-[60px] w-full grid grid-cols-7">
+        <div className="col-span-1">
           <Sidenav />
         </div>
         <div className="col-span-6">
