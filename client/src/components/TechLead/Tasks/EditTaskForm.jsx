@@ -7,7 +7,7 @@ const EditTaskForm = ({ task, onSave, onCancel }) => {
     const { name, value, type, checked } = e.target;
     setTaskData({
       ...taskData,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === 'checkbox' ? checked:value
     });
   };
 
