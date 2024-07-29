@@ -30,11 +30,21 @@ const EditTaskForm = ({ task, onSave, onCancel }) => {
           />
         </label>
         <label className="block mb-2">
-          Date:
+          Start Date:
           <input
             type="date"
-            name="date"
-            value={taskData.date}
+            name="startDate"
+            value={taskData.startDate}
+            onChange={handleChange}
+            className="block w-full p-2 border border-gray-300 rounded"
+          />
+        </label>
+        <label className="block mb-2">
+          End Date:
+          <input
+            type="date"
+            name="endDate"
+            value={taskData.endDate}
             onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
           />

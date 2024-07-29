@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
 const NewTaskForm = ({ onCreate, onCancel }) => {
-  const [newTaskData, setNewTaskData] = useState({
+  const [taskData, setTaskData] = useState({
     title: '',
-    date: '',
+    startDate: '',
+    endDate: '',
     completed: false,
     description: '',
     assignee: ''
@@ -11,17 +12,17 @@ const NewTaskForm = ({ onCreate, onCancel }) => {
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setNewTaskData({
-      ...newTaskData,
+    setTaskData({
+      ...taskData,
       [name]: type === 'checkbox' ? checked : value
     });
   };
 
   const handleSubmit = () => {
-    if (!newTaskData.title || !newTaskData.date) return; // Validation check
+    if (!taskData.title || !taskData.startDate || !taskData.endDate) return; // Validation check
     const newTask = {
-      id: Date.now(), // Use timestamp for unique ID
-      ...newTaskData
+      id: Date.now(), // Use a timestamp or UUID for unique id
+      ...taskData
     };
     onCreate(newTask);
   };
@@ -35,17 +36,27 @@ const NewTaskForm = ({ onCreate, onCancel }) => {
           <input
             type="text"
             name="title"
-            value={newTaskData.title}
+            value={taskData.title}
             onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
           />
         </label>
         <label className="block mb-2">
-          Date:
+          Start Date:
           <input
             type="date"
-            name="date"
-            value={newTaskData.date}
+            name="startDate"
+            value={taskData.startDate}
+            onChange={handleChange}
+            className="block w-full p-2 border border-gray-300 rounded"
+          />
+        </label>
+        <label className="block mb-2">
+          End Date:
+          <input
+            type="date"
+            name="endDate"
+            value={taskData.endDate}
             onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
           />
@@ -54,7 +65,7 @@ const NewTaskForm = ({ onCreate, onCancel }) => {
           Description:
           <textarea
             name="description"
-            value={newTaskData.description}
+            value={taskData.description}
             onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
             rows="3"
@@ -65,7 +76,7 @@ const NewTaskForm = ({ onCreate, onCancel }) => {
           <input
             type="text"
             name="assignee"
-            value={newTaskData.assignee}
+            value={taskData.assignee}
             onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
           />
@@ -75,7 +86,7 @@ const NewTaskForm = ({ onCreate, onCancel }) => {
           <input
             type="checkbox"
             name="completed"
-            checked={newTaskData.completed}
+            checked={taskData.completed}
             onChange={handleChange}
             className="ml-2"
           />
