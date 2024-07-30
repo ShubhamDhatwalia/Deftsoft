@@ -39,11 +39,11 @@ const TaskManager = () => {
         <div className="bg-slate-100 min-h-screen px-4 sm:px-6 lg:px-8 ">
             <h1 className="text-xl text-slate-500 text-center sm:text-left">Task Type</h1>
             <div className="flex flex-col sm:flex-row justify-between items-center mt-10 mb-6 text-slate-500 ">
-                <h2 className="border-solid text-white bg-indigo-600 rounded-full p-2 text-sm px-6 py-3.5">
+                <h2 className="border-solid text-white bg-indigo-600 rounded-full p-2 text-sm px-6 py-3.5 shadow-xl">
                     Your Tasks
                 </h2>
                 <button 
-                    className="border-solid text-white bg-indigo-600 rounded-md p-2 text-sm px-4 py-2 mt-4 sm:mt-0"
+                    className="border-solid text-white bg-indigo-600 rounded-md p-2 text-sm px-4 py-2 mt-4 sm:mt-0 shadow-xl hover:bg-indigo-700"
                     onClick={() => setShowNewTaskForm(true)}
                 >
                     + Create new task
@@ -51,7 +51,7 @@ const TaskManager = () => {
             </div>
 
             {tasks.length === 0 ? (
-                <p className="text-center text-gray-500 mt-8 text-2xl">No tasks assigned yet.</p>
+                <p className="text-center text-gray-500 mt-40 text-2xl ">No tasks assigned yet.</p>
             ) : (
                 <div className="space-y-4">
                     {tasks.map(task => (
@@ -81,9 +81,9 @@ const TaskManager = () => {
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex flex-col items-end space-y-2 mt-4 sm:mt-0 ">
+                                <div className="flex flex-col items-end space-y-2 mt-4 sm:mt-0">
                                     <button 
-                                        className="text-blue-500 hover:underline"
+                                        className="text-blue-500 hover:underline "
                                         onClick={() => handleEdit(task)}
                                     >
                                         Edit

@@ -82,13 +82,13 @@ const EditTaskForm = ({ task, onSave, onCancel }) => {
         <div className="flex justify-end space-x-2">
           <button
             onClick={onCancel}
-            className="bg-gray-500 text-white px-4 py-2 rounded"
+            className="bg-gray-700 text-white px-4 py-2 rounded hover:bg-gray-600"
           >
             Cancel
           </button>
           <button
             onClick={handleSubmit}
-            className="bg-blue-500 text-white px-4 py-2 rounded"
+            className="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-600"
           >
             Save
           </button>
