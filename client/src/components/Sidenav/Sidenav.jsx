@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Sidenav = () => {
   return (
-    <div className="h-screen fixed left-0 border-r border-gray-300">
+    <div className="h-[536px] fixed left-0">
       <ul className="space-y-6 mt-8 font-medium flex flex-col justify-center">
         <li className="w-48">
           <Link
