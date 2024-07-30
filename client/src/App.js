@@ -14,7 +14,7 @@ import YourTeam from "./components/TechLead/YourTeam/YourTeam";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter>                                                                                                                                                                                                                                                                                                     
       <Routes>
         <Route exact path="/" element={<Main />} />
         <Route path="/tl" element={<TL />}>
@@ -28,9 +28,10 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/pm" element={<PM />} />
         <Route path="/employee" element={<Employee />} />
-      </Routes>
+      </Routes>                                     
     </BrowserRouter>
   );
-};
-
-export default App;
+};                     
+             
+export default App;                                                                                                                                                         
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
