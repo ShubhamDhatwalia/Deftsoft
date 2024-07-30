@@ -1,8 +1,9 @@
 import React from "react";
 import './dashboard.css';
-import Calendar from 'react-calendar';
+// import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import 'react-calendar/dist/Calendar.css';
+import Calendar from "./calendar";
 
 function Dashboard(){
     return(
@@ -20,7 +21,9 @@ function Dashboard(){
 
                     <div className="right-box">
                         <h2>calender</h2>
-                        <Calendar onChange={()=> new Date()} className='calendar'></Calendar>
+                        <Calendar />
+                        {/* <Calendar onChange={()=> new Date()} className='calendar'></Calendar> */}
+
                     </div>
                 </div>
             </div>
