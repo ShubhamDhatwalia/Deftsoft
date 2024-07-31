@@ -1,12 +1,104 @@
-import React from 'react'
+import React from "react";
+import { Circle } from "rc-progress";
+import { FaUsers } from "react-icons/fa6";
+import CountUp from 'react-countup';
 
 function Dashboard() {
   return (
     <>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium eum consequuntur inventore ea minima excepturi omnis, suscipit soluta aliquid illo culpa molestiae illum modi deserunt quo aperiam corporis, reiciendis magni voluptatibus quas doloribus fugit deleniti vitae. Deserunt exercitationem in explicabo. Nulla reiciendis voluptate natus ullam qui labore animi sunt sapiente!</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum distinctio exercitationem error fugit. Eveniet officia non repudiandae adipisci enim beatae doloremque vero laborum sint asperiores, odit nobis repellat in modi, rem hic quibusdam sed explicabo repellendus ullam maxime quasi deleniti optio? Labore dolores veniam error sint aliquam vero quas consectetur, ipsa optio autem minima sunt asperiores explicabo, laboriosam dolore officiis magni! Quaerat quo officiis quam eligendi itaque qui, illum esse nemo eveniet, quia corrupti excepturi, ipsa voluptate nisi provident rerum quas recusandae repellendus dolores aperiam. Porro voluptates cumque perspiciatis, officia asperiores aperiam neque dignissimos autem. Nemo molestiae perferendis iusto aspernatur doloribus. Placeat laudantium beatae quia, quae debitis id iure, fugiat quas quod similique eum harum illo! Sunt laborum quod blanditiis voluptatem atque praesentium harum. Tempora, amet qui eius labore voluptate beatae blanditiis eaque nulla suscipit dolore minima, commodi error pariatur rem iusto nemo magnam! Voluptatem quia doloribus a illum nemo iure vero similique, eveniet totam qui blanditiis tempora deleniti pariatur magnam debitis quas delectus repellendus. Quae pariatur doloremque sapiente officiis quia minima deserunt ipsum! Iusto quis recusandae provident aliquam in neque adipisci fugit iure a? Alias aperiam voluptate excepturi, optio nemo laboriosam magni atque quas corporis voluptatem sint iste maiores doloremque dicta ratione maxime ab voluptatibus aliquid facere blanditiis culpa minima sunt et ipsa? Omnis ab consequuntur neque. Maiores, quibusdam quo incidunt aliquam laborum similique dolorem blanditiis iste nostrum, beatae adipisci, officia ex. Et consequuntur fugiat necessitatibus hic vero voluptates odit distinctio maiores quisquam sit modi vitae eos, numquam dignissimos ducimus nulla aspernatur ea. Molestias possimus laborum tempora explicabo debitis aut fuga adipisci! Facilis at sunt quae inventore blanditiis eum sit quas mollitia rem sint? Assumenda, eos corrupti nemo unde harum cumque dolores itaque hic. Aliquid suscipit ad est fuga veritatis maxime molestias praesentium ipsum placeat, repudiandae voluptate laborum doloremque laboriosam. Cumque ab culpa beatae est velit unde magni similique nobis totam natus sapiente, doloribus quod, cupiditate autem temporibus praesentium inventore, cum quas. Quis quae officia dolorem et praesentium totam facere deleniti adipisci, aperiam sapiente commodi consequatur, libero officiis nesciunt. Natus sint qui et ipsam sequi nulla. Suscipit quam, saepe, in consequuntur mollitia nesciunt eaque quidem ratione obcaecati facere debitis ab earum voluptatum inventore aliquam aliquid corrupti cumque beatae quibusdam cum voluptate magnam nihil ipsum quas? Officiis consequatur veritatis quasi ipsam! Deserunt sint quod inventore recusandae earum excepturi amet ipsa, quaerat suscipit reprehenderit ad fugiat cumque minus nemo facilis alias?</p>
+      <div className="flex justify-center flex-wrap mt-1">
+        <div className="bg-teal-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+          <div className="mb-1 text-center flex justify-between gap-28">
+            <FaUsers size={30} />
+            <div className="relative" style={{ width: 50, height: 50 }}>
+              <Circle
+                percent={100}
+                trailWidth={10}
+                strokeWidth={10}
+                strokeColor="#0ea5e9"
+              />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
+                100%
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-col items-center gap-10">
+            <h2 className="text-blue-500 text-xl font-semibold">Total Users</h2>
+            <CountUp start={0} end={200} delay={0} duration={5} className="text-xl font-bold" />
+          </div>
+        </div>
+
+        <div className="bg-orange-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+          <div className="mb-1 text-center flex justify-between gap-28">
+            <FaUsers size={30} />
+            <div className="relative" style={{ width: 50, height: 50 }}>
+              <Circle
+                percent={20}
+                trailWidth={10}
+                strokeWidth={10}
+                strokeColor="#0ea5e9"
+              />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
+                20%
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-col items-center gap-10">
+            <h2 className="text-blue-500 text-xl font-semibold">Designers</h2>
+            <CountUp start={0} end={40} delay={0} duration={5} className="text-xl font-bold" />
+          </div>
+        </div>
+
+        <div className="bg-lime-100 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+          <div className="mb-1 text-center flex justify-between gap-28">
+            <FaUsers size={30} />
+            <div className="relative" style={{ width: 50, height: 50 }}>
+              <Circle
+                percent={50}
+                trailWidth={10}
+                strokeWidth={10}
+                strokeColor="#0ea5e9"
+              />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
+                50%
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-col items-center gap-10">
+            <h2 className="text-blue-500 text-xl font-semibold">Developers</h2>
+            <CountUp start={0} end={80} delay={0} duration={5} className="text-xl font-bold" />
+          </div>
+        </div>
+
+
+        <div className="bg-violet-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+          <div className="mb-1 text-center flex justify-between gap-28">
+            <FaUsers size={30} />
+            <div className="relative" style={{ width: 50, height: 50 }}>
+              <Circle
+                percent={10}
+                trailWidth={10}
+                strokeWidth={10}
+                strokeColor="#0ea5e9"
+              />
+              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
+                10%
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-col items-center gap-10">
+            <h2 className="text-blue-500 text-xl font-semibold">HR</h2>
+            <CountUp start={0} end={20} delay={0} duration={5} className="text-xl font-bold" />
+          </div>
+        </div>
+
+      </div>
     </>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

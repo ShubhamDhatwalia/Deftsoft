@@ -19,8 +19,8 @@ function Sidebar() {
                 to="dashboard"
                 className={({ isActive }) =>
                   `flex items-center p-2 text-gray-900 rounded-lg ${
-                    isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
-                  } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                    isActive ? "bg-blue-200 dark:text-black" : "text-gray-900"
+                  } hover:bg-blue-200 dark:hover:text-gray-700 group`
                 }
                 end // Ensure this is active only when the exact path matches
               >
@@ -33,8 +33,8 @@ function Sidebar() {
                 to="task"
                 className={({ isActive }) =>
                   `flex items-center p-2 text-gray-900 rounded-lg ${
-                    isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
-                  } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                    isActive ? "bg-blue-200 dark:text-black" : "text-gray-900"
+                  } hover:bg-blue-200 dark:hover:text-gray-700 group`
                 }
               >
                 <MdOutlineTaskAlt className="w-5 h-5 text-gray-800" />
@@ -46,8 +46,8 @@ function Sidebar() {
                 to="todo"
                 className={({ isActive }) =>
                   `flex items-center p-2 text-gray-900 rounded-lg ${
-                    isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
-                  } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                    isActive ? "bg-blue-200 dark:text-black" : "text-gray-900"
+                  } hover:bg-blue-200 dark:hover:text-gray-700 group`
                 }
               >
                 <LuListTodo className="w-5 h-5 text-gray-800" />
@@ -59,8 +59,8 @@ function Sidebar() {
                 to="leaves"
                 className={({ isActive }) =>
                   `flex items-center p-2 text-gray-900 rounded-lg ${
-                    isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
-                  } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                    isActive ? "bg-blue-200 dark:text-black" : "text-gray-900"
+                  } hover:bg-blue-200 dark:hover:text-gray-700 group`
                 }
               >
                 <BiSolidCalendarExclamation className="w-5 h-5 text-gray-800" />
@@ -72,8 +72,8 @@ function Sidebar() {
                 to="calender"
                 className={({ isActive }) =>
                   `flex items-center p-2 text-gray-900 rounded-lg ${
-                    isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
-                  } hover:bg-gray-200 dark:hover:text-gray-700 group`
+                    isActive ? "bg-blue-200 dark:text-black" : "text-gray-900"
+                  } hover:bg-blue-200 dark:hover:text-gray-700 group`
                 }
               >
                 <FaRegCalendarAlt className="w-5 h-5 text-gray-800" />
