@@ -7,7 +7,7 @@ function Home() {
   return (
     <>
       <Navigation />
-      <div className="flex">
+      <div className="flex ">
         <div className="w-52">
           <Sidebar />
         </div>
