@@ -1,13 +1,11 @@
 import React from "react";
-
+import Home from "../admin/Home/Home";
 const Admin = () => {
-  return
-  <>
-    <div>Admin</div>;
-    <div>Admin</div>;
-    
-  </>;
-  
+  return (
+    <>
+      <Home />
+    </>
+  );
 };
 
 export default Admin;

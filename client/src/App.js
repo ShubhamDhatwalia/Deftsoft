@@ -6,6 +6,15 @@ import Admin from "./view/Admin";
 import PM from "./view/PM";
 import Employee from "./view/Employee";
 
+
+//  admin imports 
+
+import Dashboard from "./admin/pages/Dashboard";
+import Employees from "./admin/pages/Employees";
+import Leaves from "./admin/pages/Leaves";
+import Projects from "./admin/pages/Projects";
+import Calender from "./admin/pages/Calender";
+
 import EmDashboard from "./employeeComp/pages/Dashboard";
 import EmTask from "./employeeComp/pages/Task";
 import EmTODO from "./employeeComp/pages/TODO";
@@ -32,7 +41,14 @@ const App = () => {
           <Route path="/tl/leaves" element={<TLleaves />} />
           <Route path="/tl/calender" element={<TLcalender />} />
         </Route>
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<Admin />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="task" element={<Projects />} />
+          <Route path="todo" element={<Employees />} />
+          <Route path="leaves" element={<Leaves />} />
+          <Route path="calender" element={<Calender />} />
+        </Route>
         <Route path="/pm" element={<PM />} />
 
         <Route path="/employee" element={<Employee />}>
