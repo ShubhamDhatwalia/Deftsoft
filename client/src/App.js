@@ -6,6 +6,14 @@ import Admin from "./view/Admin";
 import PM from "./view/PM";
 import Employee from "./view/Employee";
 
+//  pm imports
+
+import PMdashboard from './projectManager/pages/Dashboard';
+import PMcalender from './projectManager/pages/Calender';
+import PMleaves from './projectManager/pages/Leaves';
+import PMteam from './projectManager/pages/Team';
+import PMprojects from './projectManager/pages/Projects';
+
 
 //  admin imports 
 
@@ -49,7 +57,14 @@ const App = () => {
           <Route path="leaves" element={<Leaves />} />
           <Route path="calender" element={<Calender />} />
         </Route>
-        <Route path="/pm" element={<PM />} />
+        <Route path="/pm" element={<PM />} >
+        <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<PMdashboard />} />
+          <Route path="task" element={<PMprojects />} />
+          <Route path="todo" element={<PMteam />} />
+          <Route path="leaves" element={<PMleaves />} />
+          <Route path="calender" element={<PMcalender />} />
+        </Route>
 
         <Route path="/employee" element={<Employee />}>
           <Route index element={<Navigate to="dashboard" replace />} />
