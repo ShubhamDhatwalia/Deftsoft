@@ -1,7 +1,12 @@
 import React from "react";
+import Home from "../projectManager/Home/Home";
 
 const PM = () => {
-  return <div>PM PM</div>;
+  return (
+    <>
+    <Home/>
+    </>
+  );
 };
 
 export default PM;
