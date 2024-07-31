@@ -3,7 +3,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
-function Calendar(){
+function CalendarPM(){
     return(
         <>
             <Fullcalendar
@@ -13,4 +13,4 @@ function Calendar(){
     )
 }
 
-export default Calendar;
+export default CalendarPM;

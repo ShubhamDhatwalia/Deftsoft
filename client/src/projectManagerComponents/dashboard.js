@@ -3,9 +3,9 @@ import './dashboard.css';
 // import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import 'react-calendar/dist/Calendar.css';
-import Calendar from "./calendar";
+import CalendarPM from "./calendar";
 
-function Dashboard(){
+function DashboardPM(){
     return(
         <>
             <div className="dashboard">
@@ -21,7 +21,7 @@ function Dashboard(){
 
                     <div className="right-box">
                         <h2>calender</h2>
-                        <Calendar />
+                        <CalendarPM />
                         {/* <Calendar onChange={()=> new Date()} className='calendar'></Calendar> */}
 
                     </div>
@@ -31,4 +31,4 @@ function Dashboard(){
     );
 }
 
-export default Dashboard;
+export default DashboardPM;
