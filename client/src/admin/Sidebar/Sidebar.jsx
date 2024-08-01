@@ -1,10 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { AiFillPieChart } from "react-icons/ai";
-import { MdOutlineTaskAlt } from "react-icons/md";
-import { LuListTodo } from "react-icons/lu";
 import { BiSolidCalendarExclamation } from "react-icons/bi";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaUsersCog } from "react-icons/fa";
 
 function Sidebar() {
   return (
@@ -12,8 +11,6 @@ function Sidebar() {
       <div className="fixed left-0 h-screen border-r-2 border-gray-200">
         <div className="h-full pl-2 pt-5 w-48">
           <ul className="space-y-2 font-medium flex flex-col justify-center">
-            
-            
             <li className="w-44">
               <NavLink
                 to="dashboard"
@@ -28,7 +25,7 @@ function Sidebar() {
                 <span className="ms-3">Dashboard</span>
               </NavLink>
             </li>
-            <li className="w-44">
+            {/* <li className="w-44">
               <NavLink
                 to="task"
                 className={({ isActive }) =>
@@ -40,18 +37,18 @@ function Sidebar() {
                 <MdOutlineTaskAlt className="w-5 h-5 text-gray-800" />
                 <span className="ms-3">Task</span>
               </NavLink>
-            </li>
+            </li> */}
             <li className="w-44">
               <NavLink
-                to="todo"
+                to="employees"
                 className={({ isActive }) =>
                   `flex items-center p-2 text-gray-900 rounded-lg ${
                     isActive ? "bg-blue-200 dark:text-black" : "text-gray-900"
                   } hover:bg-blue-200 dark:hover:text-gray-700 group`
                 }
               >
-                <LuListTodo className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">TODO</span>
+                <FaUsersCog className="w-5 h-5 text-gray-800" />
+                <span className="ms-3">Employees</span>
               </NavLink>
             </li>
             <li className="w-44">

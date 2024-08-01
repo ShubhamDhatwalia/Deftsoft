@@ -2,11 +2,13 @@ import React from "react";
 import { Circle } from "rc-progress";
 import { FaUsers } from "react-icons/fa6";
 import CountUp from 'react-countup';
+import { FaLaptopCode } from "react-icons/fa";
+import { GrDocumentConfig } from "react-icons/gr";
+import { MdAutoGraph } from "react-icons/md";
 
 function Dashboard() {
   return (
     <>
-      
       {/* ---------- Progress bars ----------- */}
 
       <div className="flex justify-center flex-wrap mt-1 gap-4">
@@ -40,7 +42,7 @@ function Dashboard() {
 
         <div className="bg-orange-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
-            <FaUsers size={30} />
+            <MdAutoGraph size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
               <Circle
                 percent={20}
@@ -68,7 +70,7 @@ function Dashboard() {
 
         <div className="bg-lime-100 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
-            <FaUsers size={30} />
+            <FaLaptopCode size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
               <Circle
                 percent={50}
@@ -98,7 +100,7 @@ function Dashboard() {
 
         <div className="bg-violet-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
-            <FaUsers size={30} />
+            <GrDocumentConfig size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
               <Circle
                 percent={10}
@@ -124,7 +126,6 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      
     </>
   );
 }

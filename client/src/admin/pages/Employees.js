@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import CreateEmployee from '../CreateEmployee';
+import EmployeeList from '../EmployeeList';
 
 function Employees() {
   return (
-    <div>Employees</div>
+    <>
+      <CreateEmployee />
+      <EmployeeList />
+    </>
   )
 }
 
