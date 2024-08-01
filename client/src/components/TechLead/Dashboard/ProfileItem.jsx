@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { CiMail, CiEdit } from "react-icons/ci";
+import { CiMail, CiEdit, CiTrash } from "react-icons/ci";
 
-const ProfileItem = ({ name, role, imageUrl }) => {
+const ProfileItem = ({ name, role, imageUrl, onEdit, onDelete }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -24,7 +24,14 @@ const ProfileItem = ({ name, role, imageUrl }) => {
           {isHovered ? (
             <>
               <CiMail className="cursor-pointer" />
-              <CiEdit className="cursor-pointer" />
+              <CiEdit
+                className="cursor-pointer"
+                onClick={() => onEdit(name, role, imageUrl)}
+              />
+              <CiTrash
+                className="cursor-pointer"
+                onClick={() => onDelete(name)}
+              />
             </>
           ) : null}
         </div>
