@@ -6,7 +6,10 @@ import CountUp from 'react-countup';
 function Dashboard() {
   return (
     <>
-      <div className="flex justify-center flex-wrap mt-1">
+      
+      {/* ---------- Progress bars ----------- */}
+
+      <div className="flex justify-center flex-wrap mt-1 gap-4">
         <div className="bg-teal-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <FaUsers size={30} />
@@ -15,7 +18,7 @@ function Dashboard() {
                 percent={100}
                 trailWidth={10}
                 strokeWidth={10}
-                strokeColor="#0ea5e9"
+                strokeColor="#3b82f6"
               />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
                 100%
@@ -24,8 +27,14 @@ function Dashboard() {
           </div>
 
           <div className="flex-col items-center gap-10">
-            <h2 className="text-blue-500 text-xl font-semibold">Total Users</h2>
-            <CountUp start={0} end={200} delay={0} duration={5} className="text-xl font-bold" />
+            <h2 className="text-blue-500 text-base font-semibold"> Users</h2>
+            <CountUp
+              start={0}
+              end={200}
+              delay={0}
+              duration={5}
+              className="text-xl font-bold"
+            />
           </div>
         </div>
 
@@ -37,7 +46,7 @@ function Dashboard() {
                 percent={20}
                 trailWidth={10}
                 strokeWidth={10}
-                strokeColor="#0ea5e9"
+                strokeColor="#3b82f6"
               />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
                 20%
@@ -46,8 +55,14 @@ function Dashboard() {
           </div>
 
           <div className="flex-col items-center gap-10">
-            <h2 className="text-blue-500 text-xl font-semibold">Designers</h2>
-            <CountUp start={0} end={40} delay={0} duration={5} className="text-xl font-bold" />
+            <h2 className="text-blue-500 text-base font-semibold">Designers</h2>
+            <CountUp
+              start={0}
+              end={40}
+              delay={0}
+              duration={5}
+              className="text-xl font-bold"
+            />
           </div>
         </div>
 
@@ -59,7 +74,7 @@ function Dashboard() {
                 percent={50}
                 trailWidth={10}
                 strokeWidth={10}
-                strokeColor="#0ea5e9"
+                strokeColor="#3b82f6"
               />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
                 50%
@@ -68,11 +83,18 @@ function Dashboard() {
           </div>
 
           <div className="flex-col items-center gap-10">
-            <h2 className="text-blue-500 text-xl font-semibold">Developers</h2>
-            <CountUp start={0} end={80} delay={0} duration={5} className="text-xl font-bold" />
+            <h2 className="text-blue-500 text-base font-semibold">
+              Developers
+            </h2>
+            <CountUp
+              start={0}
+              end={80}
+              delay={0}
+              duration={5}
+              className="text-xl font-bold"
+            />
           </div>
         </div>
-
 
         <div className="bg-violet-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
@@ -82,7 +104,7 @@ function Dashboard() {
                 percent={10}
                 trailWidth={10}
                 strokeWidth={10}
-                strokeColor="#0ea5e9"
+                strokeColor="#3b82f6"
               />
               <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-xs font-bold">
                 10%
@@ -91,12 +113,18 @@ function Dashboard() {
           </div>
 
           <div className="flex-col items-center gap-10">
-            <h2 className="text-blue-500 text-xl font-semibold">HR</h2>
-            <CountUp start={0} end={20} delay={0} duration={5} className="text-xl font-bold" />
+            <h2 className="text-blue-500 text-base font-semibold">HR</h2>
+            <CountUp
+              start={0}
+              end={20}
+              delay={0}
+              duration={5}
+              className="text-xl font-bold"
+            />
           </div>
         </div>
-
       </div>
+      
     </>
   );
 }
