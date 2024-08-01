@@ -8,7 +8,9 @@ const TL = () => {
     <div className="w-full h-screen">
       <Navigation />
       <div className="pt-[60px] w-full grid grid-cols-7">
-        <div className="col-span-1">
+
+        <div className="col-span-1 border min-h-[538px]">
+
           <Sidenav />
         </div>
         <div className="col-span-6">
