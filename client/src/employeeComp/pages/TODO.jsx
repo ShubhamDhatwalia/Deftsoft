@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TODO() {
+const TODO = ()=> {
   return (
     <div>
       TODO

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Leaves() {
+const Leaves = ()=> {
   return (
     <div>
       Leaves

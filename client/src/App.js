@@ -9,7 +9,7 @@ import Dashboard from "./employeeComp/pages/Dashboard";
 import Task from "./employeeComp/pages/Task";
 import TODO from "./employeeComp/pages/TODO";
 import Leaves from "./employeeComp/pages/Leaves";
-import Calender from "./employeeComp/pages/Calender";
+import CalendarTodo from "./employeeComp/pages/CalenderTodo";
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
           <Route path="task" element={<Task />} />
           <Route path="todo" element={<TODO />} />
           <Route path="leaves" element={<Leaves />} />
-          <Route path="calender" element={<Calender />} />
+          <Route path="calender" element={<CalendarTodo />} />
         </Route>
       </Routes>
     </BrowserRouter>

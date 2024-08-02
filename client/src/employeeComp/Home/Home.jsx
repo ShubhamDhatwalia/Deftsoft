@@ -8,10 +8,10 @@ function Home() {
     <>
       <Navigation />
       <div className="flex">
-        <div className="w-52">
-          <Sidebar />
+        <div className="w-52 bg-white">
+          <Sidebar className="bg-white"/>
         </div>
-        <div>
+        <div className="w-full h-screen">
           <Outlet />
         </div>
       </div>
