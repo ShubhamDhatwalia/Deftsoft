@@ -3,20 +3,26 @@ import { FaUserPlus } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import toast from 'react-hot-toast';
 
-function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee }) {
+function CreateEmployee({
+  addEmployee,
+  updateEmployee,
+  isModalOpen,
+  setIsModalOpen,
+  selectedEmployee,
+}) {
   const [startDate, setStartDate] = useState(null);
   const [imageSrc, setImageSrc] = useState("");
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    mobile: '',
-    email: '',
-    designation: '',
-    address: '',
-    id: '',
-    join: ''
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    email: "",
+    designation: "",
+    address: "",
+    id: "",
+    join: "",
+    education: "",
   });
   const fileInputRef = useRef(null);
 
@@ -26,14 +32,15 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
       setStartDate(new Date(selectedEmployee.startDate));
       setImageSrc(selectedEmployee.imageSrc || "");
     } else {
-      // Reset form data when there's no selected employee
       setFormData({
-        firstName: '',
-        lastName: '',
-        mobile: '',
-        email: '',
-        designation: '',
-        address: ''
+        firstName: "",
+        lastName: "",
+        mobile: "",
+        email: "",
+        designation: "",
+        address: "",
+        education: "",
+        join: new Date().toISOString().split("T")[0],
       });
       setStartDate(null);
       setImageSrc("");
@@ -58,7 +65,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -104,16 +111,16 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
               <div className="flex flex-col gap-4">
                 <div className="flex justify-center mb-4">
                   <img
-                    src={imageSrc || "../assets/images/avatar.png"} 
+                    src={imageSrc || "../assets/images/avatar.png"}
                     alt="Profile"
                     className="h-20 w-20 rounded-full border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
-                    onClick={handleImageClick} 
+                    onClick={handleImageClick}
                   />
                   <input
                     type="file"
-                    ref={fileInputRef} 
+                    ref={fileInputRef}
                     className="hidden"
-                    onChange={handleFileChange} 
+                    onChange={handleFileChange}
                   />
                 </div>
 
@@ -172,12 +179,29 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                       selected={startDate}
                       required
                       onChange={(date) => setStartDate(date)}
-                      placeholderText="DOB"
+                      placeholderText="Date of Joining"
                       className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
                       showYearDropdown
                       showMonthDropdown
                       dropdownMode="select"
                     />
+                  </div>
+
+                  <div className="flex gap-2">
+                    <select
+                      name="education"
+                      value={formData.education}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                    >
+                      <option value="">
+                        Select Education Level
+                      </option>
+                      <option value="12th">12th</option>
+                      <option value="Graduate">Graduate</option>
+                      <option value="Post Graduate">Post Graduate</option>
+                    </select>
                   </div>
 
                   <div className="flex gap-2">
@@ -204,7 +228,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                   type="submit"
                   className="py-1 px-3 bg-blue-500 text-white rounded-lg font-semibold text-lg hover:bg-green-500"
                 >
-                  {selectedEmployee ? "Update" : "Submit"}
+                  {selectedEmployee ? "Update" : "Create"}
                 </button>
               </div>
             </form>

@@ -12,7 +12,7 @@ function Dashboard() {
       {/* ---------- Progress bars ----------- */}
 
       <div className="flex justify-center flex-wrap mt-1 gap-4">
-        <div className="bg-teal-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+        <div className="bg-teal-50 m-4 p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <FaUsers size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
@@ -40,7 +40,7 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-orange-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+        <div className="bg-orange-50 m-4 p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <FaLaptopCode size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
@@ -65,11 +65,11 @@ function Dashboard() {
               duration={5}
               className="text-xl font-bold"
             />
-            <span className="text-xl font-bold" >/120</span>
+            <span className="text-xl font-bold">/120</span>
           </div>
         </div>
 
-        <div className="bg-lime-100 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+        <div className="bg-lime-100 m-4 p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <FaLaptopCode size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
@@ -99,7 +99,7 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-violet-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
+        <div className="bg-violet-50 m-4 p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <GrDocumentConfig size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>

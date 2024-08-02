@@ -52,8 +52,7 @@ function EmployeeDetailsModal({ employee, isOpen, onClose }) {
 
           <div className="flex items-center gap-2 mb-2">
             <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">
-              <strong>DOB:</strong>{" "}
-              {employee.startDate ? employee.startDate.toDateString() : "N/A"}
+              <strong>{employee.education}</strong>
             </p>
 
             <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">

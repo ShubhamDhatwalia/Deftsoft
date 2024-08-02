@@ -51,20 +51,22 @@ function Employees() {
   return (
     <>
       <div className="flex justify-between">
-        <div className="bg-blue-50 mt-7 mb-5 rounded-xl ml-4 py-3 shadow-lg h-[575px]">
-          <h4 className="text-xl text-slate-600 font-bold text-center mb-6">Employees Details</h4>
-          <CreateEmployee 
-            addEmployee={addEmployee} 
-            updateEmployee={updateEmployee} 
-            isModalOpen={isModalOpen} 
-            setIsModalOpen={setIsModalOpen} 
-            selectedEmployee={selectedEmployee} 
+        <div className="bg-blue-50 mt-7 mb-5 rounded-xl ml-4 py-3 drop-shadow-lg h-[575px]">
+          <h4 className="text-xl text-slate-600 font-bold text-center mb-6">
+            Employees Details
+          </h4>
+          <CreateEmployee
+            addEmployee={addEmployee}
+            updateEmployee={updateEmployee}
+            isModalOpen={isModalOpen}
+            setIsModalOpen={setIsModalOpen}
+            selectedEmployee={selectedEmployee}
           />
-          <EmployeeList 
-            employees={employees} 
-            deleteEmployee={deleteEmployee} 
-            onEdit={handleEdit} 
-            openDetailsModal={openDetailsModal} 
+          <EmployeeList
+            employees={employees}
+            deleteEmployee={deleteEmployee}
+            onEdit={handleEdit}
+            openDetailsModal={openDetailsModal}
           />
         </div>
         <div className="">
