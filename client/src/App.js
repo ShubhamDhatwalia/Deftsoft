@@ -8,11 +8,11 @@ import Employee from "./view/Employee";
 
 //  pm imports
 
-import PMdashboard from './projectManager/pages/Dashboard';
-import PMcalender from './projectManager/pages/Calender';
-import PMleaves from './projectManager/pages/Leaves';
-import PMteam from './projectManager/pages/Team';
-import PMprojects from './projectManager/pages/Projects';
+import PMDashboard from './projectManager/Pm-components/Dashboard';
+// import PMcalender from './projectManager/Pm-components/Calender';
+import PMLeaves from './projectManager/Pm-components/Leaves';
+import PMTeam from './projectManager/Pm-components/Team';
+import PMProjects from './projectManager/Pm-components/Projects';
 
 
 //  admin imports 
@@ -49,6 +49,8 @@ const App = () => {
           <Route path="/tl/leaves" element={<TLleaves />} />
           <Route path="/tl/calender" element={<TLcalender />} />
         </Route>
+
+        
         <Route path="/admin" element={<Admin />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
@@ -57,13 +59,15 @@ const App = () => {
           <Route path="leaves" element={<Leaves />} />
           <Route path="calender" element={<Calender />} />
         </Route>
+
+
         <Route path="/pm" element={<PM />} >
-        <Route index element={<Navigate to="dashboard" replace />} />
-          <Route path="dashboard" element={<PMdashboard />} />
-          <Route path="task" element={<PMprojects />} />
-          <Route path="todo" element={<PMteam />} />
-          <Route path="leaves" element={<PMleaves />} />
-          <Route path="calender" element={<PMcalender />} />
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<PMDashboard />} />
+          <Route path="task" element={<PMProjects />} />
+          <Route path="todo" element={<PMTeam />} />
+          <Route path="leaves" element={<PMLeaves />} />
+          {/* <Route path="calender" element={<PMcalender />} /> */}
         </Route>
 
         <Route path="/employee" element={<Employee />}>

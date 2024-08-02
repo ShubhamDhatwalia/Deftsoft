@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Leaves() {
+function PMLeaves() {
   return (
     <div>Leaves</div>
   )
 }
 
-export default Leaves
+export default PMLeaves;

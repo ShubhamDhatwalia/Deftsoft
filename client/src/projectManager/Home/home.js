@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "../../components/Navigation";
 import Sidebar from "../Sidebar/Sidebar";
 import { Outlet } from "react-router-dom";
+import PMDashboard from "../Pm-components/Dashboard";
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
           <Outlet />
         </div>
       </div>
+      
     </>
   );
 }

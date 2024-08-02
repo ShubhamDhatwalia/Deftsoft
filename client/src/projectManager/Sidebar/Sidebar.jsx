@@ -38,7 +38,7 @@ function Sidebar() {
                 }
               >
                 <MdOutlineTaskAlt className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">Task</span>
+                <span className="ms-3">Projects</span>
               </NavLink>
             </li>
             <li className="w-44">
@@ -51,7 +51,7 @@ function Sidebar() {
                 }
               >
                 <LuListTodo className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">TODO</span>
+                <span className="ms-3">Team</span>
               </NavLink>
             </li>
             <li className="w-44">
