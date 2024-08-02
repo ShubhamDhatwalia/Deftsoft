@@ -14,7 +14,9 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
     mobile: '',
     email: '',
     designation: '',
-    address: ''
+    address: '',
+    id: '',
+    join: ''
   });
   const fileInputRef = useRef(null);
 

@@ -6,7 +6,7 @@ function EmployeeDetailsModal({ employee, isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-4 rounded-lg w-96 relative">
+      <div className="bg-white p-4 rounded-lg w-[450px] relative">
         {/* Close Icon */}
         <button
           className="absolute top-5 right-4 text-gray-600 hover:text-gray-900"
@@ -28,14 +28,48 @@ function EmployeeDetailsModal({ employee, isOpen, onClose }) {
           </div>
         )}
 
-        <p><strong>First Name:</strong> {employee.firstName}</p>
-        <p><strong>Last Name:</strong> {employee.lastName}</p>
-        <p><strong>Email:</strong> {employee.email}</p>
-        <p><strong>Mobile:</strong> {employee.mobile}</p>
-        <p><strong>Designation:</strong> {employee.designation}</p>
-        <p><strong>DOB:</strong> {employee.startDate ? employee.startDate.toDateString() : 'N/A'}</p>
-        <p><strong>Address:</strong> {employee.address}</p>
-        
+        <div className="flex-col ">
+          <div className="flex items-center gap-2 mb-2">
+            <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">
+              <strong>
+                {employee.firstName} {employee.lastName}
+              </strong>
+            </p>
+            <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">
+              <strong>ID: </strong> {employee.id}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 mb-2">
+            <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">
+              <strong>Mobile:</strong> {employee.mobile}
+            </p>
+
+            <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">
+              <strong>Role: </strong> {employee.designation}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 mb-2">
+            <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">
+              <strong>DOB:</strong>{" "}
+              {employee.startDate ? employee.startDate.toDateString() : "N/A"}
+            </p>
+
+            <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap">
+              <strong>Join: </strong>{" "}
+              {employee.startDate ? employee.startDate.toDateString() : "N/A"}
+            </p>
+          </div>
+
+          <p className="bg-blue-200 rounded-xl px-3 py-2 w-full whitespace-nowrap mb-2">
+            <strong>Email:</strong> {employee.email}
+          </p>
+
+          <p className="bg-blue-200 rounded-xl px-3 py-2 w-full  ">
+            <strong>Address:</strong> {employee.address}
+          </p>
+        </div>
       </div>
     </div>
   );

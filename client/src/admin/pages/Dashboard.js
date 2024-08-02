@@ -4,7 +4,7 @@ import { FaUsers } from "react-icons/fa6";
 import CountUp from 'react-countup';
 import { FaLaptopCode } from "react-icons/fa";
 import { GrDocumentConfig } from "react-icons/gr";
-import { MdAutoGraph } from "react-icons/md";
+
 
 function Dashboard() {
   return (
@@ -42,7 +42,7 @@ function Dashboard() {
 
         <div className="bg-orange-50 m-4 p-4 rounded-xl shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
-            <MdAutoGraph size={30} />
+            <FaLaptopCode size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
               <Circle
                 percent={20}
@@ -57,14 +57,15 @@ function Dashboard() {
           </div>
 
           <div className="flex-col items-center gap-10">
-            <h2 className="text-blue-500 text-base font-semibold">Designers</h2>
+            <h2 className="text-blue-500 text-base font-semibold">Projects</h2>
             <CountUp
               start={0}
-              end={40}
+              end={80}
               delay={0}
               duration={5}
               className="text-xl font-bold"
             />
+            <span className="text-xl font-bold" >/120</span>
           </div>
         </div>
 
