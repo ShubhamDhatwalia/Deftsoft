@@ -4,7 +4,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee, searchQuery, onSearchChange }) {
+function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee, setSelectedEmployee, searchQuery, onSearchChange }) {
   const [startDate, setStartDate] = useState(null);
   const [imageSrc, setImageSrc] = useState("");
   const [formData, setFormData] = useState({
@@ -74,13 +74,20 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
     setIsModalOpen(false);
   };
 
+  const resetSelectedEmployee = () => {
+    setSelectedEmployee(null);
+  };
+
   return (
     <>
       <div className="create-component">
         <div className="flex flex-wrap justify-center gap-3 px-3 ">
-          <button
+        <button
             className="flex text-gray-700 text-lg py-2 pr-2 items-center font-bold gap-4 rounded-xl hover:bg-green-400 bg-blue-300"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => {
+              setIsModalOpen(true);
+              resetSelectedEmployee();
+            }}
           >
             <FaUserPlus size={24} className="text-black-200 ml-3" />
           </button>

@@ -69,7 +69,8 @@ function Employees() {
             updateEmployee={updateEmployee} 
             isModalOpen={isModalOpen} 
             setIsModalOpen={setIsModalOpen} 
-            selectedEmployee={selectedEmployee} 
+            selectedEmployee={selectedEmployee}
+            setSelectedEmployee={setSelectedEmployee} 
             searchQuery={searchQuery}
             onSearchChange={handleSearchChange}
           />
