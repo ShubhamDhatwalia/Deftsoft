@@ -16,7 +16,8 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
     designation: '',
     address: '',
     id: '',
-    join: ''
+    join: '',
+    education: "",
   });
   const fileInputRef = useRef(null);
 
@@ -33,7 +34,9 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
         mobile: '',
         email: '',
         designation: '',
-        address: ''
+        address: '',
+        education: "",
+        join: new Date().toISOString().split("T")[0],
       });
       setStartDate(null);
       setImageSrc("");
@@ -172,12 +175,29 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                       selected={startDate}
                       required
                       onChange={(date) => setStartDate(date)}
-                      placeholderText="DOB"
+                      placeholderText="Date of joining"
                       className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
                       showYearDropdown
                       showMonthDropdown
                       dropdownMode="select"
                     />
+                  </div>
+
+                  <div className="flex gap-2">
+                    <select
+                      name="education"
+                      value={formData.education}
+                      onChange={handleInputChange}
+                      required
+                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                    >
+                      <option value="">
+                        Select Education Level
+                      </option>
+                      <option value="12th">12th</option>
+                      <option value="Graduate">Graduate</option>
+                      <option value="Post Graduate">Post Graduate</option>
+                    </select>
                   </div>
 
                   <div className="flex gap-2">
