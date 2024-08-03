@@ -5,9 +5,10 @@ import { BiSolidCalendarExclamation } from "react-icons/bi";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { FaUsersCog } from "react-icons/fa";
 
+
 function Sidebar() {
   return (
-    <div className="w-52">
+    <div className="sidebar w-52">
       <div className="fixed left-0 h-screen border-r-2 border-gray-200">
         <div className="h-full pl-2 pt-5 w-48">
           <ul className="space-y-2 font-medium flex flex-col justify-center">

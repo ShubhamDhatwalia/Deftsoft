@@ -3,9 +3,8 @@ import { FaUserPlus } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-// import toast from 'react-hot-toast';
 
-function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee }) {
+function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee, searchQuery, onSearchChange }) {
   const [startDate, setStartDate] = useState(null);
   const [imageSrc, setImageSrc] = useState("");
   const [formData, setFormData] = useState({
@@ -78,19 +77,21 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
   return (
     <>
       <div className="create-component">
-        <div className="flex gap-3 px-3 flex-nowrap">
+        <div className="flex flex-wrap justify-center gap-3 px-3 ">
           <button
-            className="flex text-gray-700 text-lg py-2 pr-2 items-center font-bold gap-4 rounded-xl hover:bg-green-400 bg-blue-300 whitespace-nowrap"
+            className="flex text-gray-700 text-lg py-2 pr-2 items-center font-bold gap-4 rounded-xl hover:bg-green-400 bg-blue-300"
             onClick={() => setIsModalOpen(true)}
           >
             <FaUserPlus size={24} className="text-black-200 ml-3" />
           </button>
 
-          <div className="relative flex w-[400px]">
+          <div className="relative flex ">
             <input
               type="text"
               placeholder="search..."
-              className="bg-slate-300 rounded-3xl px-4 text-xl focus:outline-none pr-10 w-[400px]"
+              className="employee-details-input bg-slate-300 rounded-3xl px-4 text-xl focus:outline-none pr-10 w-[330px] h-10"
+              value={searchQuery}
+              onChange={onSearchChange}
             />
             <IoSearchSharp
               size={40}
@@ -102,7 +103,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-4 rounded-lg">
+          <div className="bg-white p-4 rounded-lg max-h-[90vh] overflow-y-auto">
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4">
                 <div className="flex justify-center mb-4">
@@ -121,7 +122,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <div className="flex gap-2">
+                  <div className="flex model-form-items gap-2">
                     <input
                       type="text"
                       placeholder="First Name"
@@ -141,7 +142,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                     />
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex model-form-items gap-2">
                     <input
                       type="text"
                       placeholder="Mobile no."
@@ -161,7 +162,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                     />
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex model-form-items gap-2">
                     <input
                       type="text"
                       placeholder="Designation"
@@ -231,8 +232,6 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
           </div>
         </div>
       )}
-
-      {/* The Toaster should be here, but if it was placed in Employees.js, remove it from here */}
     </>
   );
 }

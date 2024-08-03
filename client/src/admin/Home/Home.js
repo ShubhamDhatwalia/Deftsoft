@@ -8,7 +8,7 @@ function Home() {
     <>
       <Navigation />
       <div className="flex ">
-        <div className="w-52">
+        <div className="">
           <Sidebar />
         </div>
         <div className="w-full">

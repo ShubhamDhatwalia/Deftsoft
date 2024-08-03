@@ -10,6 +10,7 @@ function Employees() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const addEmployee = (employee) => {
     setEmployees([...employees, employee]);
@@ -48,10 +49,20 @@ function Employees() {
     setSelectedEmployee(null);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredEmployees = employees.filter(employee =>
+    employee.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    employee.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    employee.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
-      <div className="flex justify-between">
-        <div className="bg-blue-50 mt-7 mb-5 rounded-xl ml-4 py-3 drop-shadow-lg h-[575px]">
+      <div className="flex flex-wrap justify-center gap-4 mt-7 mb-5 mx-4">
+        <div className="flex-2 bg-blue-50 rounded-xl py-3 h-[575px]">
           <h4 className="text-xl text-slate-600 font-bold text-center mb-6">Employees Details</h4>
           <CreateEmployee 
             addEmployee={addEmployee} 
@@ -59,15 +70,17 @@ function Employees() {
             isModalOpen={isModalOpen} 
             setIsModalOpen={setIsModalOpen} 
             selectedEmployee={selectedEmployee} 
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
           />
           <EmployeeList 
-            employees={employees} 
+            employees={filteredEmployees} 
             deleteEmployee={deleteEmployee} 
             onEdit={handleEdit} 
             openDetailsModal={openDetailsModal} 
           />
         </div>
-        <div className="">
+        <div className="flex-1 bg-white rounded-xl h-[575px]">
           <EMgraph />
         </div>
       </div>

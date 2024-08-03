@@ -3,3 +3,30 @@
 @tailwind utilities;
 
 
+@media (max-width: 639px) {
+    .sidebar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 449px) {
+    .model-form-items{
+        flex-direction: column;
+    }
+    .employee-details-input{
+        width: 265px;
+    }
+   
+  }
+
+  @media (max-width: 380px) {
+    .employee-details-input{
+        width: 205px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .employee-details-input{
+        width: 140px;
+    }
+  }
