@@ -96,7 +96,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
             <input
               type="text"
               placeholder="search..."
-              className="employee-details-input bg-slate-300 rounded-3xl px-4 text-xl focus:outline-none pr-10 w-[330px] h-10"
+              className="employee-details-input bg-slate-300 rounded-3xl px-4 text-xl focus:outline-none pr-10 w-[35vw] h-10"
               value={searchQuery}
               onChange={onSearchChange}
             />

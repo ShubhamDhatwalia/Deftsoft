@@ -62,8 +62,8 @@ function Employees() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4 mt-7 mb-5 mx-4">
-        <div className="flex-2 bg-blue-50 rounded-xl py-3 max-h-[575px]">
+      <div className="flex flex-wrap justify-center gap-4 py-7 items-center mx-4">
+        <div className=" flex-2 bg-blue-50 rounded-xl py-3 h-[80vh]">
           <h4 className="text-xl text-slate-600 font-bold text-center mb-6">Employees Details</h4>
           <CreateEmployee 
             addEmployee={addEmployee} 
@@ -82,7 +82,7 @@ function Employees() {
             openDetailsModal={openDetailsModal} 
           />
         </div>
-        <div className="flex-1 bg-white rounded-xl h-[575px]">
+        <div className="flex-1 bg-white rounded-xl h-[80vh]">
           <EMgraph />
         </div>
       </div>

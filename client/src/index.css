@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0;
+  padding: 0;
+}
 
 @media (max-width: 639px) {
     .sidebar {
@@ -9,6 +13,13 @@
     }
    
   }
+
+  @media (max-width: 540px) {
+    .employee-details-input{
+      width: 85vw;
+  }
+  }
+
   @media (min-width: 639px) {
     .MobileSidebar{
       display: none;
