@@ -9,7 +9,7 @@ function EmployeeList({ employees, deleteEmployee, onEdit, openDetailsModal }) {
   const [visibleIcons, setVisibleIcons] = useState(null);
 
   return (
-    <div className="mt-5 rounded-xl max-h-[450px] overflow-y-auto">
+    <div className="mt-5 rounded-xl max-h-[450px] overflow-y-auto custom-scrollbar">
       {employees.map((employee, index) => (
         <div
           key={index}
