@@ -7,15 +7,9 @@ import { MdMoreVert } from "react-icons/md";
 
 function EmployeeList({ employees, deleteEmployee, onEdit, openDetailsModal }) {
   const [visibleIcons, setVisibleIcons] = useState(null);
-  
-  
-  
 
   return (
-    <div
-      className="mt-5 rounded-xl h-[450px] overflow-y-auto"
-      
-    >
+    <div className="mt-5 rounded-xl max-h-[450px] overflow-y-auto">
       {employees.map((employee, index) => (
         <div
           key={index}
@@ -40,35 +34,34 @@ function EmployeeList({ employees, deleteEmployee, onEdit, openDetailsModal }) {
               onMouseLeave={() => setVisibleIcons(null)}
             />
 
-            {visibleIcons === index && (
-              <div
-                
-                className="icons-container absolute right-0 bg-yellow-400 drop-shadow-lg rounded-xl p-2 flex flex-col gap-1 z-10"
-                onMouseEnter={() => setVisibleIcons(index)}
-                onMouseLeave={() => setVisibleIcons(null)}
-              >
-                <div className="flex gap-2 items-center justify-center">
-                  <IoIosMail size={25} className="email-icon hover:cursor-pointer hover:scale-125" />
-                  <GrFormView
-                    size={35}
-                    className="hover:cursor-pointer hover:text-green-600 hover:scale-125"
-                    onClick={() => openDetailsModal(employee)}
-                  />
-                </div>
-                <div className="flex items-center justify-center gap-4">
-                  <FaPencilAlt
-                    size={19}
-                    className="hover:cursor-pointer hover:text-blue-700 hover:scale-125"
-                    onClick={() => onEdit(employee)}
-                  />
-                  <MdDeleteForever
-                    size={24}
-                    className="hover:cursor-pointer hover:text-rose-600 hover:scale-125"
-                    onClick={() => deleteEmployee(index)}
-                  />
-                </div>
+            <div
+              className={`icons-container absolute right-6 -bottom-1 bg-yellow-400 drop-shadow-lg rounded-xl px-2 flex gap-1 z-10 transition-all duration-300 ${
+                visibleIcons === index ? "opacity-100 w-[123px]" : "opacity-0 w-0"
+              } overflow-hidden`}
+              onMouseEnter={() => setVisibleIcons(index)}
+              onMouseLeave={() => setVisibleIcons(null)}
+            >
+              <div className="flex gap-1 items-center justify-center">
+                <IoIosMail size={25} className="email-icon hover:cursor-pointer hover:scale-125" />
+                <GrFormView
+                  size={35}
+                  className="hover:cursor-pointer hover:text-green-600 hover:scale-125"
+                  onClick={() => openDetailsModal(employee)}
+                />
               </div>
-            )}
+              <div className="flex items-center justify-center gap-1">
+                <FaPencilAlt
+                  size={19}
+                  className="hover:cursor-pointer hover:text-blue-700 hover:scale-125"
+                  onClick={() => onEdit(employee)}
+                />
+                <MdDeleteForever
+                  size={24}
+                  className="hover:cursor-pointer hover:text-rose-600 hover:scale-125"
+                  onClick={() => deleteEmployee(index)}
+                />
+              </div>
+            </div>
           </div>
         </div>
       ))}

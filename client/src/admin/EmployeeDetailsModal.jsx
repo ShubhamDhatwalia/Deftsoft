@@ -6,13 +6,13 @@ function EmployeeDetailsModal({ employee, isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ">
-      <div className="bg-white p-4 rounded-lg max-w-[450px] overflow-y-auto max-h-[90vh] relative">
+      <div className="bg-white p-4 rounded-lg max-w-[600px] overflow-y-auto max-h-[90vh] relative">
         {/* Close Icon */}
         <button
-          className="absolute top-5 right-4 text-gray-600 hover:text-gray-900"
+          className="absolute top-4 right-4 text-gray-600 hover:text-rose-600"
           onClick={onClose}
         >
-          <FaTimes size={20} />
+          <FaTimes size={25} />
         </button>
 
         <h2 className="text-xl font-bold mb-4 ">Employee Details</h2>
@@ -61,7 +61,7 @@ function EmployeeDetailsModal({ employee, isOpen, onClose }) {
             </p>
           </div>
 
-          <p className="bg-blue-200 rounded-xl px-3 py-2 w-full  mb-2">
+          <p className="bg-blue-200 rounded-xl px-3 py-2 w-full overflow-auto  mb-2">
             <strong>Email:</strong> {employee.email}
           </p>
 

@@ -29,4 +29,10 @@
     .employee-details-input{
         width: 140px;
     }
+    .nav-btn{
+      gap: 2px;
+    }
+    .nav-logo{
+      width: 100px;
+    }
   }

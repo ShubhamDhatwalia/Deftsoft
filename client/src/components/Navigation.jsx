@@ -10,12 +10,12 @@ const Navigation = () => {
         <nav className="flex fixed bg-white top-0 px-8 py-1 items-center w-full  shadow-md border-b-[1px] justify-between z-50 ">
           <Link to="">
             <img
-              className="w-[130px] "
+              className="w-[130px] nav-logo"
               src="https://deftsoft.com/assets/images/deft-logo2.svg"
               alt=""
             />
           </Link>
-          <div className="flex gap-8">
+          <div className=" nav-btn flex gap-8">
             <SideDrawer />
             <LuLogOut
               size={40}
