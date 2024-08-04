@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 const Main = () => {
   return (
     <div className="flex justify-around pt-10 text-2xl items-center">
@@ -12,4 +13,3 @@ const Main = () => {
 };
 
 export default Main;
-// test
