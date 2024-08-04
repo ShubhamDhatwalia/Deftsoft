@@ -7,8 +7,14 @@
     .sidebar {
       display: none;
     }
+   
+  }
+  @media (min-width: 639px) {
+    .MobileSidebar{
+      display: none;
+    }
     .nav-toggle{
-      display: block;
+      display: none;
     }
   }
 
