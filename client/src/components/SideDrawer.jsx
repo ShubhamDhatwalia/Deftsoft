@@ -41,7 +41,7 @@ const SideDrawer = () => {
           </div>
         </button>
         {showProfile && (
-          <div className="absolute border shadow-2xl flex flex-col justify-between p-4 -right-16 mt-2 w-52 sm:w-64 md:w-72 lg:w-80  rounded-xl bg-white z-10">
+          <div className=" show-profile absolute border shadow-2xl flex flex-col justify-between p-4 -right-16 mt-2 w-52 sm:w-64 md:w-72 lg:w-80  rounded-xl bg-white z-10">
             <div className="flex flex-col justify-around gap-2">
               <div className="flex items-center py-2 px-4 border-2 mb-3 hover:border-blue-200 hover:bg-blue-200 rounded-lg cursor-pointer">
                 <div className="flex-shrink-0">

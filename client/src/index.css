@@ -41,6 +41,9 @@
     .logout-icon{
       display: none;
     }
+    .show-profile{
+      right: 0px;
+    }
   }
 
   @media (max-width: 320px) {
