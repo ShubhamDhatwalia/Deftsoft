@@ -7,6 +7,9 @@
     .sidebar {
       display: none;
     }
+    .nav-toggle{
+      display: block;
+    }
   }
 
   @media (max-width: 449px) {
@@ -23,18 +26,22 @@
     .employee-details-input{
         width: 205px;
     }
-  }
-
-  @media (max-width: 320px) {
-    .employee-details-input{
-        width: 140px;
-    }
     .nav-btn{
       gap: 2px;
     }
     .nav-logo{
       width: 100px;
     }
+    .logout-icon{
+      display: none;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .employee-details-input{
+        width: 140px;
+    }
+  
   }
 
 
