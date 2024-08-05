@@ -10,6 +10,7 @@ function Employees() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const addEmployee = (employee) => {
     setEmployees([...employees, employee]);
@@ -17,9 +18,11 @@ function Employees() {
   };
 
   const updateEmployee = (updatedEmployee) => {
-    setEmployees(employees.map(emp =>
-      emp.email === updatedEmployee.email ? updatedEmployee : emp
-    ));
+    setEmployees(
+      employees.map((emp) =>
+        emp.email === updatedEmployee.email ? updatedEmployee : emp
+      )
+    );
     toast.success("Employee updated successfully!");
     setIsModalOpen(false);
     setSelectedEmployee(null);
@@ -29,7 +32,9 @@ function Employees() {
     if (window.confirm("Are you sure you want to delete this employee?")) {
       const employee = employees[index];
       setEmployees(employees.filter((_, i) => i !== index));
-      toast.success(`Deleted employee: ${employee.firstName} ${employee.lastName}`);
+      toast.success(
+        `Deleted employee: ${employee.firstName} ${employee.lastName}`
+      );
     }
   };
 
@@ -48,10 +53,21 @@ function Employees() {
     setSelectedEmployee(null);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredEmployees = employees.filter(
+    (employee) =>
+      employee.firstName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      employee.lastName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      employee.email.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
-      <div className="flex justify-between">
-        <div className="bg-blue-50 mt-7 mb-5 rounded-xl ml-4 py-3 drop-shadow-lg h-[575px]">
+      <div className="flex flex-wrap justify-center gap-4 py-7 items-center mx-4">
+        <div className="flex-2 bg-blue-50 rounded-xl pt-2 h-[80vh] flex flex-col">
           <h4 className="text-xl text-slate-600 font-bold text-center mb-6">
             Employees Details
           </h4>
@@ -61,15 +77,20 @@ function Employees() {
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
             selectedEmployee={selectedEmployee}
+            setSelectedEmployee={setSelectedEmployee}
+            searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
           />
-          <EmployeeList
-            employees={employees}
-            deleteEmployee={deleteEmployee}
-            onEdit={handleEdit}
-            openDetailsModal={openDetailsModal}
-          />
+          <div className="employee-list-container mt-4 rounded-xl flex-1 overflow-y-auto">
+            <EmployeeList
+              employees={filteredEmployees}
+              deleteEmployee={deleteEmployee}
+              onEdit={handleEdit}
+              openDetailsModal={openDetailsModal}
+            />
+          </div>
         </div>
-        <div className="">
+        <div className="flex-1 bg-white rounded-xl h-[80vh]">
           <EMgraph />
         </div>
       </div>
