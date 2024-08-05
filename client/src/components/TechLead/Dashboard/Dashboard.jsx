@@ -45,7 +45,7 @@ const Dashboard = () => {
     );
     form.resetFields();
     setIsEditMemberModalVisible(false);
-    setCurrentMember(null); // Clear the current member
+    setCurrentMember(null); // Clears the current member
   };
 
   const handleDeleteMember = (name) => {
@@ -121,17 +121,17 @@ const Dashboard = () => {
       </div>
 
       {/* Box 3 */}
-      <div className="col-span-1 mx-6 px-4">
+      <div className="col-span-1 mx-2 px-4">
         <h1 className="text-xl">Meetings</h1>
-        <div className="main border bg-blue-400 rounded-lg shadow-lg">
+        <div className="border w-full h-[220px] p-5 bg-white rounded-lg shadow-lg">
           <div>Lorem ipsum dolor sit amet.</div>
         </div>
       </div>
 
       {/* Box 4 */}
-      <div className="col-span-1 mx-6 px-4">
-        <h1 className="text-xl">Inbox</h1>
-        <div className="border bg-blue-400 rounded-lg shadow-lg">
+      <div className="col-span-1 mx-2 px-4">
+        <h1 className="text-xl">Add something here</h1>
+        <div className="border w-full h-[220px] p-5 bg-white rounded-lg shadow-lg">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, commodi.
         </div>
       </div>
