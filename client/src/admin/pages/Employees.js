@@ -66,7 +66,7 @@ function Employees() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4 py-7 items-center mx-4">
+      <div className="flex flex-wrap justify-center gap-4 py-7   mx-4">
         <div className="flex-2 bg-blue-50 rounded-xl pt-2 h-[80vh] flex flex-col">
           <h4 className="text-xl text-slate-600 font-bold text-center mb-6">
             Employees Details
@@ -90,7 +90,7 @@ function Employees() {
             />
           </div>
         </div>
-        <div className="flex-1 bg-white rounded-xl h-[80vh]">
+        <div className="flex-1  rounded-xl ">
           <EMgraph />
         </div>
       </div>

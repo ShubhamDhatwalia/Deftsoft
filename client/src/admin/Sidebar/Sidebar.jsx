@@ -8,10 +8,10 @@ import { FaUsersCog } from "react-icons/fa";
 
 function Sidebar() {
   return (
-    <div className="sidebar w-52">
+    <div className="sidebar w-48">
       <div className="fixed left-0 h-screen border-r-2 border-gray-200">
         <div className="h-full pl-2 pt-5 w-48">
-          <ul className="space-y-2 font-medium flex flex-col justify-center">
+          <ul className="space-y-4 font-medium flex flex-col justify-center">
             <li className="w-44">
               <NavLink
                 to="dashboard"
@@ -23,7 +23,7 @@ function Sidebar() {
                 end // Ensure this is active only when the exact path matches
               >
                 <AiFillPieChart className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">Dashboard</span>
+                <span className="ms-3 text-lg">Dashboard</span>
               </NavLink>
             </li>
             {/* <li className="w-44">
@@ -36,7 +36,7 @@ function Sidebar() {
                 }
               >
                 <MdOutlineTaskAlt className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">Task</span>
+                <span className="ms-3 text-lg">Task</span>
               </NavLink>
             </li> */}
             <li className="w-44">
@@ -48,8 +48,8 @@ function Sidebar() {
                   } hover:bg-blue-200 dark:hover:text-gray-700 group`
                 }
               >
-                <FaUsersCog className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">Employees</span>
+                <FaUsersCog className="w-6 h-6 text-gray-800" />
+                <span className="ms-2 text-lg">Employees</span>
               </NavLink>
             </li>
             <li className="w-44">
@@ -62,7 +62,7 @@ function Sidebar() {
                 }
               >
                 <BiSolidCalendarExclamation className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">Leaves</span>
+                <span className="ms-3 text-lg">Leaves</span>
               </NavLink>
             </li>
             <li className="w-44">
@@ -75,7 +75,7 @@ function Sidebar() {
                 }
               >
                 <FaRegCalendarAlt className="w-5 h-5 text-gray-800" />
-                <span className="ms-3">Calender</span>
+                <span className="ms-3 text-lg">Calender</span>
               </NavLink>
             </li>
           </ul>

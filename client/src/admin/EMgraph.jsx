@@ -10,7 +10,7 @@ function EMgraph() {
   return (
     <>
     <div className="flex flex-wrap justify-center gap-6">
-        <div className="card bg-teal-50  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
+        <div className=" bg-teal-50  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <FaUsers size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
@@ -38,7 +38,7 @@ function EMgraph() {
           </div>
         </div>
 
-        <div className="card bg-orange-50  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
+        <div className=" bg-orange-50  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <MdAutoGraph size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
@@ -66,7 +66,7 @@ function EMgraph() {
           </div>
         </div>
 
-        <div className="card bg-lime-100  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
+        <div className=" bg-lime-100  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <FaLaptopCode size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>
@@ -96,7 +96,7 @@ function EMgraph() {
           </div>
         </div>
 
-        <div className="card bg-violet-50  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
+        <div className=" bg-violet-50  p-4 rounded-xl drop-shadow-lg hover:scale-105 transition duration-200">
           <div className="mb-1 text-center flex justify-between gap-28">
             <GrDocumentConfig size={30} />
             <div className="relative" style={{ width: 50, height: 50 }}>

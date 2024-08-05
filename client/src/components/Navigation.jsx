@@ -33,21 +33,21 @@ const Navigation = () => {
 
   return (
     <>
-      <div className="h-[58px]">
-        <nav className="flex fixed bg-white top-0 px-8 py-1 items-center w-full shadow-md border-b-[1px] justify-between z-50">
+      <div className="h-[50px]">
+        <nav className="flex fixed bg-white top-0  items-center w-full shadow-md border-b-[1px] justify-between z-50">
           <LuMenu
             size={25}
-            className="nav-toggle  cursor-pointer"
+            className="nav-toggle ml-3 cursor-pointer"
             onClick={toggleSidebar}
           />
           <Link to="">
             <img
-              className="w-[130px] nav-logo"
+              className="w-[130px] ml-3 nav-logo"
               src="https://deftsoft.com/assets/images/deft-logo2.svg"
               alt=""
             />
           </Link>
-          <div className="nav-btn flex gap-8">
+          <div className="nav-btn flex gap-8 mr-3">
             <SideDrawer />
             <LuLogOut
               size={40}

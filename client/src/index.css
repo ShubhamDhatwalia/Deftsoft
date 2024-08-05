@@ -13,10 +13,16 @@
   overflow-y: auto;
 }
 
+/* @media (min-width: 1380px) {
+  .card{
+    width: 22%;
+  }
+ 
+} */
 
 @media (max-width: 1159px) {
     .chart{
-      width: 75vw;
+      width: 80vw;
     }
    
   }
@@ -25,6 +31,10 @@
 @media (max-width: 639px) {
     .sidebar {
       display: none;
+    }
+    .ExpandCard{
+      left: 30px;
+      width: 80vw;
     }
    
   }
