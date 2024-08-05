@@ -1,4 +1,3 @@
-// src/ProjectCard.js
 import React from "react";
 
 const ProjectCard = ({ project, onEdit, onDelete, onAssign }) => {
@@ -30,7 +29,7 @@ const ProjectCard = ({ project, onEdit, onDelete, onAssign }) => {
         </button>
       </div>
       <div className="absolute top-2 right-2">
-        {project.members.length > 0 && (
+        {project.members && project.members.length > 0 && (
           <div className="text-gray-500 text-sm">
             Members: {project.members.map((member) => member.name).join(", ")}
           </div>
