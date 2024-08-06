@@ -1,0 +1,310 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'i', 'react-color' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData react-color
+8 silly fetchNamedPackageData react-color
+9 silly mapToRegistry name react-color
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry uri https://registry.npmjs.org/react-color
+13 verbose request uri https://registry.npmjs.org/react-color
+14 verbose request no auth needed
+15 info attempt registry request try #1 at 10:56:28 AM
+16 verbose request id 80143200a779ddbf
+17 http request GET https://registry.npmjs.org/react-color
+18 http 200 https://registry.npmjs.org/react-color
+19 verbose headers { date: 'Wed, 31 Jul 2024 05:26:29 GMT',
+19 verbose headers   'content-type': 'application/json',
+19 verbose headers   'transfer-encoding': 'chunked',
+19 verbose headers   connection: 'keep-alive',
+19 verbose headers   'cf-ray': '8abb2c8318e88ae1-DEL',
+19 verbose headers   'cf-cache-status': 'HIT',
+19 verbose headers   'access-control-allow-origin': '*',
+19 verbose headers   age: '72',
+19 verbose headers   'cache-control': 'public, max-age=300',
+19 verbose headers   etag: 'W/"cd2111714515f370790f3a475f50cb45"',
+19 verbose headers   'last-modified': 'Sat, 25 Jun 2022 18:20:55 GMT',
+19 verbose headers   vary: 'accept-encoding, accept',
+19 verbose headers   server: 'cloudflare',
+19 verbose headers   'content-encoding': 'gzip' }
+20 silly get cb [ 200,
+20 silly get   { date: 'Wed, 31 Jul 2024 05:26:29 GMT',
+20 silly get     'content-type': 'application/json',
+20 silly get     'transfer-encoding': 'chunked',
+20 silly get     connection: 'keep-alive',
+20 silly get     'cf-ray': '8abb2c8318e88ae1-DEL',
+20 silly get     'cf-cache-status': 'HIT',
+20 silly get     'access-control-allow-origin': '*',
+20 silly get     age: '72',
+20 silly get     'cache-control': 'public, max-age=300',
+20 silly get     etag: 'W/"cd2111714515f370790f3a475f50cb45"',
+20 silly get     'last-modified': 'Sat, 25 Jun 2022 18:20:55 GMT',
+20 silly get     vary: 'accept-encoding, accept',
+20 silly get     server: 'cloudflare',
+20 silly get     'content-encoding': 'gzip' } ]
+21 verbose get saving react-color to /home/deftsoft/.npm/registry.npmjs.org/react-color/.cache.json
+22 silly install normalizeTree
+23 silly loadCurrentTree Finishing
+24 silly loadIdealTree Starting
+25 silly install loadIdealTree
+26 silly cloneCurrentTree Starting
+27 silly install cloneCurrentTreeToIdealTree
+28 silly cloneCurrentTree Finishing
+29 silly loadShrinkwrap Starting
+30 silly install loadShrinkwrap
+31 silly loadShrinkwrap Finishing
+32 silly loadAllDepsIntoIdealTree Starting
+33 silly install loadAllDepsIntoIdealTree
+34 silly resolveWithNewModule react-color@2.19.3 checking installable status
+35 silly cache add args [ 'react-color', null ]
+36 verbose cache add spec react-color
+37 silly cache add parsed spec Result {
+37 silly cache add   raw: 'react-color',
+37 silly cache add   scope: null,
+37 silly cache add   name: 'react-color',
+37 silly cache add   rawSpec: '',
+37 silly cache add   spec: 'latest',
+37 silly cache add   type: 'tag' }
+38 silly addNamed react-color@latest
+39 verbose addNamed "latest" is being treated as a dist-tag for react-color
+40 info addNameTag [ 'react-color', 'latest' ]
+41 silly mapToRegistry name react-color
+42 silly mapToRegistry using default registry
+43 silly mapToRegistry registry https://registry.npmjs.org/
+44 silly mapToRegistry uri https://registry.npmjs.org/react-color
+45 verbose addNameTag registry:https://registry.npmjs.org/react-color not in flight; fetching
+46 verbose get https://registry.npmjs.org/react-color not expired, no request
+47 silly addNameTag next cb for react-color with tag latest
+48 silly addNamed react-color@2.19.3
+49 verbose addNamed "2.19.3" is a plain semver version for react-color
+50 silly mapToRegistry name react-color
+51 silly mapToRegistry using default registry
+52 silly mapToRegistry registry https://registry.npmjs.org/
+53 silly mapToRegistry uri https://registry.npmjs.org/react-color
+54 verbose addRemoteTarball https://registry.npmjs.org/react-color/-/react-color-2.19.3.tgz not in flight; adding
+55 verbose addRemoteTarball [ 'https://registry.npmjs.org/react-color/-/react-color-2.19.3.tgz',
+55 verbose addRemoteTarball   'ec6c6b4568312a3c6a18420ab0472e146aa5683d' ]
+56 info retry fetch attempt 1 at 10:56:29 AM
+57 info attempt registry request try #1 at 10:56:29 AM
+58 http fetch GET https://registry.npmjs.org/react-color/-/react-color-2.19.3.tgz
+59 http fetch 200 https://registry.npmjs.org/react-color/-/react-color-2.19.3.tgz
+60 silly fetchAndShaCheck shasum ec6c6b4568312a3c6a18420ab0472e146aa5683d
+61 verbose addTmpTarball /tmp/npm-12643-2e0cbf6e/registry.npmjs.org/react-color/-/react-color-2.19.3.tgz not in flight; adding
+62 verbose addTmpTarball already have metadata; skipping unpack for react-color@2.19.3
+63 silly cache afterAdd react-color@2.19.3
+64 verbose afterAdd /home/deftsoft/.npm/react-color/2.19.3/package/package.json not in flight; writing
+65 verbose afterAdd /home/deftsoft/.npm/react-color/2.19.3/package/package.json written
+66 silly fetchNamedPackageData @icons/material
+67 silly mapToRegistry name @icons/material
+68 silly mapToRegistry scope (from package name) @icons
+69 verbose mapToRegistry no registry URL found in name for scope @icons
+70 silly mapToRegistry using default registry
+71 silly mapToRegistry registry https://registry.npmjs.org/
+72 silly mapToRegistry uri https://registry.npmjs.org/@icons%2fmaterial
+73 silly fetchNamedPackageData lodash
+74 silly mapToRegistry name lodash
+75 silly mapToRegistry using default registry
+76 silly mapToRegistry registry https://registry.npmjs.org/
+77 silly mapToRegistry uri https://registry.npmjs.org/lodash
+78 silly fetchNamedPackageData lodash-es
+79 silly mapToRegistry name lodash-es
+80 silly mapToRegistry using default registry
+81 silly mapToRegistry registry https://registry.npmjs.org/
+82 silly mapToRegistry uri https://registry.npmjs.org/lodash-es
+83 silly fetchNamedPackageData material-colors
+84 silly mapToRegistry name material-colors
+85 silly mapToRegistry using default registry
+86 silly mapToRegistry registry https://registry.npmjs.org/
+87 silly mapToRegistry uri https://registry.npmjs.org/material-colors
+88 silly fetchNamedPackageData prop-types
+89 silly mapToRegistry name prop-types
+90 silly mapToRegistry using default registry
+91 silly mapToRegistry registry https://registry.npmjs.org/
+92 silly mapToRegistry uri https://registry.npmjs.org/prop-types
+93 silly fetchNamedPackageData reactcss
+94 silly mapToRegistry name reactcss
+95 silly mapToRegistry using default registry
+96 silly mapToRegistry registry https://registry.npmjs.org/
+97 silly mapToRegistry uri https://registry.npmjs.org/reactcss
+98 silly fetchNamedPackageData tinycolor2
+99 silly mapToRegistry name tinycolor2
+100 silly mapToRegistry using default registry
+101 silly mapToRegistry registry https://registry.npmjs.org/
+102 silly mapToRegistry uri https://registry.npmjs.org/tinycolor2
+103 verbose request uri https://registry.npmjs.org/@icons%2fmaterial
+104 verbose request no auth needed
+105 info attempt registry request try #1 at 10:56:31 AM
+106 http request GET https://registry.npmjs.org/@icons%2fmaterial
+107 verbose request uri https://registry.npmjs.org/lodash-es
+108 verbose request no auth needed
+109 info attempt registry request try #1 at 10:56:31 AM
+110 http request GET https://registry.npmjs.org/lodash-es
+111 verbose request uri https://registry.npmjs.org/material-colors
+112 verbose request no auth needed
+113 info attempt registry request try #1 at 10:56:31 AM
+114 http request GET https://registry.npmjs.org/material-colors
+115 verbose request uri https://registry.npmjs.org/prop-types
+116 verbose request no auth needed
+117 info attempt registry request try #1 at 10:56:31 AM
+118 http request GET https://registry.npmjs.org/prop-types
+119 verbose request uri https://registry.npmjs.org/reactcss
+120 verbose request no auth needed
+121 info attempt registry request try #1 at 10:56:31 AM
+122 http request GET https://registry.npmjs.org/reactcss
+123 verbose request uri https://registry.npmjs.org/tinycolor2
+124 verbose request no auth needed
+125 info attempt registry request try #1 at 10:56:31 AM
+126 http request GET https://registry.npmjs.org/tinycolor2
+127 verbose request uri https://registry.npmjs.org/lodash
+128 verbose request no auth needed
+129 info attempt registry request try #1 at 10:56:31 AM
+130 verbose etag W/"aec2e0d8eff56659077c476e7d4da4f5"
+131 verbose lastModified Sat, 13 Jul 2024 08:21:45 GMT
+132 http request GET https://registry.npmjs.org/lodash
+133 http 200 https://registry.npmjs.org/@icons%2fmaterial
+134 verbose headers { date: 'Wed, 31 Jul 2024 05:26:31 GMT',
+134 verbose headers   'content-type': 'application/json',
+134 verbose headers   'transfer-encoding': 'chunked',
+134 verbose headers   connection: 'keep-alive',
+134 verbose headers   'cf-ray': '8abb2c8d2fab8ae1-DEL',
+134 verbose headers   'cf-cache-status': 'HIT',
+134 verbose headers   'access-control-allow-origin': '*',
+134 verbose headers   age: '58',
+134 verbose headers   'cache-control': 'public, max-age=300',
+134 verbose headers   etag: 'W/"0b460cb6ad6b740882222af34432a8ee"',
+134 verbose headers   'last-modified': 'Sun, 12 Jun 2022 19:49:49 GMT',
+134 verbose headers   vary: 'accept-encoding, accept',
+134 verbose headers   server: 'cloudflare',
+134 verbose headers   'content-encoding': 'gzip' }
+135 silly get cb [ 200,
+135 silly get   { date: 'Wed, 31 Jul 2024 05:26:31 GMT',
+135 silly get     'content-type': 'application/json',
+135 silly get     'transfer-encoding': 'chunked',
+135 silly get     connection: 'keep-alive',
+135 silly get     'cf-ray': '8abb2c8d2fab8ae1-DEL',
+135 silly get     'cf-cache-status': 'HIT',
+135 silly get     'access-control-allow-origin': '*',
+135 silly get     age: '58',
+135 silly get     'cache-control': 'public, max-age=300',
+135 silly get     etag: 'W/"0b460cb6ad6b740882222af34432a8ee"',
+135 silly get     'last-modified': 'Sun, 12 Jun 2022 19:49:49 GMT',
+135 silly get     vary: 'accept-encoding, accept',
+135 silly get     server: 'cloudflare',
+135 silly get     'content-encoding': 'gzip' } ]
+136 verbose get saving @icons/material to /home/deftsoft/.npm/registry.npmjs.org/_40icons_252fmaterial/.cache.json
+137 silly resolveWithNewModule @icons/material@0.2.4 checking installable status
+138 silly cache add args [ '@icons/material@^0.2.4', null ]
+139 verbose cache add spec @icons/material@^0.2.4
+140 silly cache add parsed spec Result {
+140 silly cache add   raw: '@icons/material@^0.2.4',
+140 silly cache add   scope: '@icons',
+140 silly cache add   name: '@icons/material',
+140 silly cache add   rawSpec: '^0.2.4',
+140 silly cache add   spec: '>=0.2.4 <0.3.0',
+140 silly cache add   type: 'range' }
+141 silly addNamed @icons/material@>=0.2.4 <0.3.0
+142 verbose addNamed ">=0.2.4 <0.3.0" is a valid semver range for @icons/material
+143 silly addNameRange { name: '@icons/material',
+143 silly addNameRange   range: '>=0.2.4 <0.3.0',
+143 silly addNameRange   hasData: false }
+144 silly mapToRegistry name @icons/material
+145 silly mapToRegistry scope (from package name) @icons
+146 verbose mapToRegistry no registry URL found in name for scope @icons
+147 silly mapToRegistry using default registry
+148 silly mapToRegistry registry https://registry.npmjs.org/
+149 silly mapToRegistry uri https://registry.npmjs.org/@icons%2fmaterial
+150 verbose addNameRange registry:https://registry.npmjs.org/@icons%2fmaterial not in flight; fetching
+151 verbose get https://registry.npmjs.org/@icons%2fmaterial not expired, no request
+152 silly addNameRange number 2 { name: '@icons/material',
+152 silly addNameRange   range: '>=0.2.4 <0.3.0',
+152 silly addNameRange   hasData: true }
+153 silly addNameRange versions [ '@icons/material',
+153 silly addNameRange   [ '0.1.0',
+153 silly addNameRange     '0.2.0',
+153 silly addNameRange     '0.2.1',
+153 silly addNameRange     '0.2.2',
+153 silly addNameRange     '0.2.3',
+153 silly addNameRange     '0.2.4',
+153 silly addNameRange     '0.3.0',
+153 silly addNameRange     '0.4.0',
+153 silly addNameRange     '0.4.1' ] ]
+154 silly addNamed @icons/material@0.2.4
+155 verbose addNamed "0.2.4" is a plain semver version for @icons/material
+156 silly mapToRegistry name @icons/material
+157 silly mapToRegistry scope (from package name) @icons
+158 verbose mapToRegistry no registry URL found in name for scope @icons
+159 silly mapToRegistry using default registry
+160 silly mapToRegistry registry https://registry.npmjs.org/
+161 silly mapToRegistry uri https://registry.npmjs.org/@icons%2fmaterial
+162 verbose addRemoteTarball https://registry.npmjs.org/@icons/material/-/material-0.2.4.tgz not in flight; adding
+163 verbose addRemoteTarball [ 'https://registry.npmjs.org/@icons/material/-/material-0.2.4.tgz',
+163 verbose addRemoteTarball   'e90c9f71768b3736e76d7dd6783fc6c2afa88bc8' ]
+164 info retry fetch attempt 1 at 10:56:31 AM
+165 info attempt registry request try #1 at 10:56:31 AM
+166 http fetch GET https://registry.npmjs.org/@icons/material/-/material-0.2.4.tgz
+167 http 200 https://registry.npmjs.org/lodash-es
+168 verbose headers { date: 'Wed, 31 Jul 2024 05:26:31 GMT',
+168 verbose headers   'content-type': 'application/json',
+168 verbose headers   'transfer-encoding': 'chunked',
+168 verbose headers   connection: 'keep-alive',
+168 verbose headers   'cf-ray': '8abb2c8e3b5359c4-DEL',
+168 verbose headers   'cf-cache-status': 'HIT',
+168 verbose headers   'access-control-allow-origin': '*',
+168 verbose headers   age: '66',
+168 verbose headers   'cache-control': 'public, max-age=300',
+168 verbose headers   etag: 'W/"0bcd9e4408f4be279bca4beaf422b49d"',
+168 verbose headers   'last-modified': 'Fri, 21 Jul 2023 15:33:08 GMT',
+168 verbose headers   vary: 'accept-encoding, accept',
+168 verbose headers   server: 'cloudflare',
+168 verbose headers   'content-encoding': 'gzip' }
+169 silly get cb [ 200,
+169 silly get   { date: 'Wed, 31 Jul 2024 05:26:31 GMT',
+169 silly get     'content-type': 'application/json',
+169 silly get     'transfer-encoding': 'chunked',
+169 silly get     connection: 'keep-alive',
+169 silly get     'cf-ray': '8abb2c8e3b5359c4-DEL',
+169 silly get     'cf-cache-status': 'HIT',
+169 silly get     'access-control-allow-origin': '*',
+169 silly get     age: '66',
+169 silly get     'cache-control': 'public, max-age=300',
+169 silly get     etag: 'W/"0bcd9e4408f4be279bca4beaf422b49d"',
+169 silly get     'last-modified': 'Fri, 21 Jul 2023 15:33:08 GMT',
+169 silly get     vary: 'accept-encoding, accept',
+169 silly get     server: 'cloudflare',
+169 silly get     'content-encoding': 'gzip' } ]
+170 verbose get saving lodash-es to /home/deftsoft/.npm/registry.npmjs.org/lodash-es/.cache.json
+171 verbose stack Error: Missing required argument #1
+171 verbose stack     at andLogAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:31:3)
+171 verbose stack     at fetchPackageMetadata (/usr/share/npm/lib/fetch-package-metadata.js:51:22)
+171 verbose stack     at resolveWithNewModule (/usr/share/npm/lib/install/deps.js:456:12)
+171 verbose stack     at /usr/share/npm/lib/install/deps.js:457:7
+171 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+171 verbose stack     at /usr/share/npm/lib/fetch-package-metadata.js:37:12
+171 verbose stack     at addRequestedAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:82:5)
+171 verbose stack     at returnAndAddMetadata (/usr/share/npm/lib/fetch-package-metadata.js:117:7)
+171 verbose stack     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:134:20)
+171 verbose stack     at /usr/share/npm/node_modules/iferr/index.js:13:50
+172 verbose cwd /home/deftsoft/Desktop/sanchit/Deftsoft
+173 error Linux 5.4.0-150-generic
+174 error argv "/usr/bin/node" "/usr/bin/npm" "i" "react-color"
+175 error node v8.10.0
+176 error npm  v3.5.2
+177 error code EMISSINGARG
+178 error typeerror Error: Missing required argument #1
+178 error typeerror     at andLogAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:31:3)
+178 error typeerror     at fetchPackageMetadata (/usr/share/npm/lib/fetch-package-metadata.js:51:22)
+178 error typeerror     at resolveWithNewModule (/usr/share/npm/lib/install/deps.js:456:12)
+178 error typeerror     at /usr/share/npm/lib/install/deps.js:457:7
+178 error typeerror     at /usr/share/npm/node_modules/iferr/index.js:13:50
+178 error typeerror     at /usr/share/npm/lib/fetch-package-metadata.js:37:12
+178 error typeerror     at addRequestedAndFinish (/usr/share/npm/lib/fetch-package-metadata.js:82:5)
+178 error typeerror     at returnAndAddMetadata (/usr/share/npm/lib/fetch-package-metadata.js:117:7)
+178 error typeerror     at pickVersionFromRegistryDocument (/usr/share/npm/lib/fetch-package-metadata.js:134:20)
+178 error typeerror     at /usr/share/npm/node_modules/iferr/index.js:13:50
+179 error typeerror This is an error with npm itself. Please report this error at:
+179 error typeerror     <http://github.com/npm/npm/issues>
+180 verbose exit [ 1, true ]
