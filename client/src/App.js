@@ -5,11 +5,12 @@ import TL from "./view/TL";
 import Admin from "./view/Admin";
 import PM from "./view/PM";
 import Employee from "./view/Employee";
-import Dashboard from "./employeeComp/pages/Dashboard";
-import Task from "./employeeComp/pages/Task";
-import TODO from "./employeeComp/pages/TODO";
-import Leaves from "./employeeComp/pages/Leaves";
-import CalendarTodo from "./employeeComp/pages/CalenderTodo";
+import {Dashboard} from "./Employee/EmpPages/Dashboard";
+import { Task } from "./Employee/EmpPages/Task";
+import {Todo} from "./Employee/EmpPages/Todo";
+import {Leaves} from "./Employee/EmpPages/Leaves";
+import {Calendar} from "./Employee/EmpPages/Calendar";
+
 
 const App = () => {
   return (
@@ -23,12 +24,12 @@ const App = () => {
           <Route path="" element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="task" element={<Task />} />
-          <Route path="todo" element={<TODO />} />
+          <Route path="todo" element={<Todo />} />
           <Route path="leaves" element={<Leaves />} />
-          <Route path="calender" element={<CalendarTodo />} />
+          <Route path="calender" element={<Calendar />} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 };
 
