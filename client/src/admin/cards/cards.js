@@ -1,5 +1,5 @@
 import React from 'react';
-import {CardsData} from "../Data.js";
+import {CardsData} from "../../store/Data.js";
 import Card from '../cardComp/Card.jsx';
 
 function Cards() {
