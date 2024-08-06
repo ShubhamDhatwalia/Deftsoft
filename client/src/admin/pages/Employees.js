@@ -4,6 +4,7 @@ import CreateEmployee from "../CreateEmployee";
 import EmployeeList from "../EmployeeList";
 import EMgraph from "../EMgraph";
 import EmployeeDetailsModal from "../EmployeeDetailsModal";
+import ConfirmationDialog from "../ConfirmationDialog";
 
 function Employees() {
   const [employees, setEmployees] = useState([]);
@@ -11,6 +12,8 @@ function Employees() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
+  const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
   const addEmployee = (employee) => {
     setEmployees([...employees, employee]);
@@ -28,13 +31,18 @@ function Employees() {
     setSelectedEmployee(null);
   };
 
-  const deleteEmployee = (index) => {
-    if (window.confirm("Are you sure you want to delete this employee?")) {
-      const employee = employees[index];
+  const openConfirmDialog = (employee, index) => {
+    setEmployeeToDelete({ employee, index });
+    setIsConfirmDialogOpen(true);
+  };
+
+  const handleDelete = () => {
+    if (employeeToDelete) {
+      const { employee, index } = employeeToDelete;
       setEmployees(employees.filter((_, i) => i !== index));
-      toast.success(
-        `Deleted employee: ${employee.firstName}`
-      );
+      toast.success(`Deleted employee: ${employee.firstName}`);
+      setIsConfirmDialogOpen(false);
+      setEmployeeToDelete(null);
     }
   };
 
@@ -66,7 +74,7 @@ function Employees() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4 py-7   mx-4">
+      <div className="flex flex-wrap justify-center gap-4 py-7 mx-4">
         <div className="flex-2 bg-blue-50 rounded-xl pt-2 h-[80vh] flex flex-col">
           <h4 className="text-xl text-slate-600 font-bold text-center mb-6">
             Employees Details
@@ -84,13 +92,13 @@ function Employees() {
           <div className="employee-list-container mt-4 rounded-xl flex-1 overflow-y-auto">
             <EmployeeList
               employees={filteredEmployees}
-              deleteEmployee={deleteEmployee}
+              deleteEmployee={(index) => openConfirmDialog(employees[index], index)}
               onEdit={handleEdit}
               openDetailsModal={openDetailsModal}
             />
           </div>
         </div>
-        <div className="flex-1  rounded-xl ">
+        <div className="flex-1 rounded-xl">
           <EMgraph />
         </div>
       </div>
@@ -99,6 +107,12 @@ function Employees() {
         employee={selectedEmployee}
         isOpen={isDetailsModalOpen}
         onClose={closeDetailsModal}
+      />
+      <ConfirmationDialog
+        isOpen={isConfirmDialogOpen}
+        onClose={() => setIsConfirmDialogOpen(false)}
+        onConfirm={handleDelete}
+        message="Are you sure you want to delete this employee?"
       />
     </>
   );
