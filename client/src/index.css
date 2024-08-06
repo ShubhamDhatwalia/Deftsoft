@@ -8,6 +8,7 @@
 }
 
 
+
 .employee-list {
   max-height: calc(80vh - 3rem); /* Adjust the value based on your design */
   overflow-y: auto;

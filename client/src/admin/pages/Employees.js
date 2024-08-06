@@ -33,7 +33,7 @@ function Employees() {
       const employee = employees[index];
       setEmployees(employees.filter((_, i) => i !== index));
       toast.success(
-        `Deleted employee: ${employee.firstName} ${employee.lastName}`
+        `Deleted employee: ${employee.firstName}`
       );
     }
   };

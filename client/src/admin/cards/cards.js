@@ -17,6 +17,7 @@ function Cards() {
                 icon={card.icon}
                 series={card.series}
                 background={card.background}
+                chartOptions={card.chartOptions}
                 />
 
             </div>

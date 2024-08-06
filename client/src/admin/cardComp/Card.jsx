@@ -113,53 +113,53 @@ function ExpandedCard({ param, setExpanded }) {
     };
   }, []);
 
-  const data = {
-    options:{
-      chart:{
-        type: "area",
-        height: "auto",
-      },
+  // const data = {
+  //   options:{
+  //     chart:{
+  //       type: "area",
+  //       height: "auto",
+  //     },
 
-      dropShadow:{
-        enable: false,
-        enabledOnSeries: undefined,
-        top: 0,
-        left: 0,
-        blur: 3,
-        color: "#000",
-        opacity: 0.35,
-      },
+  //     dropShadow:{
+  //       enable: false,
+  //       enabledOnSeries: undefined,
+  //       top: 0,
+  //       left: 0,
+  //       blur: 3,
+  //       color: "#000",
+  //       opacity: 0.35,
+  //     },
 
-      fill: {
-        colors: ["#fff"],
-        type: "gradient",
-      },
+  //     fill: {
+  //       colors: ["#fff"],
+  //       type: "gradient",
+  //     },
 
-      datalabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
-        colors: ["white"],
-      },
+  //     datalabels: {
+  //       enabled: false,
+  //     },
+  //     stroke: {
+  //       curve: "smooth",
+  //       colors: ["white"],
+  //     },
 
-      tooltip: {
-        x: {
-          format: "dd/MM/yy HH:mm",
-        },
-      },
+  //     tooltip: {
+  //       x: {
+  //         format: "dd/MM/yy HH:mm",
+  //       },
+  //     },
 
-      grid: {
-        show: false,
-      },
-    }
-  }
+  //     grid: {
+  //       show: false,
+  //     },
+  //   }
+  // }
 
   return (
     <>
       <motion.div
         ref={cardRef}
-        className={`ExpandCard flex flex-col left-56 justify-between items-center ${param.background} p-4 rounded-xl drop-shadow-lg absolute z-10 w-[60vw] h-[70vh]`}
+        className={`ExpandCard flex flex-col left-56 right-28 justify-between items-center ${param.background} p-4 rounded-xl drop-shadow-lg absolute z-10 w-[60vw] h-[70vh]`}
         layoutId={`expandableCard-${param.title}`}
       >
         <div className="flex justify-end w-full">
@@ -167,7 +167,7 @@ function ExpandedCard({ param, setExpanded }) {
         </div>
         <span className="text-2xl font-bold mb-5">{param.title}</span>
         <div className="chart-container w-full h-full">
-          <Chart series={param.series} type='area' options={data.options} height="90%" width="90%" />
+          <Chart series={param.series} type={param.chartOptions.chart.type} options={param.chartOptions} height="100%" width="100%" />
         </div>
       </motion.div>
     </>

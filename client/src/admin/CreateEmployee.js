@@ -61,6 +61,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
       ...formData,
       [name]: value,
     });
+    console.log(name, value); // Added for debugging
   };
 
   const handleSubmit = (event) => {
