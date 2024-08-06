@@ -9,7 +9,7 @@ import Employee from "./view/Employee";
 //  pm imports
 
 import PMDashboard from './projectManager/Pm-components/Dashboard';
-// import PMcalender from './projectManager/Pm-components/Calender';
+import PMCalendar from './projectManager/Pm-components/calendar';
 import PMLeaves from './projectManager/Pm-components/Leaves';
 import PMTeam from './projectManager/Pm-components/Team';
 import PMProjects from './projectManager/Pm-components/Projects';
@@ -67,7 +67,7 @@ const App = () => {
           <Route path="task" element={<PMProjects />} />
           <Route path="todo" element={<PMTeam />} />
           <Route path="leaves" element={<PMLeaves />} />
-          {/* <Route path="calender" element={<PMcalender />} /> */}
+          <Route path="calender" element={<PMCalendar />} />
         </Route>
 
         <Route path="/employee" element={<Employee />}>

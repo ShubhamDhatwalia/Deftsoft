@@ -1,8 +1,13 @@
 import React from 'react'
 
+import ProjectSummary from './projectSummary';
+
 function PMProjects() {
   return (
-    <div>Projects</div>
+    <>
+      <ProjectSummary />
+    </>
+    
   )
 }
 
