@@ -1,11 +1,11 @@
 import React from "react";
-import Navigation from '../components/Navigation';
-import DashboardPM from "../projectManagerComponents/dashboard";
+import Home from "../projectManager/Home/home";
+import PMDashboard from "../projectManager/Pm-components/Dashboard";
+
 const PM = () => {
   return (
     <>
-      <Navigation></Navigation>
-      <DashboardPM></DashboardPM> 
+    <Home/>
     </>
   );
 };
