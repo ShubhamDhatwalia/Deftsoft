@@ -1,5 +1,5 @@
 import React from 'react'
-import {Inject, ScheduleComponent, ViewsDirective, Day, Week, Year,   Month, Agenda} from "@syncfusion/ej2-react-schedule"
+import {Inject, ScheduleComponent, ViewsDirective, Day, Week, Month ,Year, Agenda} from "@syncfusion/ej2-react-schedule"
 const data = [{
   Id: 1,
   Subject: "Sales Representation",
