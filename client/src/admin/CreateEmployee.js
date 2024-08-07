@@ -1,13 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment';
 
-
 function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee, setSelectedEmployee, searchQuery, onSearchChange }) {
-  const [startDate, setStartDate] = useState(null);
+  const [startDate, setStartDate] = useState('');
   const [imageSrc, setImageSrc] = useState("");
   const [formData, setFormData] = useState({
     firstName: '',
@@ -16,7 +13,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
     email: '',
     designation: '',
     address: '',
-    id: '',
+    userId: '',
     join: '',
     education: ""
   });
@@ -26,7 +23,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
     console.log("Selected employee:", selectedEmployee);
     if (selectedEmployee) {
       setFormData(selectedEmployee);
-      setStartDate(new Date(selectedEmployee.startDate));
+      setStartDate(selectedEmployee.join ? moment(selectedEmployee.join).format("YYYY-MM-DD") : '');
       setImageSrc(selectedEmployee.imageSrc || "");
     } else {
       setFormData({
@@ -37,9 +34,9 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
         designation: '',
         address: '',
         education: "",
-        join: moment(startDate).format("YYYY-MM-DD"),
+        join: startDate ? moment(startDate).format("YYYY-MM-DD") : '',
       });
-      setStartDate(null);
+      setStartDate('');
       setImageSrc("");
     }
   }, [selectedEmployee, isModalOpen]);
@@ -64,15 +61,19 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
       ...formData,
       [name]: value,
     });
+    if (name === 'join') {
+      setStartDate(value);
+    }
     console.log(name, value); // Added for debugging
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formattedDate = startDate || '';
     if (selectedEmployee) {
-      updateEmployee({ ...formData, imageSrc, startDate });
+      updateEmployee({ ...formData, imageSrc, join: formattedDate });
     } else {
-      addEmployee({ ...formData, imageSrc, startDate });
+      addEmployee({ ...formData, imageSrc, join: formattedDate });
     }
     setIsModalOpen(false);
   };
@@ -85,7 +86,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
     <>
       <div className="create-component">
         <div className="flex flex-wrap justify-center gap-3 px-3 ">
-        <button
+          <button
             className="flex text-gray-700 text-lg py-2 pr-2 items-center font-bold gap-4 rounded-xl hover:bg-green-400 bg-blue-300"
             onClick={() => {
               setIsModalOpen(true);
@@ -182,16 +183,18 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                       required
                       className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
                     />
-                    <DatePicker
-                      selected={startDate}
-                      required
-                      onChange={(date) => setStartDate(date)}
-                      placeholderText="Date of joining"
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
-                      showYearDropdown
-                      showMonthDropdown
-                      dropdownMode="select"
-                    />
+                    
+                      
+                      <input
+                        type="date"
+                        id="startDate"
+                        name="join"
+                        value={startDate}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                      />
+                    
                   </div>
 
                   <div className="flex gap-2">

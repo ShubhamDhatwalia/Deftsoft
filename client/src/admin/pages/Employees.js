@@ -6,8 +6,6 @@ import EMgraph from "../EMgraph";
 import EmployeeDetailsModal from "../EmployeeDetailsModal";
 import ConfirmationDialog from "../ConfirmationDialog";
 import { INITIAL_EMPLOYEES } from "../../store/Data";
-import { v4 as uuidv4 } from 'uuid';
-
 
 function Employees() {
   const [employees, setEmployees] = useState(INITIAL_EMPLOYEES);
@@ -18,23 +16,36 @@ function Employees() {
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
+  const generateEmployeeId = (joinDate) => {
+    const year = new Date(joinDate).getFullYear();
+    const nthEmployee = (employees.length + 1).toString().padStart(2, '0');
+    return `DS-${year}${nthEmployee}`;
+  };
+
+  const generatePassword = (firstName, joinDate) => {
+    const year = new Date(joinDate).getFullYear();
+    const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    return `${capitalizedFirstName}@${year}`;
+  };
+
   const addEmployee = (employee) => {
-    const newEmployee = { ...employee, id: uuidv4() }; // Generate unique ID
+    const employeeId = generateEmployeeId(employee.join);
+    const password = generatePassword(employee.firstName, employee.join); // Generate password based on first name and year of joining
+    const newEmployee = { ...employee, userId: employeeId, password }; 
     setEmployees([...employees, newEmployee]);
     toast.success("Employee added successfully!");
   };
-  
+
   const updateEmployee = (updatedEmployee) => {
     setEmployees(
       employees.map((emp) =>
-        emp.email === updatedEmployee.email ? { ...updatedEmployee, id: emp.id } : emp
+        emp.email === updatedEmployee.email ? { ...updatedEmployee, userId: emp.userId } : emp
       )
     );
     toast.success("Employee updated successfully!");
     setIsModalOpen(false);
     setSelectedEmployee(null);
   };
-  
 
   const openConfirmDialog = (employee, index) => {
     setEmployeeToDelete({ employee, index });
@@ -43,9 +54,9 @@ function Employees() {
 
   const handleDelete = () => {
     if (employeeToDelete) {
-      const { employee, index } = employeeToDelete;
+      const { index } = employeeToDelete;
       setEmployees(employees.filter((_, i) => i !== index));
-      toast.success(`Deleted employee: ${employee.firstName}`);
+      toast.success(`Deleted employee: ${employeeToDelete.employee.firstName}`);
       setIsConfirmDialogOpen(false);
       setEmployeeToDelete(null);
     }
@@ -118,7 +129,7 @@ function Employees() {
         isOpen={isConfirmDialogOpen}
         onClose={() => setIsConfirmDialogOpen(false)}
         onConfirm={handleDelete}
-        message="Are you sure you want to delete this employee?"
+        message={`Are you sure you want to delete ${employeeToDelete?.employee?.firstName}?`}
       />
     </>
   );

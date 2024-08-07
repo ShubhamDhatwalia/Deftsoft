@@ -38,7 +38,7 @@ function EmployeeDetailsModal({ employee, isOpen, onClose }) {
               </strong>
             </p>
             <p className="bg-blue-200 rounded-xl px-3 py-2 w-full ">
-              <strong>ID: </strong> {employee.id}
+              <strong>ID: </strong> {employee.userId}
             </p>
           </div>
 

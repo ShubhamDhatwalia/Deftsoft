@@ -12,7 +12,7 @@ const ConfirmationDialog = ({ isOpen, onClose, onConfirm, message }) => {
       exit={{ opacity: 0 }}
     >
       <div className="bg-white p-6 rounded-lg shadow-lg ">
-        <p className="text-lg text-blue-700 font-medium mb-6">{message}</p>
+        <p className="text-lg font-medium mb-6">{message}</p>
         <div className="flex justify-end gap-4">
           <button
             onClick={onClose}

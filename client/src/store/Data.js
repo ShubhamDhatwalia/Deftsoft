@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const INITIAL_EMPLOYEES = [
   {
-    id: uuidv4(),
+    userId: uuidv4(),
     firstName: "Shubham",
     lastName: "Dhatwalia",
     email: "shubhamdhatwalia1@gmail.com",
@@ -23,73 +23,73 @@ export const INITIAL_EMPLOYEES = [
   },
 
   {
-    id: uuidv4(),
+    userId: uuidv4(),
     firstName: "Rohan",
     lastName: "Sharma",
     email: "rohan@gmail.com",
     mobile: '7876054918',
     designation: 'Developer',
     address: 'evbjd vnd,m,s v,.m',
-    join: '2024/08/06',
+    join: moment().format("2024-08-06"),
     education: "Graduate"
   },
 
   {
-    id: uuidv4(),
+    userId: uuidv4(),
     firstName: "Ajay",
     lastName: "Kumar",
     email: "ajay@gmail.com",
     mobile: '7876054918',
     designation: 'Developer',
     address: 'evbjd vnd,m,s v,.m',
-    join: '',
+    join: moment().format("2024-08-06"),
     education: "Graduate"
   },
 
   {
-    id: uuidv4(),
+    userId: uuidv4(),
     firstName: "Manish",
     lastName: "Kumar",
     email: "manish@gmail.com",
     mobile: '7876054918',
     designation: 'Developer',
     address: 'evbjd vnd,m,s v,.m',
-    join: '',
+    join: moment().format("2024-08-06"),
     education: "Graduate"
   },
 
   {
-    id: uuidv4(),
+    userId: uuidv4(),
     firstName: "Abhishek",
     lastName: "Choudhary",
     email: "abhishek@gmail.com",
     mobile: '7876054918',
     designation: 'Developer',
     address: 'evbjd vnd,m,s v,.m',
-    join: '',
+    join: moment().format("2024-08-06"),
     education: "Graduate"
   },
 
   {
-    id: uuidv4(),
+    userId: uuidv4(),
     firstName: "Neeraj",
     lastName: "Kumar",
     email: "neeraj@gmail.com",
     mobile: '7876054918',
     designation: 'Developer',
     address: 'evbjd vnd,m,s v,.m',
-    join: '',
+    join: moment().format("2024-08-06"),
     education: "Graduate"
   },
   {
-    id: uuidv4(),
+    userId: uuidv4(),
     firstName: "Pankaj",
     lastName: "Kumar",
     email: "pankaj@gmail.com",
     mobile: '7876054918',
     designation: 'Developer',
     address: 'evbjd vnd,m,s v,.m',
-    join: '',
+    join: moment().format("2024-08-06"),
     education: "Graduate"
   },
 ]
