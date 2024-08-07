@@ -3,6 +3,8 @@ import { FaUserPlus } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import moment from 'moment';
+
 
 function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee, setSelectedEmployee, searchQuery, onSearchChange }) {
   const [startDate, setStartDate] = useState(null);
@@ -21,6 +23,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
   const fileInputRef = useRef(null);
 
   useEffect(() => {
+    console.log("Selected employee:", selectedEmployee);
     if (selectedEmployee) {
       setFormData(selectedEmployee);
       setStartDate(new Date(selectedEmployee.startDate));
@@ -34,7 +37,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
         designation: '',
         address: '',
         education: "",
-        join: new Date().toISOString().split("T")[0],
+        join: moment(startDate).format("YYYY-MM-DD"),
       });
       setStartDate(null);
       setImageSrc("");

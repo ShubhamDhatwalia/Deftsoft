@@ -5,9 +5,12 @@ import EmployeeList from "../EmployeeList";
 import EMgraph from "../EMgraph";
 import EmployeeDetailsModal from "../EmployeeDetailsModal";
 import ConfirmationDialog from "../ConfirmationDialog";
+import { INITIAL_EMPLOYEES } from "../../store/Data";
+import { v4 as uuidv4 } from 'uuid';
+
 
 function Employees() {
-  const [employees, setEmployees] = useState([]);
+  const [employees, setEmployees] = useState(INITIAL_EMPLOYEES);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
@@ -16,20 +19,22 @@ function Employees() {
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
   const addEmployee = (employee) => {
-    setEmployees([...employees, employee]);
+    const newEmployee = { ...employee, id: uuidv4() }; // Generate unique ID
+    setEmployees([...employees, newEmployee]);
     toast.success("Employee added successfully!");
   };
-
+  
   const updateEmployee = (updatedEmployee) => {
     setEmployees(
       employees.map((emp) =>
-        emp.email === updatedEmployee.email ? updatedEmployee : emp
+        emp.email === updatedEmployee.email ? { ...updatedEmployee, id: emp.id } : emp
       )
     );
     toast.success("Employee updated successfully!");
     setIsModalOpen(false);
     setSelectedEmployee(null);
   };
+  
 
   const openConfirmDialog = (employee, index) => {
     setEmployeeToDelete({ employee, index });
@@ -47,6 +52,7 @@ function Employees() {
   };
 
   const handleEdit = (employee) => {
+    console.log("Editing employee:", employee);
     setSelectedEmployee(employee);
     setIsModalOpen(true);
   };

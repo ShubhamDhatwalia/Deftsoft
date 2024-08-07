@@ -1,5 +1,7 @@
 import React from "react";
 import { FaTimes } from "react-icons/fa"; // Import cross icon
+import moment from 'moment';
+
 
 function EmployeeDetailsModal({ employee, isOpen, onClose }) {
   if (!isOpen || !employee) return null;
@@ -57,7 +59,7 @@ function EmployeeDetailsModal({ employee, isOpen, onClose }) {
 
             <p className="bg-blue-200 rounded-xl px-3 py-2 w-full ">
               <strong>Join: </strong>{" "}
-              {employee.startDate ? employee.startDate.toDateString() : "N/A"}
+              {employee.join ? moment(employee.join).format("MMMM D, YYYY") : "N/A"}
             </p>
           </div>
 
