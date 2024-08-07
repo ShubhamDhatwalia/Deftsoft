@@ -18,7 +18,7 @@ function PMDashboard(){
     return(
         <>
             <div className="dashboard w-full ">
-                <div className="container flex w-full border-2 my-3 py-2">
+                <div className="container1 flex w-full border-2 my-3 py-2">
                     <div className="top-box w-7/12 mx-2 flex flex-row w-full">
                         <div className="card-box  w-1/4" >
                             {/* <h2>project details</h2> */}
