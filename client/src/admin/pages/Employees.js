@@ -16,10 +16,21 @@ function Employees() {
   const [isConfirmDialogOpen, setIsConfirmDialogOpen] = useState(false);
   const [employeeToDelete, setEmployeeToDelete] = useState(null);
 
+  // State to keep track of the last used ID number
+  const [lastIdNumber, setLastIdNumber] = useState(() => {
+    // Initialize lastIdNumber based on existing employees
+    const lastEmployee = INITIAL_EMPLOYEES.reduce((max, emp) => {
+      const num = parseInt(emp.userId.split('-')[1].slice(-2), 10);
+      return num > max ? num : max;
+    }, 0);
+    return lastEmployee;
+  });
+
   const generateEmployeeId = (joinDate) => {
     const year = new Date(joinDate).getFullYear();
-    const nthEmployee = (employees.length + 1).toString().padStart(2, '0');
-    return `DS-${year}${nthEmployee}`;
+    const newIdNumber = (lastIdNumber + 1).toString().padStart(2, '0');
+    setLastIdNumber(lastIdNumber + 1); // Update lastIdNumber
+    return `DS-${year}${newIdNumber}`;
   };
 
   const generatePassword = (firstName, joinDate) => {
@@ -31,7 +42,7 @@ function Employees() {
   const addEmployee = (employee) => {
     const employeeId = generateEmployeeId(employee.join);
     const password = generatePassword(employee.firstName, employee.join); // Generate password based on first name and year of joining
-    const newEmployee = { ...employee, userId: employeeId, password }; 
+    const newEmployee = { ...employee, userId: employeeId, password };
     setEmployees([...employees, newEmployee]);
     toast.success("Employee added successfully!");
   };
@@ -92,7 +103,7 @@ function Employees() {
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4 py-7 mx-4">
-        <div className="flex-2 bg-blue-50 rounded-xl pt-2 h-[80vh] flex flex-col">
+        <div className="flex-2 bg-blue-50 rounded-2xl pt-2 h-[84vh] flex flex-col">
           <h4 className="text-xl text-slate-600 font-bold text-center mb-6">
             Employees Details
           </h4>
@@ -106,7 +117,7 @@ function Employees() {
             searchQuery={searchQuery}
             onSearchChange={handleSearchChange}
           />
-          <div className="employee-list-container mt-4 rounded-xl flex-1 overflow-y-auto">
+          <div className="employee-list-container mt-4 rounded-xl flex-1 overflow-y-auto custom-scrollbar">
             <EmployeeList
               employees={filteredEmployees}
               deleteEmployee={(index) => openConfirmDialog(employees[index], index)}

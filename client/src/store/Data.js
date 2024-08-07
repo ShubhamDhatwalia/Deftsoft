@@ -3,7 +3,7 @@ import { FaUsers } from "react-icons/fa6";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { FaBusinessTime } from "react-icons/fa6";
 import moment from "moment/moment";
-import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const INITIAL_EMPLOYEES = [
   {
-    userId: uuidv4(),
+    userId: "DS-202401",
     firstName: "Shubham",
     lastName: "Dhatwalia",
     email: "shubhamdhatwalia1@gmail.com",
@@ -23,7 +23,7 @@ export const INITIAL_EMPLOYEES = [
   },
 
   {
-    userId: uuidv4(),
+    userId: "DS-202402",
     firstName: "Rohan",
     lastName: "Sharma",
     email: "rohan@gmail.com",
@@ -35,7 +35,7 @@ export const INITIAL_EMPLOYEES = [
   },
 
   {
-    userId: uuidv4(),
+    userId: "DS-202403",
     firstName: "Ajay",
     lastName: "Kumar",
     email: "ajay@gmail.com",
@@ -47,7 +47,7 @@ export const INITIAL_EMPLOYEES = [
   },
 
   {
-    userId: uuidv4(),
+    userId: "DS-202404",
     firstName: "Manish",
     lastName: "Kumar",
     email: "manish@gmail.com",
@@ -59,7 +59,7 @@ export const INITIAL_EMPLOYEES = [
   },
 
   {
-    userId: uuidv4(),
+    userId: "DS-202405",
     firstName: "Abhishek",
     lastName: "Choudhary",
     email: "abhishek@gmail.com",
@@ -71,7 +71,7 @@ export const INITIAL_EMPLOYEES = [
   },
 
   {
-    userId: uuidv4(),
+    userId: "DS-202406",
     firstName: "Neeraj",
     lastName: "Kumar",
     email: "neeraj@gmail.com",
@@ -82,7 +82,7 @@ export const INITIAL_EMPLOYEES = [
     education: "Graduate"
   },
   {
-    userId: uuidv4(),
+    userId: "DS-202407",
     firstName: "Pankaj",
     lastName: "Kumar",
     email: "pankaj@gmail.com",

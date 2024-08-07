@@ -98,18 +98,20 @@
 
   /* styles.css */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 12px; /* Width of the entire scrollbar */
+  width: 9px; /* Width of the entire scrollbar */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the track */
+  background: #999595; /* Color of the track */
   border-radius: 10px;
+  
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #c7ccf1; /* Color of the thumb */
+  background-color: #9da5df; /* Color of the thumb */
   border-radius: 10px; /* Roundness of the thumb */
-  border: 3px solid #f1f1f1; /* Padding around thumb */
+  border: 0px solid #f1f1f1; /* Padding around thumb */
+  
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
