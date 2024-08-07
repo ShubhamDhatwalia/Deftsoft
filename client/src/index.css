@@ -8,6 +8,9 @@
 }
 
 
+.fc .fc-daygrid-body-balanced .fc-daygrid-day-events {
+  position: relative !important;
+}
 
 
 

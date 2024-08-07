@@ -8,7 +8,7 @@ function EmployeeList({ employees, deleteEmployee, onEdit, openDetailsModal }) {
   const [visibleIcons, setVisibleIcons] = useState(null);
 
   return (
-    <div className="employee-list mt-5  rounded-xl overflow-y-auto">
+    <div className="employee-list mt-5  rounded-xl overflow-y-auto ">
       {employees.map((employee, index) => (
         <div
           key={index}

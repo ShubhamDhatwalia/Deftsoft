@@ -34,7 +34,7 @@ function Calender() {
 
   return (
     <>
-      <div className="calendar-container mx-5 p-4 bg-blue-50 my-7 h-[80vh] ">
+      <div className="calendar-container mx-5 p-4 my-1 h-[90vh] w-[70vw]">
         <div className="fullcalendar-wrapper h-full">
           <FullCalendar
             plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
