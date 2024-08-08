@@ -22,7 +22,7 @@ function EventModal({ isOpen, onClose, onSave }) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Enter event title"
-          className=" border-2 border-slate-100 bg-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 mb-4  rounded-xl px-4 text-lg pr-10 h-10"
+          className=" border-2 border-slate-200 bg-slate-200 hover:border-blue-200 cursor-pointer focus:outline-blue-200 mb-4  rounded-xl px-4 text-lg pr-10 h-10"
         />
         <div className="flex justify-between">
           <button
