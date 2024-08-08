@@ -20,7 +20,7 @@ import PMProjects from './projectManager/Pm-components/Projects';
 import Dashboard from "./admin/pages/Dashboard";
 import Employees from "./admin/pages/Employees";
 import Leaves from "./admin/pages/Leaves";
-import Projects from "./admin/pages/Projects";
+// import Projects from "./admin/pages/Projects";
 import Calender from "./admin/pages/Calender";
 
 import EmDashboard from "./employeeComp/pages/Dashboard";
@@ -54,8 +54,8 @@ const App = () => {
         <Route path="/admin" element={<Admin />}>
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<Dashboard />} />
-          <Route path="task" element={<Projects />} />
-          <Route path="todo" element={<Employees />} />
+          {/* <Route path="task" element={<Projects />} /> */}
+          <Route path="employees" element={<Employees />} />
           <Route path="leaves" element={<Leaves />} />
           <Route path="calender" element={<Calender />} />
         </Route>

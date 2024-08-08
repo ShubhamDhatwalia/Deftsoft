@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import Cards from '../cards/cards';
+
 
 function Dashboard() {
+ 
   return (
-    <div>Dashboard</div>
-  )
+    <>
+      <Cards/>
+    </>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

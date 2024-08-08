@@ -1,3 +1,117 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+.fc .fc-daygrid-body-balanced .fc-daygrid-day-events {
+  position: relative !important;
+}
+
+
+
+.employee-list {
+  max-height: calc(80vh - 3rem); /* Adjust the value based on your design */
+  overflow-y: auto;
+}
+
+/* @media (min-width: 1380px) {
+  .card{
+    width: 22%;
+  }
+ 
+} */
+
+@media (max-width: 1159px) {
+    .chart{
+      width: 80vw;
+    }
+   
+  }
+
+
+@media (max-width: 639px) {
+    .sidebar {
+      display: none;
+    }
+    .ExpandCard{
+      left: 30px;
+      width: 80vw;
+    }
+   
+  }
+
+  @media (max-width: 540px) {
+    .employee-details-input{
+      width: 85vw;
+  }
+  }
+
+  @media (min-width: 639px) {
+    .MobileSidebar{
+      display: none;
+    }
+    .nav-toggle{
+      display: none;
+    }
+  }
+
+  @media (max-width: 449px) {
+    .model-form-items{
+        flex-direction: column;
+    }
+    .employee-details-input{
+        width: 265px;
+    }
+   
+  }
+
+  @media (max-width: 380px) {
+    .employee-details-input{
+        width: 205px;
+    }
+    .nav-btn{
+      gap: 2px;
+    }
+    .nav-logo{
+      width: 100px;
+    }
+    .logout-icon{
+      display: none;
+    }
+    .show-profile{
+      right: 0px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .employee-details-input{
+        width: 140px;
+    }
+  
+  }
+
+
+  /* styles.css */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px; /* Width of the entire scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #c7ccf1; /* Color of the thumb */
+  border-radius: 10px; /* Roundness of the thumb */
+  border: 3px solid #f1f1f1; /* Padding around thumb */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #aab1ee; /* Color of the thumb on hover */
+}
