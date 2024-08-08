@@ -12,13 +12,11 @@
 .fc .fc-daygrid-body-balanced .fc-daygrid-day-events {
   position: relative !important;
 }
-.fc-daygrid-day-frame:hover {
+/* .fc-daygrid-day-frame:hover {
   background-color: rgb(249, 225, 253);
-}
+} */
 
-.fc-event-title {
-  color: rgb(19, 127, 250);
-}
+
 
 .fc-event-time {
   font-weight: 600;
@@ -28,14 +26,13 @@
   color: rgb(238, 69, 69);
 }
 
-.fc-h-event{
-  background: none;
-  border: none;
-  font-weight: 600;
-  font-size:small;
+
+
+.fc-daygrid-event-harness :hover{
+  background-color: rgb(202, 201, 201);
+  border-radius: 4px !important;
+  
 }
-
-
 
 .employee-list {
   max-height: calc(80vh - 3rem); /* Adjust the value based on your design */
