@@ -102,9 +102,9 @@ function Employees() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4 py-7 mx-4">
-        <div className="flex-2 bg-blue-50 rounded-2xl pt-2 h-[84vh] flex flex-col">
-          <h4 className="text-xl text-slate-600 font-bold text-center mb-6">
+      <div className="flex flex-wrap justify-center gap-4 pt-7 pb-4 mx-4">
+        <div className="flex-2 bg-blue-50 rounded-2xl pt-2 h-[81vh] flex flex-col">
+          <h4 className="text-xl text-slate-600 font-bold text-center mb-4">
             Employees Details
           </h4>
           <CreateEmployee
