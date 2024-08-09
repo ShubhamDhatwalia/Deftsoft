@@ -22,7 +22,7 @@ function Calender() {
     setIsModalOpen(true);
   };
 
-  const handleSaveEvent = (title, description) => {
+  const handleSaveEvent = (title, description, location) => { // Add location parameter
     if (selectInfo) {
       let calendarApi = calendarRef.current.getApi();
 
@@ -37,7 +37,7 @@ function Calender() {
           allDay: selectInfo.allDay,
           extendedProps: {
             description,
-            location: "Sample Location", // You can change or add location dynamically
+            location: location || "No location", // Ensure location is set
           },
         };
 
@@ -52,15 +52,15 @@ function Calender() {
     const { title, start, end, extendedProps } = event;
 
     const content = `
-      <div class="tooltip-content max-w-xs ">
+      <div class="tooltip-content max-w-xs">
         <div class="tooltip-title text-center font-bold text-lg mb-1 break-words">${title}</div>
-        <div class="tooltip-description text-sm  break-words">
+        <div class="tooltip-description text-sm font-semibold break-words">
           ${extendedProps.description || "No description"}
         </div>
-        <div class="tooltip-location text-sm font-semibold  break-words">
+        <div class="tooltip-location text-sm font-bold mb-1 break-words">
           ${extendedProps.location || "No location"}
         </div>
-        <div class="tooltip-time text-sm mb-2">
+        <div class="tooltip-time text-sm font-semibold mb-2">
           <strong>Start:</strong> ${start.toLocaleString()}<br>
           <strong>End:</strong> ${end ? end.toLocaleString() : "No end time"}
         </div>
@@ -93,7 +93,7 @@ function Calender() {
 
   return (
     <>
-      <div className="calendar-container mx-5 p-4 h-[90vh] w-[70vw]">
+      <div className="calendar-container mx-5 mt-4 p-4 h-[85vh] w-[90%]">
         <div className="fullcalendar-wrapper h-full">
           <FullCalendar
             ref={calendarRef}
@@ -109,7 +109,6 @@ function Calender() {
               right: "dayGridMonth,timeGridWeek,listMonth",
             }}
             allDaySlot={true}
-            
             initialView="dayGridMonth"
             slotDuration="00:30:00"
             editable={true}

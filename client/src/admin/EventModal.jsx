@@ -7,7 +7,7 @@ function EventModal({ isOpen, onClose, onSave }) {
 
   const handleSave = () => {
     if (title) {
-      onSave(title, description, location);
+      onSave(title, description, location); // Pass location to onSave
       setTitle("");
       setDescription("");
       setLocation("");
@@ -41,7 +41,7 @@ function EventModal({ isOpen, onClose, onSave }) {
             type="text"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            placeholder="location"
+            placeholder="Enter event location"
             className="border-2 border-blue-100 bg-blue-100 hover:border-blue-400 cursor-pointer focus:outline-blue-400 mb-2 rounded-xl px-4 text-lg pr-10 h-10"
           />
           <div className="flex justify-between">
