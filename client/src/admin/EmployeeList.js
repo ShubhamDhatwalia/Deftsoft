@@ -34,7 +34,7 @@ function EmployeeList({ employees, deleteEmployee, onEdit, openDetailsModal }) {
             />
 
             <div
-              className={`icons-container absolute right-6 -bottom-1 bg-yellow-400 drop-shadow-lg rounded-xl px-2 flex gap-1 z-10 transition-all duration-300 ${
+              className={`icons-container absolute right-6 -bottom-1 bg-yellow-400  rounded-xl px-2 flex gap-1 z-10 transition-all duration-300 ${
                 visibleIcons === index
                   ? "opacity-100 w-[123px]"
                   : "opacity-0 w-0"

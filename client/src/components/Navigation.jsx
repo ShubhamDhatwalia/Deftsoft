@@ -34,7 +34,7 @@ const Navigation = () => {
   return (
     <>
       <div className="h-[50px]">
-        <nav className="flex fixed bg-white top-0  items-center w-full shadow-md border-b-[1px] justify-between z-50">
+        <nav className="flex fixed bg-white top-0  items-center w-full  border-b-[1px] justify-between z-50">
           <LuMenu
             size={25}
             className="nav-toggle ml-3 cursor-pointer"

@@ -114,7 +114,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-4 rounded-lg max-h-[90vh] overflow-y-auto">
+          <div className="bg-white p-4 rounded-lg max-h-[90vh] overflow-y-auto ">
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4">
                 <div className="flex justify-center mb-4">
