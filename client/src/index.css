@@ -9,6 +9,20 @@
 
 /* ------------- Calendar custom Css -------- */
 
+
+
+/* styles.css */
+.tippy-box[data-theme~='custom'] {
+  background-color: #2facf5; /* Change this to your desired color */
+  color: rgb(41, 40, 40); /* Optional: change text color */
+}
+
+.tippy-box[data-theme~='custom'] .tippy-arrow {
+  color: #2facf5; /* Change this to match the background color */
+}
+
+
+
 .fc .fc-daygrid-body-balanced .fc-daygrid-day-events {
   position: relative !important;
 }
@@ -29,7 +43,7 @@
 
 
 .fc-daygrid-event-harness :hover{
-  background-color: rgb(202, 201, 201);
+  /* background-color: rgb(202, 201, 201); */
   border-radius: 4px !important;
   
 }
