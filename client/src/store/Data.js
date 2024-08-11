@@ -109,34 +109,43 @@ let todayStr = moment().format("YYYY-MM-DD")  // YYYY-MM-DD of today
 export const INITIAL_EVENTS = [
   {
     id: createEventId(),
-    title: 'Lunch Pary',
-    start: todayStr + 'T09:00:00',
+    title: 'Lunch Party',
+    start: todayStr + 'T18:58:00',
+    end: todayStr + 'T10:00:00',
+    description: 'All the employees must be there in the party',
+    location: 'basement',
+    color: '#1d4ed8'
 
   },
   {
     id: createEventId(),
     title: 'Timed event',
-    start: moment(todayStr).add(1, "days").format("YYYY-MM-DD") + 'T16:00:00'
+    start: moment(todayStr).add(1, "days").format("YYYY-MM-DD") + 'T16:00:00',
+    color: '#f43f5e'
   },
   {
     id: createEventId(),
     title: "Head Meetup",
-    start: moment(todayStr).add(2, "days").format("YYYY-MM-DD") + 'T20:00:00'
+    start: moment(todayStr).add(2, "days").format("YYYY-MM-DD") + 'T20:00:00',
+    color: '#c026d3'
   },
   {
     id: createEventId(),
     title: "VC Meeting",
-    start: moment(todayStr).add(3, "days").format("YYYY-MM-DD") + 'T09:00:00'
+    start: moment(todayStr).add(3, "days").format("YYYY-MM-DD") + 'T09:00:00',
+    color: '#22c55e'
   },
   {
     id: createEventId(),
     title: "Payment Shedules",
-    start: moment(todayStr).add(5, "days").format("YYYY-MM-DD") + 'T13:00:00'
+    start: moment(todayStr).add(5, "days").format("YYYY-MM-DD") + 'T13:00:00',
+    color: '#22c55e'
   },
   {
     id: createEventId(),
     title: "VC Meeting",
-    start: moment(todayStr).add(6, "days").format("YYYY-MM-DD") + 'T13:00:00'
+    start: moment(todayStr).add(6, "days").format("YYYY-MM-DD") + 'T13:00:00',
+    color: '#1d4ed8'
   },
 ]
 

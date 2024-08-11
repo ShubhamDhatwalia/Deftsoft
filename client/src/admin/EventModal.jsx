@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+
+const colorOptions = ["#1d4ed8", "#c026d3", "#22c55e", "#f43f5e"]; // Example color options
 
 function EventModal({ isOpen, onClose, onSave }) {
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDescription] = useState("");
+  const [color, setColor] = useState(colorOptions[0]); // Default color
   const [error, setError] = useState("");
+  const titleInputRef = useRef(null); // Ref for the title input
+
+  useEffect(() => {
+    if (isOpen && titleInputRef.current) {
+      titleInputRef.current.focus(); // Focus the title input when modal opens
+    }
+  }, [isOpen]);
 
   const handleTitleChange = (e) => {
     const value = e.target.value;
@@ -14,18 +24,25 @@ function EventModal({ isOpen, onClose, onSave }) {
       setTitle(value);
       setError("");
     } else {
-      setError("Title can only contain up to 30 characters including spaces.");
+      setError("Title can only contain up to 30 alphabets including spaces.");
     }
   };
 
   const handleSave = () => {
-    if (title) {
-      onSave(title, description, location);
-      setTitle("");
-      setDescription("");
-      setLocation("");
-      onClose();
+    if (!title) {
+      setError("Please fill out this field.");
+      return;
     }
+
+    // Clear error if title is valid
+    setError("");
+
+    onSave(title, description, location, color); // Pass color to onSave
+    setTitle("");
+    setDescription("");
+    setLocation("");
+    setColor(colorOptions[0]); // Reset color to default
+    onClose();
   };
 
   if (!isOpen) return null;
@@ -41,6 +58,7 @@ function EventModal({ isOpen, onClose, onSave }) {
           <input
             type="text"
             required
+            ref={titleInputRef} // Attach ref to the title input
             value={title}
             onChange={handleTitleChange}
             placeholder="Enter event title"
@@ -62,6 +80,25 @@ function EventModal({ isOpen, onClose, onSave }) {
             placeholder="Enter event location"
             className="border-2 border-blue-100 bg-blue-100 hover:border-blue-400 cursor-pointer focus:outline-blue-400 mb-2 rounded-xl px-4 text-lg pr-10 h-10"
           />
+          <label className="text-lg font-medium mt-2">Color</label>
+          <div className="flex space-x-2 mb-2">
+            {colorOptions.map((c) => (
+              <label key={c} className="cursor-pointer">
+                <input
+                  type="radio"
+                  name="color"
+                  value={c}
+                  checked={color === c}
+                  onChange={() => setColor(c)}
+                  className="sr-only"
+                />
+                <span
+                  className="block w-8 h-8 rounded-full"
+                  style={{ backgroundColor: c, border: color === c ? "2px solid black" : "3px solid transparent" }}
+                />
+              </label>
+            ))}
+          </div>
           <div className="flex justify-between mt-3">
             <button
               type="button"

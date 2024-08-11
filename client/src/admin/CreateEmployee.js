@@ -33,6 +33,7 @@ function CreateEmployee({
     email: "",
   });
   const fileInputRef = useRef(null);
+  const firstNameInputRef = useRef(null); // Ref for the first name input
 
   useEffect(() => {
     if (selectedEmployee) {
@@ -56,6 +57,12 @@ function CreateEmployee({
       setImageSrc("");
     }
   }, [selectedEmployee, isModalOpen]);
+
+  useEffect(() => {
+    if (isModalOpen && firstNameInputRef.current) {
+      firstNameInputRef.current.focus(); // Focus the first name input when modal opens
+    }
+  }, [isModalOpen]);
 
   const handleImageClick = () => {
     if (fileInputRef.current) {
@@ -194,6 +201,7 @@ function CreateEmployee({
                         value={formData.firstName}
                         onChange={handleInputChange}
                         required
+                        ref={firstNameInputRef} // Attach ref to the first name input
                         className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
                       />
                       {errors.firstName && (

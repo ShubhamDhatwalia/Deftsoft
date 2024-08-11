@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from 'react-dom';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -12,7 +12,6 @@ import tippy from "tippy.js";
 import "tippy.js/dist/tippy.css"; // Import Tippy's default styles;
 import TooltipContent from '../TooltipContent';
 
-
 function Calender() {
   const { currentEvents, setCurrentEvents } = useCalender();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,12 +19,27 @@ function Calender() {
 
   const calendarRef = useRef(null);
 
-  const handleDateSelect = (selectInfo) => {
-    setSelectInfo(selectInfo);
+  // Request Notification Permission
+  useEffect(() => {
+    if (Notification.permission !== "granted") {
+      Notification.requestPermission().then((permission) => {
+        console.log('Notification permission status:', permission);
+      });
+    } else {
+      console.log('Notification permission status:', Notification.permission);
+    }
+  }, []);
+
+  const handleDateSelect = (info) => {
+    console.log('Date selected:', info);
+    setSelectInfo(info);
     setIsModalOpen(true);
   };
 
-  const handleSaveEvent = (title, description, location) => { // Add location parameter
+  const handleSaveEvent = (title, description, location, color) => {
+    console.log('handleSaveEvent called');
+    console.log('selectInfo:', selectInfo);
+
     if (selectInfo) {
       let calendarApi = calendarRef.current.getApi();
 
@@ -38,22 +52,55 @@ function Calender() {
           start: selectInfo.startStr,
           end: selectInfo.endStr,
           allDay: selectInfo.allDay,
+          backgroundColor: color, // Set the event color
+          borderColor: color, // Set border color to match event color
           extendedProps: {
             description,
             location: location || "No location", // Ensure location is set
           },
         };
 
+        console.log('Adding new event:', newEvent);
+
         calendarApi.addEvent(newEvent);
         setCurrentEvents((prevEvents) => [...prevEvents, newEvent]);
+
+        // Set a reminder 10 minutes before the event starts
+        const startTime = new Date(selectInfo.start);
+        const reminderTime = new Date(startTime.getTime() - 10 * 60 * 1000);
+        const currentTime = new Date();
+
+        console.log('Start Time:', startTime);
+        console.log('Reminder Time:', reminderTime);
+        console.log('Current Time:', currentTime);
+
+        const timeUntilReminder = reminderTime.getTime() - currentTime.getTime();
+        console.log('Time until reminder (ms):', timeUntilReminder);
+
+        if (timeUntilReminder > 0) {
+          console.log("Setting timeout for notification");
+          setTimeout(() => {
+            console.log("Timeout triggered");
+            if (Notification.permission === "granted") {
+              console.log("Showing notification");
+              new Notification("Event Reminder", {
+                body: `Your event "${title}" starts in 10 minutes.`,
+              });
+            } else {
+              console.log("Notification permission not granted.");
+            }
+          }, timeUntilReminder);
+        } else {
+          console.log("Reminder time has already passed.");
+        }
       }
     }
   };
 
   const handleEventDidMount = (info) => {
     const { event } = info;
-    const { title, start, end, extendedProps } = event;
-  
+    const { title, start, end, extendedProps, backgroundColor } = event;
+
     const content = (
       <TooltipContent
         title={title}
@@ -63,7 +110,7 @@ function Calender() {
         end={end}
       />
     );
-  
+
     tippy(info.el, {
       content: () => {
         const wrapper = document.createElement('div');
@@ -76,7 +123,12 @@ function Calender() {
       arrow: true,
       allowHTML: true,
     });
+
+    // Set the event color
+    info.el.style.backgroundColor = backgroundColor;
+    info.el.style.borderColor = backgroundColor;
   };
+
   const handleEventClick = (clickInfo) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
       const eventId = clickInfo.event.id;
@@ -93,8 +145,8 @@ function Calender() {
 
   return (
     <>
-      <div className="calendar-container mx-5 mt-4 p-4 h-[85vh] w-[90%]">
-        <div className="fullcalendar-wrapper h-full">
+      <div className="calendar-container flex items-center justify-center mx-auto mt-4 p-4 h-[85vh] w-[90%]">
+        <div className="fullcalendar-wrapper w-full h-full">
           <FullCalendar
             ref={calendarRef}
             plugins={[

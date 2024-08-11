@@ -10,7 +10,7 @@ const TooltipContent = ({ title, description, location, start, end }) => (
       {description || "No description"}
     </div>
     <div className="tooltip-location text-sm font-bold mb-1 break-words flex items-center">
-      <FaLocationDot className="mr-1" />
+      <FaLocationDot className="mr-1 text-red-600" />
       {location || "No location"}
     </div>
     <div className="tooltip-time text-sm font-semibold mb-2">
