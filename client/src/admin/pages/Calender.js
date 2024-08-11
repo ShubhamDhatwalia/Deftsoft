@@ -11,6 +11,7 @@ import EventModal from "../EventModal";
 import tippy from "tippy.js";
 import "tippy.js/dist/tippy.css"; // Import Tippy's default styles;
 import TooltipContent from '../TooltipContent';
+import toast, { Toaster } from 'react-hot-toast'; // Import react-hot-toast
 
 function Calender() {
   const { currentEvents, setCurrentEvents } = useCalender();
@@ -23,22 +24,17 @@ function Calender() {
   useEffect(() => {
     if (Notification.permission !== "granted") {
       Notification.requestPermission().then((permission) => {
-        console.log('Notification permission status:', permission);
       });
-    } else {
-      console.log('Notification permission status:', Notification.permission);
     }
   }, []);
 
   const handleDateSelect = (info) => {
-    console.log('Date selected:', info);
+
     setSelectInfo(info);
     setIsModalOpen(true);
   };
 
   const handleSaveEvent = (title, description, location, color) => {
-    console.log('handleSaveEvent called');
-    console.log('selectInfo:', selectInfo);
 
     if (selectInfo) {
       let calendarApi = calendarRef.current.getApi();
@@ -60,7 +56,6 @@ function Calender() {
           },
         };
 
-        console.log('Adding new event:', newEvent);
 
         calendarApi.addEvent(newEvent);
         setCurrentEvents((prevEvents) => [...prevEvents, newEvent]);
@@ -70,28 +65,27 @@ function Calender() {
         const reminderTime = new Date(startTime.getTime() - 10 * 60 * 1000);
         const currentTime = new Date();
 
-        console.log('Start Time:', startTime);
-        console.log('Reminder Time:', reminderTime);
-        console.log('Current Time:', currentTime);
 
         const timeUntilReminder = reminderTime.getTime() - currentTime.getTime();
-        console.log('Time until reminder (ms):', timeUntilReminder);
+
 
         if (timeUntilReminder > 0) {
-          console.log("Setting timeout for notification");
+
           setTimeout(() => {
-            console.log("Timeout triggered");
             if (Notification.permission === "granted") {
-              console.log("Showing notification");
               new Notification("Event Reminder", {
                 body: `Your event "${title}" starts in 10 minutes.`,
               });
-            } else {
-              console.log("Notification permission not granted.");
             }
+            // Show toast notification
+            toast(`"${title}" starts in 10 minutes.`, {
+              duration: 5000,
+              style: {
+                background: "#fde047",
+                fontWeight: "bold",
+              },
+            });
           }, timeUntilReminder);
-        } else {
-          console.log("Reminder time has already passed.");
         }
       }
     }
@@ -183,6 +177,7 @@ function Calender() {
         onClose={() => setIsModalOpen(false)}
         onSave={handleSaveEvent}
       />
+      <Toaster /> {/* Add the Toaster component for react-hot-toast */}
     </>
   );
 }

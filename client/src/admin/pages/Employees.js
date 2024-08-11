@@ -67,7 +67,7 @@ function Employees() {
     if (employeeToDelete) {
       const { index } = employeeToDelete;
       setEmployees(employees.filter((_, i) => i !== index));
-      toast.success(`Deleted employee: ${employeeToDelete.employee.firstName}`);
+      toast.success(`Deleted employee: ${employeeToDelete.employee.firstName}`,);
       setIsConfirmDialogOpen(false);
       setEmployeeToDelete(null);
     }
