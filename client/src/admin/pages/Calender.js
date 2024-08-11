@@ -74,7 +74,7 @@ function Calender() {
           setTimeout(() => {
             if (Notification.permission === "granted") {
               new Notification("Event Reminder", {
-                body: `Your event "${title}" starts in 10 minutes.`,
+                body: ` "${title}" starts in 10 minutes.`,
               });
             }
             // Show toast notification
@@ -177,7 +177,7 @@ function Calender() {
         onClose={() => setIsModalOpen(false)}
         onSave={handleSaveEvent}
       />
-      <Toaster /> {/* Add the Toaster component for react-hot-toast */}
+      <Toaster /> 
     </>
   );
 }
