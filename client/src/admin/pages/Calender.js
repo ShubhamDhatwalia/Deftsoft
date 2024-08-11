@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import ReactDOM from 'react-dom';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -8,7 +9,9 @@ import useCalender from "../../store/calendar";
 import { createEventId } from "../../store/Data";
 import EventModal from "../EventModal";
 import tippy from "tippy.js";
-import "tippy.js/dist/tippy.css"; // Import Tippy's default styles
+import "tippy.js/dist/tippy.css"; // Import Tippy's default styles;
+import TooltipContent from '../TooltipContent';
+
 
 function Calender() {
   const { currentEvents, setCurrentEvents } = useCalender();
@@ -50,33 +53,30 @@ function Calender() {
   const handleEventDidMount = (info) => {
     const { event } = info;
     const { title, start, end, extendedProps } = event;
-
-    const content = `
-      <div class="tooltip-content max-w-xs">
-        <div class="tooltip-title text-center font-bold text-lg mb-1 break-words">${title}</div>
-        <div class="tooltip-description text-sm font-semibold break-words">
-          ${extendedProps.description || "No description"}
-        </div>
-        <div class="tooltip-location text-sm font-bold mb-1 break-words">
-          ${extendedProps.location || "No location"}
-        </div>
-        <div class="tooltip-time text-sm font-semibold mb-2">
-          <strong>Start:</strong> ${start.toLocaleString()}<br>
-          <strong>End:</strong> ${end ? end.toLocaleString() : "No end time"}
-        </div>
-      </div>
-    `;
-
+  
+    const content = (
+      <TooltipContent
+        title={title}
+        description={extendedProps.description}
+        location={extendedProps.location}
+        start={start}
+        end={end}
+      />
+    );
+  
     tippy(info.el, {
-      content: content,
-      theme: "custom",
-      placement: "top",
-      trigger: "mouseenter",
+      content: () => {
+        const wrapper = document.createElement('div');
+        ReactDOM.render(content, wrapper);
+        return wrapper;
+      },
+      theme: 'custom',
+      placement: 'top',
+      trigger: 'mouseenter',
       arrow: true,
       allowHTML: true,
     });
   };
-
   const handleEventClick = (clickInfo) => {
     if (window.confirm("Are you sure you want to delete this event?")) {
       const eventId = clickInfo.event.id;

@@ -47,6 +47,9 @@
 } */
 
 
+.fc-event-title{
+  text-overflow: ellipsis;
+}
 
 .fc-event-time {
   font-weight: 600;

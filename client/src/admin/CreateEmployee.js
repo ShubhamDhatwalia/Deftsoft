@@ -1,42 +1,58 @@
 import React, { useState, useRef, useEffect } from "react";
 import { FaUserPlus } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
-import moment from 'moment';
+import moment from "moment";
 
-function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOpen, selectedEmployee, setSelectedEmployee, searchQuery, onSearchChange }) {
-  const [startDate, setStartDate] = useState('');
+function CreateEmployee({
+  addEmployee,
+  updateEmployee,
+  isModalOpen,
+  setIsModalOpen,
+  selectedEmployee,
+  setSelectedEmployee,
+  searchQuery,
+  onSearchChange,
+}) {
+  const [startDate, setStartDate] = useState("");
   const [imageSrc, setImageSrc] = useState("");
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    mobile: '',
-    email: '',
-    designation: '',
-    address: '',
-    userId: '',
-    join: '',
-    education: ""
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    email: "",
+    designation: "",
+    address: "",
+    userId: "",
+    join: "",
+    education: "",
+  });
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    email: "",
   });
   const fileInputRef = useRef(null);
 
   useEffect(() => {
-    console.log("Selected employee:", selectedEmployee);
     if (selectedEmployee) {
       setFormData(selectedEmployee);
-      setStartDate(selectedEmployee.join ? moment(selectedEmployee.join).format("YYYY-MM-DD") : '');
+      setStartDate(
+        selectedEmployee.join ? moment(selectedEmployee.join).format("YYYY-MM-DD") : ""
+      );
       setImageSrc(selectedEmployee.imageSrc || "");
     } else {
       setFormData({
-        firstName: '',
-        lastName: '',
-        mobile: '',
-        email: '',
-        designation: '',
-        address: '',
+        firstName: "",
+        lastName: "",
+        mobile: "",
+        email: "",
+        designation: "",
+        address: "",
         education: "",
-        join: startDate ? moment(startDate).format("YYYY-MM-DD") : '',
+        join: startDate ? moment(startDate).format("YYYY-MM-DD") : "",
       });
-      setStartDate('');
+      setStartDate("");
       setImageSrc("");
     }
   }, [selectedEmployee, isModalOpen]);
@@ -57,25 +73,60 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    let error = "";
+
+    // Validation for "First Name" and "Last Name"
+    if (name === "firstName" || name === "lastName") {
+      const regex = /^[a-zA-Z\s]{0,25}$/; // Allows only alphabets and spaces
+      if (!regex.test(value)) {
+        error = "Only alphabets and spaces are allowed with length up to 25.";
+      }
+    }
+
+    // Validation for "Mobile"
+    if (name === "mobile") {
+      const regex = /^[0-9]{10}$/; // Assumes a 10-digit mobile number
+      if (!regex.test(value)) {
+        error = "Mobile number must be 10 digits.";
+      }
+    }
+
+    // Validation for "Email"
+    if (name === "email") {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email format validation
+      if (!regex.test(value)) {
+        error = "Invalid email format.";
+      }
+    }
+
     setFormData({
       ...formData,
       [name]: value,
     });
-    if (name === 'join') {
+
+    if (name === "join") {
       setStartDate(value);
     }
+
+    setErrors({
+      ...errors,
+      [name]: error,
+    });
+
     console.log(name, value); // Added for debugging
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formattedDate = startDate || '';
-    if (selectedEmployee) {
-      updateEmployee({ ...formData, imageSrc, join: formattedDate });
-    } else {
-      addEmployee({ ...formData, imageSrc, join: formattedDate });
+    const formattedDate = startDate || "";
+    if (!errors.firstName && !errors.lastName && !errors.mobile && !errors.email) {
+      if (selectedEmployee) {
+        updateEmployee({ ...formData, imageSrc, join: formattedDate });
+      } else {
+        addEmployee({ ...formData, imageSrc, join: formattedDate });
+      }
+      setIsModalOpen(false);
     }
-    setIsModalOpen(false);
   };
 
   const resetSelectedEmployee = () => {
@@ -85,7 +136,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
   return (
     <>
       <div className="create-component">
-        <div className="flex flex-wrap justify-center gap-3 px-3 ">
+        <div className="flex flex-wrap justify-center gap-3 px-3">
           <button
             className="flex text-gray-700 text-lg py-2 pr-2 items-center font-bold gap-4 rounded-xl hover:bg-green-400 bg-blue-300"
             onClick={() => {
@@ -96,7 +147,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
             <FaUserPlus size={24} className="text-black-200 ml-3" />
           </button>
 
-          <div className="relative flex ">
+          <div className="relative flex">
             <input
               type="text"
               placeholder="search..."
@@ -114,7 +165,7 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-4 rounded-lg max-h-[90vh] overflow-y-auto ">
+          <div className="bg-white p-4 rounded-lg max-h-[90vh] max-w-md overflow-y-auto">
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4">
                 <div className="flex justify-center mb-4">
@@ -132,59 +183,86 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                   />
                 </div>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-0">
                   <div className="flex model-form-items gap-2">
-                    <input
-                      type="text"
-                      placeholder="First Name"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Last Name"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
-                    />
+                    <div className="flex flex-col w-full">
+                      <label className="text-red-500 -mb-3">*</label>
+                      <input
+                        type="text"
+                        placeholder="First Name"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                      />
+                      {errors.firstName && (
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.firstName}</p>
+                      )}
+                    </div>
+                    <div className="flex flex-col w-full">
+                      <label className="text-transparent -mb-3">*</label>
+                      <input
+                        type="text"
+                        placeholder="Last Name"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleInputChange}
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                      />
+                      {errors.lastName && (
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.lastName}</p>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex model-form-items gap-2">
-                    <input
-                      type="text"
-                      placeholder="Mobile no."
-                      name="mobile"
-                      value={formData.mobile}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
-                    />
-                    <input
-                      type="email"
-                      placeholder="example@gmail.com"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
-                    />
+                    <div className="flex flex-col w-full">
+                      <label className="text-red-500 -mb-3">*</label>
+                      <input
+                        type="text"
+                        placeholder="Mobile no."
+                        name="mobile"
+                        value={formData.mobile}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                      />
+                      {errors.mobile && (
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.mobile}</p>
+                      )}
+                    </div>
+                    <div className="flex flex-col w-full">
+                      <label className="text-red-500 -mb-3">*</label>
+                      <input
+                        type="email"
+                        placeholder="example@gmail.com"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                      />
+                      {errors.email && (
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.email}</p>
+                      )}
+                    </div>
                   </div>
 
                   <div className="flex model-form-items gap-2">
-                    <input
-                      type="text"
-                      placeholder="Designation"
-                      name="designation"
-                      value={formData.designation}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
-                    />
-                    
-                      
+                    <div className="flex flex-col w-full">
+                      <label className="text-red-500 -mb-3">*</label>
+                      <input
+                        type="text"
+                        placeholder="Designation"
+                        name="designation"
+                        value={formData.designation}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                      />
+                    </div>
+                    <div className="flex flex-col w-full">
+                      <label className="text-red-500 -mb-3">*</label>
                       <input
                         type="date"
                         id="startDate"
@@ -194,35 +272,39 @@ function CreateEmployee({ addEmployee, updateEmployee, isModalOpen, setIsModalOp
                         required
                         className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
                       />
-                    
+                    </div>
                   </div>
 
                   <div className="flex gap-2">
-                    <select
-                      name="education"
-                      value={formData.education}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
-                    >
-                      <option value="">
-                        Select Education Level
-                      </option>
-                      <option value="12th">12th</option>
-                      <option value="Graduate">Graduate</option>
-                      <option value="Post Graduate">Post Graduate</option>
-                    </select>
+                    <div className="flex flex-col w-full">
+                      <label className="text-red-500 -mb-3">*</label>
+                      <select
+                        name="education"
+                        value={formData.education}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                      >
+                        <option value="">Select Education Level</option>
+                        <option value="12th">12th</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Post Graduate">Post Graduate</option>
+                      </select>
+                    </div>
                   </div>
 
                   <div className="flex gap-2">
-                    <textarea
-                      placeholder="Address"
-                      name="address"
-                      value={formData.address}
-                      onChange={handleInputChange}
-                      required
-                      className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
-                    />
+                    <div className="flex flex-col w-full">
+                      <label className="text-red-500 -mb-3">*</label>
+                      <textarea
+                        placeholder="Address"
+                        name="address"
+                        value={formData.address}
+                        onChange={handleInputChange}
+                        required
+                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
