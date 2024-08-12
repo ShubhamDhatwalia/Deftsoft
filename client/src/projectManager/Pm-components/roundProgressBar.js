@@ -13,7 +13,7 @@ function RoundProgressBar({value}) {
     if(value>=90) strokeColor = "#387F39"
     else if(value<90 && value>=70) strokeColor = "#074173"
     else if(value<70 && value>=40) strokeColor = "#F6FB7A"
-    else if(value<40) strokeColor = "#EE4E4E"
+    else if(value<40) strokeColor = "#ff0000"
 
     return (
         <svg

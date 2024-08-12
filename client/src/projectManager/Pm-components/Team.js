@@ -1,8 +1,12 @@
 import React from 'react';
+import TeamMembers from './teamMembers';
 
 function PMTeam() {
   return (
-    <div>Team</div>
+    <>
+      <div>Team</div>
+      <TeamMembers/>
+    </>
   )
 }
 

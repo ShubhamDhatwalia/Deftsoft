@@ -12,7 +12,7 @@ function Card(){
 
                     <h3 className='text-left mt-2 font-semibold text-sm'>Robert Brown Junior</h3>
                     <p className='text-sm pl-3'>Software Engineer</p>
-                    <button type="button" className='bg-gray-200 w-40 rounded-lg mt-2 text-sm hover:bg-green-300 hover:pointer hover:scale-105'>View Profile</button>
+                    {/* <button type="button" className='bg-gray-200 w-40 rounded-lg mt-2 text-sm hover:bg-green-300 hover:pointer hover:scale-105'>View Profile</button> */}
                 </div>
                 
             </div>
