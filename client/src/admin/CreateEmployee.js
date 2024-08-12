@@ -39,7 +39,9 @@ function CreateEmployee({
     if (selectedEmployee) {
       setFormData(selectedEmployee);
       setStartDate(
-        selectedEmployee.join ? moment(selectedEmployee.join).format("YYYY-MM-DD") : ""
+        selectedEmployee.join
+          ? moment(selectedEmployee.join).format("YYYY-MM-DD")
+          : ""
       );
       setImageSrc(selectedEmployee.imageSrc || "");
     } else {
@@ -78,55 +80,60 @@ function CreateEmployee({
     }
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    let error = "";
+ const handleInputChange = (e) => {
+   const { name, value } = e.target;
+   let error = "";
 
-    // Validation for "First Name" and "Last Name"
-    if (name === "firstName" || name === "lastName") {
-      const regex = /^[a-zA-Z\s]{0,25}$/; // Allows only alphabets and spaces
-      if (!regex.test(value)) {
-        error = "Only alphabets and spaces are allowed with length up to 25.";
-      }
-    }
+   // Validation for "First Name" and "Last Name"
+   if (name === "firstName" || name === "lastName") {
+     const regex = /^[a-zA-Z\s]{0,25}$/; // Allows only alphabets and spaces
+     if (value && !regex.test(value)) {
+       error = "Only alphabets and spaces are allowed with length up to 25.";
+     }
+   }
 
-    // Validation for "Mobile"
-    if (name === "mobile") {
-      const regex = /^[0-9]{10}$/; // Assumes a 10-digit mobile number
-      if (!regex.test(value)) {
-        error = "Mobile number must be 10 digits.";
-      }
-    }
+   // Validation for "Mobile"
+   if (name === "mobile") {
+     const regex = /^[0-9]{10}$/; // Assumes a 10-digit mobile number
+     if (value && !regex.test(value)) {
+       error = "Mobile number must be 10 digits.";
+     }
+   }
 
-    // Validation for "Email"
-    if (name === "email") {
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email format validation
-      if (!regex.test(value)) {
-        error = "Invalid email format.";
-      }
-    }
+   // Validation for "Email"
+   if (name === "email") {
+     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email format validation
+     if (value && !regex.test(value)) {
+       error = "Invalid email format.";
+     }
+   }
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+   setFormData({
+     ...formData,
+     [name]: value,
+   });
 
-    if (name === "join") {
-      setStartDate(value);
-    }
+   if (name === "join") {
+     setStartDate(value);
+   }
 
-    setErrors({
-      ...errors,
-      [name]: error,
-    });
+   setErrors({
+     ...errors,
+     [name]: value ? error : "", // Clear error if input is empty
+   });
 
-    console.log(name, value); // Added for debugging
-  };
+ };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formattedDate = startDate || "";
-    if (!errors.firstName && !errors.lastName && !errors.mobile && !errors.email) {
+    if (
+      !errors.firstName &&
+      !errors.lastName &&
+      !errors.mobile &&
+      !errors.email
+    ) {
       if (selectedEmployee) {
         updateEmployee({ ...formData, imageSrc, join: formattedDate });
       } else {
@@ -158,7 +165,7 @@ function CreateEmployee({
             <input
               type="text"
               placeholder="search..."
-              className="employee-details-input bg-slate-200 rounded-3xl px-4 text-xl focus:outline-none pr-10 w-[35vw] h-10"
+              className="employee-details-input bg-slate-200 rounded-3xl px-4 text-xl focus:outline-none pr-10 w-[30vw] h-10" // Adjusted width
               value={searchQuery}
               onChange={onSearchChange}
             />
@@ -172,10 +179,10 @@ function CreateEmployee({
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-4 rounded-lg max-h-[90vh] max-w-md overflow-y-auto">
+          <div className="bg-white p-4 rounded-lg max-h-[90vh] max-w-xl overflow-y-auto">
             <form onSubmit={handleSubmit}>
-              <div className="flex flex-col gap-4">
-                <div className="flex justify-center mb-4">
+              <div className="flex flex-col gap-2">
+                <div className="flex justify-center ">
                   <img
                     src={imageSrc || "../assets/images/avatar.png"}
                     alt="Profile"
@@ -192,7 +199,7 @@ function CreateEmployee({
 
                 <div className="flex flex-col gap-0">
                   <div className="flex model-form-items gap-2">
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col max-w-xs">
                       <label className="text-red-500 -mb-3">*</label>
                       <input
                         type="text"
@@ -202,13 +209,15 @@ function CreateEmployee({
                         onChange={handleInputChange}
                         required
                         ref={firstNameInputRef} // Attach ref to the first name input
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                        className="bg-slate-100 rounded-xl p-1 border-2 h-9 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-[200px]" // Adjusted width
                       />
                       {errors.firstName && (
-                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.firstName}</p>
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2 w-[200px]">
+                          {errors.firstName}
+                        </p>
                       )}
                     </div>
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col max-w-xs">
                       <label className="text-transparent -mb-3">*</label>
                       <input
                         type="text"
@@ -216,16 +225,18 @@ function CreateEmployee({
                         name="lastName"
                         value={formData.lastName}
                         onChange={handleInputChange}
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                        className="bg-slate-100 rounded-xl p-1 h-9 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-[200px]" // Adjusted width
                       />
                       {errors.lastName && (
-                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.lastName}</p>
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2 w-[200px]">
+                          {errors.lastName}
+                        </p>
                       )}
                     </div>
                   </div>
 
                   <div className="flex model-form-items gap-2">
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col max-w-xs">
                       <label className="text-red-500 -mb-3">*</label>
                       <input
                         type="text"
@@ -234,13 +245,15 @@ function CreateEmployee({
                         value={formData.mobile}
                         onChange={handleInputChange}
                         required
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                        className="bg-slate-100 rounded-xl p-1 h-9 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-[200px]" // Adjusted width
                       />
                       {errors.mobile && (
-                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.mobile}</p>
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2 w-[200px]">
+                          {errors.mobile}
+                        </p>
                       )}
                     </div>
-                    <div className="flex flex-col w-full">
+                    <div className="flex flex-col max-w-xs">
                       <label className="text-red-500 -mb-3">*</label>
                       <input
                         type="email"
@@ -248,10 +261,12 @@ function CreateEmployee({
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                        className="bg-slate-100 rounded-xl p-1 h-9 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-[200px]" // Adjusted width
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-xs break-words leading-tight mb-2">{errors.email}</p>
+                        <p className="text-red-500 text-xs break-words leading-tight mb-2 w-[200px]">
+                          {errors.email}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -266,7 +281,7 @@ function CreateEmployee({
                         value={formData.designation}
                         onChange={handleInputChange}
                         required
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200"
+                        className="bg-slate-100 rounded-xl p-1 h-9 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-[200px]" // Adjusted width
                       />
                     </div>
                     <div className="flex flex-col w-full">
@@ -278,7 +293,7 @@ function CreateEmployee({
                         value={startDate}
                         onChange={handleInputChange}
                         required
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                        className="bg-slate-100 rounded-xl p-1 h-9 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-[200px]" // Adjusted width
                       />
                     </div>
                   </div>
@@ -291,7 +306,7 @@ function CreateEmployee({
                         value={formData.education}
                         onChange={handleInputChange}
                         required
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                        className="bg-slate-100 rounded-xl p-1 h-9 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 " // Adjusted width
                       >
                         <option value="">Select Education Level</option>
                         <option value="12th">12th</option>
@@ -310,13 +325,13 @@ function CreateEmployee({
                         value={formData.address}
                         onChange={handleInputChange}
                         required
-                        className="bg-slate-100 rounded-xl p-2 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 w-full"
+                        className="bg-slate-100 rounded-xl p-1 h-20 border-2 border-slate-100 hover:border-blue-200 cursor-pointer focus:outline-blue-200 " // Adjusted width
                       />
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="flex justify-between mt-10">
+              <div className="flex justify-between mt-6">
                 <button
                   type="button"
                   className="py-1 px-3 bg-blue-500 text-white rounded-lg font-semibold text-lg hover:bg-rose-500"

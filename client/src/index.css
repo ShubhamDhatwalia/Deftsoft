@@ -24,6 +24,11 @@
 /* ------------- Calendar custom Css -------- */
 
 
+
+.fc .fc-daygrid-day.fc-day-today{
+  background-color: #f8c8bc;
+}
+
 .fc .fc-button{
   padding: 0px;
   padding-left: 4px;

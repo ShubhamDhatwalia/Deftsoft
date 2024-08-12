@@ -74,7 +74,7 @@ function Calender() {
           setTimeout(() => {
             if (Notification.permission === "granted") {
               new Notification("Event Reminder", {
-                body: ` "${title}" starts in 10 minutes.`,
+                body: ` ${title} starts in 10 minutes.`,
               });
             }
             // Show toast notification
