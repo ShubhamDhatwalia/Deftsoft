@@ -1,0 +1,17 @@
+@media screen and (max-width: 425px){
+    .card-box{
+        display: none;
+    }
+}
+
+@media screen and (min-width:768 ) and (max-width:1024){
+    .cards{
+        width: 100%;
+    }
+}
+
+.cards{
+    /* display: flex; */
+    border: 1px solid red;
+    /* overflow-wrap: break-word; */
+}

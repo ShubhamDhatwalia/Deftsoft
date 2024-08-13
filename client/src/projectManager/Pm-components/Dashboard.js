@@ -25,21 +25,21 @@ function PMDashboard(){
                             <Card/>
                         </div>
 
-                        <div className="overview-details w-full flex flex-row my-2 mx-2">
-                            <div className="revenue w-1/4 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
+                        <div className="overview-details w-full flex flex-row flex-wrap gap-7 my-2 ml-7">
+                            <div className="cards revenue w-1/5 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
                                 {/* <h1>Revenue</h1> */}
                              <OverviewCard name="Revenue" icon={<MdBarChart />} total="$1000000" />
                             </div>
-                            <div className="project w-1/4 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
+                            <div className="cards project w-1/5 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
                                 {/* <h1>Projects</h1> */}
                                 <OverviewCard name="Projects" icon={<GiSuitcase />} total="300" completed="275"/>
                             </div>
-                            <div className="timespent w-1/4 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
+                            <div className="cards timespent w-1/5 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
                                 {/* <h1>Timespent</h1> */}
                                 <OverviewCard name="TimeSpent" icon={<IoTimer />} total="1200" completed="850"/>
                             </div>
 
-                            <div className="resources w-1/4 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
+                            <div className="cards resources w-1/5 bg-gray-100 my-3 mx-1 px-6 py-5 rounded-xl">
                                 {/* <h1>Resources</h1> */}
                                 <OverviewCard name="Resources" icon={<GrResources />} total="120" completed="104"/>
                             </div>

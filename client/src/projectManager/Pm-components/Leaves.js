@@ -1,8 +1,11 @@
 import React from 'react'
+import LeavePM from './LeavePM';
 
 function PMLeaves() {
   return (
-    <div>Leaves</div>
+    <div>
+      <LeavePM/>
+    </div>
   )
 }
 
