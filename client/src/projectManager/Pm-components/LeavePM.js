@@ -145,12 +145,12 @@ const LeavePM = () => {
         </div>
 
            {leaveDuration === 'specific-Time' && (
-          <div className='time mt-4'>
+          <div className='time mt-4 w-[50%]'>
           <label className='text-sm font-semibold block mb-2 '>Select Time</label>
-          <TimePicker
+          <TimePicker 
           onChange={handleTimeChange}
           value={time}
-          className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+          className="w-full p-2  flex justify-between border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"/>
             <p className="mt-2 text-gray-700">Selected Time: {time}</p>
         </div>
         )}
