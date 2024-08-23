@@ -83,13 +83,33 @@ form {
   cursor: not-allowed;
 }  */
 
-.react-time-picker__inputGroup__input{
-width:60%
+.react-time-picker{
+
+  width: 100%;
 }
-.react-time-picker__inputGroup{
-  display: flex;
-}
+
 .react-time-picker__wrapper{
   display: flex;
+  /* justify-content: space-between; */
+  width:100%;
+}
+
+.react-time-picker__inputGroup__amPm{
+  width:30%
+}
+.react-time-picker__inputGroup{
+  width: 90%;
+  display: flex;
   justify-content: space-between;
+}
+
+.react-time-picker__inputGroup__hour{
+  width: 20% !important;
+  text-align: center;
+  /* border: 1px solid red; */
+}
+
+.react-time-picker__inputGroup__minute{
+  width: 20% !important;
+  text-align: left;
 }

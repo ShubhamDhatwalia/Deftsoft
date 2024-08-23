@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './LeavePM.css'
 import TimePicker from 'react-time-picker';
-// import { useNavigate } from 'react-router-dom';
+import LeaveModal from './TaskModals/leaveModal';
+
 
 const LeavePM = () => {
   const [formData, setFormData] = useState({
@@ -14,17 +15,28 @@ const LeavePM = () => {
     reason: '',
   });
 
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const handleCancel=()=>{
+    setSubmittedData(null);
+  }
+
+  const closeModal = ()=>{
+    setSubmittedData(submittedData);
+  }
+
   const [errors, setErrors] = useState({});
   const [submittedData, setSubmittedData] = useState(null);
   const [leaveDuration, setLeaveDuration] = useState('full');
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [time, setTime] = useState('00:00');
-
-
-  // const navigate = useNavigate();
-
-  
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -93,7 +105,7 @@ const LeavePM = () => {
       setEndDate('');
       setTime('00:00');
 
-      // navigate('/submitted-data', { state: { submittedData } });
+    
     }
   };
 
@@ -181,13 +193,17 @@ const LeavePM = () => {
         </div>
        
         <div className='btn flex justify-end '>
-        <button className=' bg-blue-600 px-4 hover:bg-blue-700 mt-2 rounded-lg font-semibold py-1 'type="submit ">Apply</button>
+        <button className=' bg-blue-600 px-4 hover:bg-blue-700 mt-2 rounded-lg font-semibold py-1 'type="submit " onClick={toggleModal}>Apply</button>
         </div>
        
        
       </form>
 
-      {submittedData && (
+      {
+          isModalOpen && submittedData  &&<LeaveModal data={submittedData} onClick={closeModal} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} handleCancel={handleCancel}/>
+      }
+
+      {/* {submittedData && (
         <div className="submitted-data">
           <h2>Submitted Data:</h2>
           <p><strong>Leave Type:</strong> {submittedData.leaveType}</p>
@@ -204,7 +220,7 @@ const LeavePM = () => {
           )}
          
            </div>
-      )}
+      )} */}
       
     </div>
     
