@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaLocationDot } from 'react-icons/fa6';
+import locationGif from '../assests/images/location.gif';
 
 const TooltipContent = ({ title, description, location, start, end }) => (
   <div className="tooltip-content max-w-xs">
@@ -10,7 +10,7 @@ const TooltipContent = ({ title, description, location, start, end }) => (
       {description || "No description"}
     </div>
     <div className="tooltip-location text-sm font-bold mb-1 break-words flex items-center">
-      <FaLocationDot className="mr-1 text-red-600" />
+      <img src={locationGif} alt="" className='w-8 h-8'/>
       {location || "No location"}
     </div>
     <div className="tooltip-time text-sm font-semibold mb-2">
