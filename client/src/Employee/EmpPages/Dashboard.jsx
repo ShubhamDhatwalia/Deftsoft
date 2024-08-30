@@ -2,7 +2,7 @@ import { Deadline } from "../EmpComp/Deadline";
 import { Holidays } from "../EmpComp/Holidays";
 import { Leaves } from "../EmpComp/Leaves";
 import { Overview } from "../EmpComp/Overview";
-import { Progress } from "../EmpComp/Progress";
+import { WeeklyProgress } from "../EmpComp/Progress";
 import { TaskOverview } from "../EmpComp/TaskOverview";
 // import Paper from '@mui/material/Paper';
 
@@ -24,7 +24,7 @@ export const Dashboard = () => {
         <div className="border-2">
           <div className="flex flex-col gap-3 col-span-2">
             <Holidays />
-            <Progress />
+            <WeeklyProgress />
             <Leaves />
           </div>
         </div>
