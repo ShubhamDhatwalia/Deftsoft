@@ -30,7 +30,7 @@ const App = () => {
           <Route path="todo" element={<Todo />} />
           <Route path="leaves" element={<Leaves />}>
             <Route index element={<Apply />} />
-            <Route path="applyleave" element={<Apply />} />
+            <Route path="applyleaves" element={<Apply />} />
             <Route path="myleave" element={<MyLeave />} />
             <Route path="entitlement" element={<Entitlement />} />
             <Route path="report" element={<Reports />} />
