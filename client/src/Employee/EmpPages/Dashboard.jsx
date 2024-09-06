@@ -4,9 +4,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-
+// import Paper from '@mui/material/Paper';
 function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
 }
@@ -18,10 +16,8 @@ const rows = [
     createData('Gingerbread', 356, 16.0, 49, 3.9),
 
 ];
-const percentage = 66;
 
 export const Dashboard = () => {
-
     return (
         <div className='bg-gray-300 border-2 p-5'>
             <div>
@@ -33,19 +29,19 @@ export const Dashboard = () => {
                     <div className='p-5 font-semibold w-full bg-white rounded-lg'>
                         <div className='flex justify-between'>
                             <p>Overview</p>
-                            <button className='bg-gray-400 p-1 rounded-lg'>Month</button>
+                            <button className='bg-gray-100 p-1 rounded-lg'>Month</button>
                         </div>
                         <div className="flex mt-4 gap-6 justify-between">
                             <div className="flex gap-2">
                                 <p>23</p>
-                                <p>Total Assigned</p>
-                            </div>
-                            <div className="flex gap-2">
-                                <p>8</p>
-                                <p>Completed Task </p>
+                                <p>Total Task</p>
                             </div>
                             <div className="flex gap-2">
                                 <p>15</p>
+                                <p>Completed Task</p>
+                            </div>
+                            <div className="flex gap-2">
+                                <p>8</p>
                                 <p>In Progress</p>
                             </div>
                         </div>
@@ -88,33 +84,33 @@ export const Dashboard = () => {
                             <div className='flex p-4 gap-4 bg-gray-100'>
                                 <p>30 Jan</p>
                                 <div>
-                                    <p>Designing app deadline</p>
-                                    <p className='opacity-50'>Mobile App UI Design</p>
-                                    <p className='opacity-50'>5 days left</p>
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
                                 </div>
                             </div>
                             <div className='flex p-4 gap-4 bg-gray-100'>
                                 <p>30 Jan</p>
                                 <div>
-                                    <p>Designing app deadline</p>
-                                    <p className='opacity-50'>Mobile App UI Design</p>
-                                    <p className='opacity-50'>5 days left</p>
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
                                 </div>
                             </div>
                             <div className='flex p-4 gap-4 bg-gray-100'>
                                 <p>30 Jan</p>
                                 <div>
-                                    <p>Designing app deadline</p>
-                                    <p className='opacity-50'>Mobile App UI Design</p>
-                                    <p className='opacity-50'>5 days left</p>
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
                                 </div>
                             </div>
                             <div className='flex p-4 gap-4 bg-gray-100'>
                                 <p>30 Jan</p>
                                 <div>
-                                    <p>Designing app deadline</p>
-                                    <p className='opacity-50'>Mobile App UI Design</p>
-                                    <p className='opacity-50'>5 days left</p>
+                                    <p>1</p>
+                                    <p>2</p>
+                                    <p>3</p>
                                 </div>
                             </div>
                         </div>
@@ -148,18 +144,18 @@ export const Dashboard = () => {
                                 }
                             </div>
                         </div>
-                        <div className='rounded-lg font-semibold flex flex-col gap-4 bg-white p-4'>
+                        <div className='rounded-lg font-semibold flex flex-col gap-4 bg-white p-5'>
                             <div>
                                 <div className='flex flex-row gap-6 mt-7 mb-7'>
                                     <div>
-                                        <p className='font-bold pt-14'>Weekly Progress</p>
-                                        <div className='mt-4 font-normal'>
+                                        <p className='font-bold'>Weekly Progress</p>
+                                        <div className='mt-4'>
                                             <p>Start from</p>
                                             <p>Aug 3, 2024</p>
                                         </div>
                                     </div>
                                     <div className=''>
-                                        <CircularProgressbar value={percentage} text={`${percentage}%`} />
+                                        <p>Progress bar</p>
                                     </div>
                                 </div>
 
@@ -176,7 +172,7 @@ export const Dashboard = () => {
                                     <div className='m-2'>To</div>
                                     <div className='bg-gray-100 flex-1 p-2'>image</div>
                                 </div>
-
+                                
                             </div>
                         </div>
                     </div>

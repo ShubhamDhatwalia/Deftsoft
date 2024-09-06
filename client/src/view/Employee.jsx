@@ -1,13 +1,10 @@
 import React from "react";
-import Home from "../employeeComp/Home/Home";
-// import { Outlet } from "react-router-dom";
+import Home from "../Employee/EmpComp/Home";
 
 const Employee = () => {
-  return (
-    <div>
-      <Home />
-    </div>
-  );
+  return <div>
+    <Home/>
+  </div>;
 };
 
 export default Employee;
