@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import { Apply } from "../EmpComp/LeaveComp/Apply";
+// import { Apply } from "../EmpComp/LeaveComp/Apply";
 
 export const Leaves = () => {
   return (
@@ -31,9 +31,6 @@ export const Leaves = () => {
         >
           Reports
         </NavLink>
-      </div>
-      <div className="mt-4">
-        {/* Apply component is rendered here */}
       </div>
       <Outlet /> 
     </div>

@@ -66,10 +66,10 @@ function Sidebar() {
                 <BiSolidCalendarExclamation className="w-5 h-5 text-gray-800" />
                 <span className="ms-3">Leaves</span>
               </NavLink>
-            </li>
+            </li> 
             <li className="w-44">
               <NavLink
-                to="calender"
+                to="calendar"
                 className={({ isActive }) =>
                   `flex items-center p-2 text-gray-900 rounded-lg ${
                     isActive ? "bg-gray-200 dark:text-black" : "text-gray-900"
