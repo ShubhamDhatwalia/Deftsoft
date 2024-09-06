@@ -47,7 +47,7 @@ const SideDrawer = () => {
               <div className="flex-shrink-0">
                 <img
                   className="w-10 h-10 rounded-full"
-                  src="avatar.jpg" // Replace with user's avatar
+                  src="pp1.png"
                   alt="User Avatar"
                 />
               </div>
