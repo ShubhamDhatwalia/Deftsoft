@@ -4,65 +4,68 @@ export const MyLeave = () => {
   // State to manage form inputs
   const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
-  const [leaveStatus, setLeaveStatus] = useState("");
-  const [leaveType, setLeaveType] = useState("");
+  const [leaveStatus, setLeaveStatus] = useState("All");
+  const [leaveType, setLeaveType] = useState("All");
   const [records, setRecords] = useState([]);
   const [errorMessage, setErrorMessage] = useState(""); // State for error message
 
   // Dummy data for demonstration purposes
   const dummyData = [
     { id: 1, date: "2024-09-01", status: "Approved", type: "Sick Leave" },
-    { id: 2, date: "2020-09-05", status: "Pending", type: "Casual Leave" },
-    { id: 1, date: "2022-09-01", status: "Approved", type: "Sick Leave" },
-    { id: 2, date: "2030-09-05", status: "Pending", type: "Casual Leave" },
-    { id: 1, date: "2040-09-01", status: "Approved", type: "Sick Leave" },
-    { id: 2, date: "2050-09-05", status: "Pending", type: "Casual Leave" },
-    { id: 1, date: "2060-09-01", status: "Approved", type: "Sick Leave" },
-    { id: 2, date: "2010-09-05", status: "Pending", type: "Casual Leave" },
+    { id: 2, date: "2024-08-05", status: "Pending", type: "Casual Leave" },
+    { id: 3, date: "2024-07-01", status: "Approved", type: "Sick Leave" },
+    { id: 4, date: "2024-06-05", status: "Pending", type: "Casual Leave" },
+    { id: 5, date: "2024-05-01", status: "Approved", type: "Sick Leave" },
+    { id: 6, date: "2024-04-05", status: "Pending", type: "Casual Leave" },
+    { id: 7, date: "2024-02-04", status: "Approved", type: "Sick Leave" },
+    { id: 8, date: "2024-01-05", status: "Pending", type: "Casual Leave" },
     // Add more dummy records as needed
   ];
 
   // Handle search button click
   const handleSearch = () => {
     // Check if no input values are provided
-    if (!fromDate && !toDate && !leaveStatus && !leaveType) {
-      setErrorMessage("Fill  in at least one field to search.");
+    if (!fromDate && !toDate && leaveStatus === "All" && leaveType === "All") {
+      setErrorMessage("Please fill the required details.");
       setRecords([]); // Clear any previous records
       return;
     } else {
       setErrorMessage(""); // Clear the error message if there is any input
     }
 
-    // Convert input dates to Date objects, handle empty cases
-    const fromDateParsed = fromDate ? new Date(fromDate) : null;
-    const toDateParsed = toDate ? new Date(toDate) : null;
+    // Convert input dates to Date objects
+    const filterLeaves = () => {
+      return dummyData.filter((leave) => {
+        const leaveDate = new Date(leave.date);
+        const start = fromDate ? new Date(fromDate) : null;
+        const end = toDate ? new Date(toDate) : null;
 
-    const filteredRecords = dummyData.filter((record) => {
-      const recordDate = new Date(record.date);
+        // Ensure the date is within the range
+        const isDateInRange = leaveDate >= start && leaveDate <= end;
+        const isStatusMatch = leaveStatus === 'All' || leave.status === leaveStatus;
+        const isTypeMatch = leaveType === 'All' || leave.type === leaveType;
 
-      // Check if the recordDate is within the fromDate and toDate range
-      const isWithinDateRange =
-        (!fromDateParsed || recordDate >= fromDateParsed) &&
-        (!toDateParsed || recordDate <= toDateParsed);
+        return isDateInRange && isStatusMatch && isTypeMatch;
+      });
+    };
 
-      // Check if the record matches the leaveStatus and leaveType
-      const matchesStatus = !leaveStatus || record.status === leaveStatus;
-      const matchesType = !leaveType || record.type === leaveType;
-
-      // Return true only if all conditions are met
-      return isWithinDateRange && matchesStatus && matchesType;
-    });
+    const filteredLeaves = filterLeaves();
 
     // Set records based on the filtered results
-    setRecords(filteredRecords);
+    if (filteredLeaves.length === 0) {
+      setErrorMessage("No records found matching the criteria.");
+    } else {
+      setErrorMessage(""); // Clear the error message if records are found
+    }
+    setRecords(filteredLeaves);
   };
 
   // Handle reset button click
   const handleReset = () => {
     setFromDate("");
     setToDate("");
-    setLeaveStatus("");
-    setLeaveType("");
+    setLeaveStatus("All"); // Reset to 'All'
+    setLeaveType("All"); // Reset to 'All'
     setRecords([]);
     setErrorMessage(""); // Clear the error message on reset
   };
@@ -105,7 +108,7 @@ export const MyLeave = () => {
                 onChange={(e) => setLeaveStatus(e.target.value)}
                 className="mt-1 p-3 block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
-                <option value="">All</option>
+                <option value="All">All</option>
                 <option value="Approved">Approved</option>
                 <option value="Pending">Pending</option>
                 <option value="Rejected">Rejected</option>
@@ -120,7 +123,7 @@ export const MyLeave = () => {
                 onChange={(e) => setLeaveType(e.target.value)}
                 className="mt-1 p-3 block w-full border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
-                <option value="">All</option>
+                <option value="All">All</option>
                 <option value="Sick Leave">Sick Leave</option>
                 <option value="Casual Leave">Casual Leave</option>
                 <option value="Maternity Leave">Maternity Leave</option>
